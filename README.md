@@ -3,7 +3,9 @@ This repository contains a collection of projects focused on the application of 
 
 ### EDA. Data cleaning and exploratory analysis using Python and pandas. (Python)
 - [CODE][https://github.com/SebastianRoRo/Proyectos-data/blob/main/EDA/Code/LimpiezaDatos.ipynb]
-- [HTML][https://sebastianroro.github.io/Proyectos-data/EDA/HTML/LimpiezaDatos.html]
+- [HTML][https://sebastianroro.github.io/Proyectos-data/EDA/HTML%20Python/LimpiezaDatos.html]
+
+https://github.com/SebastianRoRo/Proyectos-data/tree/main/EDA/HTML%20Python
 
 --- 
 
