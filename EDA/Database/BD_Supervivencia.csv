@@ -1,0 +1,888 @@
+Survived|Pclass|CP_Name|Sex|Age|Siblings/Spouses Aboard|Parents/Children Aboard|Fare|FROM TO/LUGGAGE-PET
+B0|3|81912_Mr. Owen Harris Braund|M|22 years|1|0|7.25 £|From Southampton to Queenstown/1-no
+e1|_1|32137_Mrs. John Bradley (Florence Briggs Thayer) Cumings|female|38 years|1|0|71.2833 £|From Southampton to Queenstown/0-Si
+e1|3 _|43466_Miss. Laina Heikkinen|female|26 years|0|0|7.925 £|From Southampton to Cherburgo/0-no
+e1|_1|89597_Mrs. Jacques Heath (Lily May Peel) Futrelle|female|35 years|1|0|53.1 £|From Southampton to Cherburgo/0-Si
+B0|3|95148_Mr. William Henry Allen|M|35 years|0|0|8.05 £|From Southampton to Queenstown/0-Si
+B0|3|94683_Mr. James Moran|M|27 years|0|0|8.4583 £|From Southampton to New York/1-no
+B0|. 1 _/.|64403_Mr. Timothy J McCarthy|M|54 years|0|0|51.8625 £|From Southampton to New York/0-Si
+B0|3|19492_Master. Gosta Leonard Palsson|M|2 years|3|1|21.075 £|From Southampton to New York/0-no
+e1|3 _|81576_Mrs. Oscar W (Elisabeth Vilhelmina Berg) Johnson|female|27 years|0|2|11.1333 £|From Southampton to Queenstown/1-Si
+e1|2 _|38647_Mrs. Nicholas (Adele Achem) Nasser|female|14 years|1|0|30.0708 £|From Southampton to New York/1-Si
+e1|3 _|36243_Miss. Marguerite Rut Sandstrom|female|4 years|1|1|16.7 £|From Southampton to New York/1-Si
+e1|_1|00295_Miss. Elizabeth Bonnell|female|58 years|0|0|26.55 £|From Southampton to Cherburgo/0-no
+B0|3|40606_Mr. William Henry Saundercock|M|20 years|0|0|8.05 £|From Southampton to Queenstown/1-Si
+B0|3|29779_Mr. Anders Johan Andersson|M|39 years|1|5|31.275 £|From Southampton to Cherburgo/1-Si
+B0|3|92923_Miss. Hulda Amanda Adolfina Vestrom|female|14 years|0|0|7.8542 £|From Southampton to Queenstown/0-no
+e1|2 _|63196_Mrs. (Mary D Kingcome) Hewlett|female|55 years|0|0|16 £|From Southampton to New York/1-no
+B0|3|62452_Master. Eugene Rice|M|2 years|4|1|29.125 £|From Southampton to Cherburgo/1-no
+e1|2 _|66208_Mr. Charles Eugene Williams|M|23 years|0|0|13 £|From Southampton to Cherburgo/0-Si
+B0|3|28801_Mrs. Julius (Emelia Maria Vandemoortele) Vander Planke|female|31 years|1|0|18 £|From Southampton to New York/1-Si
+e1|3 _|07191_Mrs. Fatima Masselmani|female|22 years|0|0|7.225 £|From Southampton to Cherburgo/0-Si
+B0|. 2 _/.|86534_Mr. Joseph J Fynney|M|35 years|0|0|26 £|From Southampton to New York/1-no
+e1|2 _|45729_Mr. Lawrence Beesley|M|34 years|0|0|13 £|From Southampton to Cherburgo/1-Si
+e1|3 _|27275_Miss. Anna McGowan|female|15 years|0|0|8.0292 £|From Southampton to Queenstown/0-Si
+e1|_1|75297_Mr. William Thompson Sloper|M|28 years|0|0|35.5 £|From Southampton to Cherburgo/0-Si
+B0|3|82198_Miss. Torborg Danira Palsson|female|8 years|3|1|21.075 £|From Southampton to Cherburgo/0-Si
+e1|3 _|05266_Mrs. Carl Oscar (Selma Augusta Emilia Johansson) Asplund|female|38 years|1|5|31.3875 £|From Southampton to Queenstown/0-no
+B0|3|80545_Mr. Farred Chehab Emir|M|26 years|0|0|7.225 £|From Southampton to Cherburgo/0-no
+B0|. 1 _/.|64658_Mr. Charles Alexander Fortune|M|19 years|3|2|263 £|From Southampton to Queenstown/1-Si
+e1|3 _|03876_Miss. Ellen O'Dwyer|female|24 years|0|0|7.8792 £|From Southampton to New York/1-Si
+B0|3|17317_Mr. Lalio Todoroff|M|23 years|0|0|7.8958 £|From Southampton to Queenstown/0-no
+B0|. 1 _/.|76803_Don. Manuel E Uruchurtu|M|40 years|0|0|27.7208 £|From Southampton to Cherburgo/0-no
+e1|_1|89046_Mrs. William Augustus (Marie Eugenie) Spencer|female|48 years|1|0|146.5208 £|From Southampton to Cherburgo/0-Si
+e1|3 _|64762_Miss. Mary Agatha Glynn|female|18 years|0|0|7.75 £|From Southampton to New York/1-Si
+B0|. 2 _/.|11133_Mr. Edward H Wheadon|M|66 years|0|0|10.5 £|From Southampton to Cherburgo/1-Si
+B0|. 1 _/.|41965_Mr. Edgar Joseph Meyer|M|28 years|1|0|82.1708 £|From Southampton to Cherburgo/0-Si
+B0|. 1 _/.|63909_Mr. Alexander Oskar Holverson|M|42 years|1|0|52 £|From Southampton to New York/0-no
+e1|3 _|33545_Mr. Hanna Mamee|M|18 years|0|0|7.2292 £|From Southampton to New York/0-no
+B0|3|76552_Mr. Ernest Charles Cann|M|21 years|0|0|8.05 £|From Southampton to New York/1-Si
+B0|3|51822_Miss. Augusta Maria Vander Planke|female|18 years|2|0|18 £|From Southampton to Cherburgo/1-no
+e1|3 _|31617_Miss. Jamila Nicola-Yarred|female|14 years|1|0|11.2417 £|From Southampton to Cherburgo/1-Si
+B0|3|93947_Mrs. Johan (Johanna Persdotter Larsson) Ahlin|female|40 years|1|0|9.475 £|From Southampton to New York/0-no
+B0|. 2 _/.|95675_Mrs. William John Robert (Dorothy Ann Wonnacott) Turpin|female|27 years|1|0|21 £|From Southampton to Queenstown/1-Si
+e1|2 _|64913_Miss. Simonne Marie Anne Andree Laroche|female|3 years|1|2|41.5792 £|From Southampton to New York/1-no
+e1|3 _|59130_Miss. Margaret Delia Devaney|female|19 years|0|0|7.8792 £|From Southampton to Queenstown/1-no
+B0|3|39509_Mr. William John Rogers|M|30 years|0|0|8.05 £|From Southampton to New York/0-no
+B0|3|40911_Mr. Denis Lennon|M|20 years|1|0|15.5 £|From Southampton to Queenstown/0-Si
+e1|3 _|12086_Miss. Bridget O'Driscoll|female|27 years|0|0|7.75 £|From Southampton to Queenstown/1-Si
+B0|3|84775_Mr. Youssef Samaan|M|16 years|2|0|21.6792 £|From Southampton to Cherburgo/1-no
+B0|3|23312_Mrs. Josef (Josefine Franchi) Arnold-Franchi|female|18 years|1|0|17.8 £|From Southampton to Queenstown/1-Si
+B0|3|82714_Master. Juha Niilo Panula|M|7 years|4|1|39.6875 £|From Southampton to Cherburgo/0-no
+B0|3|53185_Mr. Richard Cater Nosworthy|M|21 years|0|0|7.8 £|From Southampton to Queenstown/1-Si
+e1|_1|39173_Mrs. Henry Sleeper (Myna Haxtun) Harper|female|49 years|1|0|76.7292 £|From Southampton to New York/0-no
+e1|2 _|20682_Mrs. Lizzie (Elizabeth Anne Wilkinson) Faunthorpe|female|29 years|1|0|26 £|From Southampton to Queenstown/1-no
+B0|. 1 _/.|97861_Mr. Engelhart Cornelius Ostby|M|65 years|0|1|61.9792 £|From Southampton to New York/1-no
+e1|_1|09865_Mr. Hugh Woolner|M|46 years|0|0|35.5 £|From Southampton to Cherburgo/1-Si
+e1|2 _|15855_Miss. Emily Rugg|female|21 years|0|0|10.5 £|From Southampton to New York/0-Si
+B0|3|59170_Mr. Mansouer Novel|M|28.5 years|0|0|7.2292 £|From Southampton to Cherburgo/1-Si
+e1|2 _|69542_Miss. Constance Mirium West|female|5 years|1|2|27.75 £|From Southampton to Queenstown/1-Si
+B0|3|88166_Master. William Frederick Goodwin|M|11 years|5|2|46.9 £|From Southampton to New York/1-Si
+B0|3|60355_Mr. Orsen Sirayanian|M|22 years|0|0|7.2292 £|From Southampton to Cherburgo/1-Si
+e1|_1|11095_Miss. Amelie Icard|female|38 years|0|0|80 £|From Southampton to Cherburgo/1-no
+B0|. 1 _/.|39633_Mr. Henry Birkhardt Harris|M|45 years|1|0|83.475 £|From Southampton to Cherburgo/1-Si
+B0|3|80817_Master. Harald Skoog|M|4 years|3|2|27.9 £|From Southampton to Cherburgo/0-Si
+B0|. 1 _/.|24707_Mr. Albert A Stewart|M|64 years|0|0|27.7208 £|From Southampton to New York/1-Si
+e1|3 _|02932_Master. Gerios Moubarek|M|7 years|1|1|15.2458 £|From Southampton to Cherburgo/1-no
+e1|2 _|47984_Mrs. (Elizabeth Ramell) Nye|female|29 years|0|0|10.5 £|From Southampton to Queenstown/0-Si
+B0|3|39321_Mr. Ernest James Crease|M|19 years|0|0|8.1583 £|From Southampton to Queenstown/1-no
+e1|3 _|11217_Miss. Erna Alexandra Andersson|female|17 years|4|2|7.925 £|From Southampton to Cherburgo/1-Si
+B0|3|75379_Mr. Vincenz Kink|M|26 years|2|0|8.6625 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|40709_Mr. Stephen Curnow Jenkin|M|32 years|0|0|10.5 £|From Southampton to Cherburgo/0-no
+B0|3|35472_Miss. Lillian Amy Goodwin|female|16 years|5|2|46.9 £|From Southampton to Cherburgo/1-no
+B0|. 2 _/.|38984_Mr. Ambrose Jr Hood|M|21 years|0|0|73.5 £|From Southampton to Cherburgo/1-Si
+B0|3|54172_Mr. Apostolos Chronopoulos|M|26 years|1|0|14.4542 £|From Southampton to New York/0-no
+e1|3 _|75648_Mr. Lee Bing|M|32 years|0|0|56.4958 £|From Southampton to Queenstown/1-no
+B0|3|58743_Mr. Sigurd Hansen Moen|M|25 years|0|0|7.65 £|From Southampton to New York/1-no
+B0|3|96844_Mr. Ivan Staneff|M|23 years|0|0|7.8958 £|From Southampton to New York/0-no
+B0|3|48191_Mr. Rahamin Haim Moutal|M|28 years|0|0|8.05 £|From Southampton to New York/0-no
+e1|2 _|92354_Master. Alden Gates Caldwell|M|0.83 years|0|2|29 £|From Southampton to New York/0-no
+e1|3 _|21046_Miss. Elizabeth Dowdell|female|30 years|0|0|12.475 £|From Southampton to Queenstown/0-no
+B0|3|69247_Mr. Achille Waelens|M|22 years|0|0|9 £|From Southampton to Cherburgo/0-no
+e1|3 _|46524_Mr. Jan Baptist Sheerlinck|M|29 years|0|0|9.5 £|From Southampton to New York/0-Si
+e1|3 _|71214_Miss. Brigdet Delia McDermott|female|31 years|0|0|7.7875 £|From Southampton to Cherburgo/1-Si
+B0|. 1 _/.|05324_Mr. Francisco M Carrau|M|28 years|0|0|47.1 £|From Southampton to Cherburgo/0-Si
+e1|2 _|91788_Miss. Bertha Ilett|female|17 years|0|0|10.5 £|From Southampton to New York/0-Si
+e1|3 _|56039_Mrs. Karl Alfred (Maria Mathilda Gustafsson) Backstrom|female|33 years|3|0|15.85 £|From Southampton to New York/0-no
+B0|3|91126_Mr. William Neal Ford|M|16 years|1|3|34.375 £|From Southampton to New York/1-Si
+B0|3|96405_Mr. Selman Francis Slocovski|M|20 years|0|0|8.05 £|From Southampton to Queenstown/1-no
+e1|_1|30634_Miss. Mabel Helen Fortune|female|23 years|3|2|263 £|From Southampton to New York/0-no
+B0|3|95727_Mr. Francesco Celotti|M|24 years|0|0|8.05 £|From Southampton to Queenstown/0-Si
+B0|3|38888_Mr. Emil Christmann|M|29 years|0|0|8.05 £|From Southampton to Queenstown/1-no
+B0|3|51195_Mr. Paul Edvin Andreasson|M|20 years|0|0|7.8542 £|From Southampton to Queenstown/0-Si
+B0|. 1 _/.|81637_Mr. Herbert Fuller Chaffee|M|46 years|1|0|61.175 £|From Southampton to Cherburgo/0-no
+B0|3|00380_Mr. Bertram Frank Dean|M|26 years|1|2|20.575 £|From Southampton to Queenstown/1-Si
+B0|3|00662_Mr. Daniel Coxon|M|59 years|0|0|7.25 £|From Southampton to Cherburgo/0-no
+B0|3|95699_Mr. Charles Joseph Shorney|M|22 years|0|0|8.05 £|From Southampton to New York/1-no
+B0|. 1 _/.|35939_Mr. George B Goldschmidt|M|71 years|0|0|34.6542 £|From Southampton to New York/0-no
+e1|_1|29528_Mr. William Bertram Greenfield|M|23 years|0|1|63.3583 £|From Southampton to Cherburgo/0-no
+e1|2 _|75196_Mrs. John T (Ada Julia Bone) Doling|female|34 years|0|1|23 £|From Southampton to New York/1-no
+B0|. 2 _/.|00438_Mr. Sinai Kantor|M|34 years|1|0|26 £|From Southampton to New York/0-Si
+B0|3|23810_Miss. Matilda Petranec|female|28 years|0|0|7.8958 £|From Southampton to Queenstown/1-Si
+B0|3|89456_Mr. Pastcho Petroff|M|29 years|0|0|7.8958 £|From Southampton to Cherburgo/1-Si
+B0|. 1 _/.|90918_Mr. Richard Frasar White|M|21 years|0|1|77.2875 £|From Southampton to New York/0-Si
+B0|3|23696_Mr. Gustaf Joel Johansson|M|33 years|0|0|8.6542 £|From Southampton to Cherburgo/0-no
+B0|3|00750_Mr. Anders Vilhelm Gustafsson|M|37 years|2|0|7.925 £|From Southampton to Cherburgo/1-no
+B0|3|29107_Mr. Stoytcho Mionoff|M|28 years|0|0|7.8958 £|From Southampton to Cherburgo/0-Si
+e1|3 _|27749_Miss. Anna Kristine Salkjelsvik|female|21 years|0|0|7.65 £|From Southampton to Cherburgo/0-Si
+e1|3 _|85959_Mr. Albert Johan Moss|M|29 years|0|0|7.775 £|From Southampton to Cherburgo/0-no
+B0|3|54280_Mr. Tido Rekic|M|38 years|0|0|7.8958 £|From Southampton to Queenstown/1-Si
+e1|3 _|61172_Miss. Bertha Moran|female|28 years|1|0|24.15 £|From Southampton to Queenstown/0-no
+B0|. 1 _/.|14465_Mr. Walter Chamberlain Porter|M|47 years|0|0|52 £|From Southampton to Cherburgo/0-Si
+B0|3|29585_Miss. Hileni Zabour|female|14.5 years|1|0|14.4542 £|From Southampton to Queenstown/0-Si
+B0|3|17964_Mr. David John Barton|M|22 years|0|0|8.05 £|From Southampton to New York/0-Si
+B0|3|37574_Miss. Katriina Jussila|female|20 years|1|0|9.825 £|From Southampton to Queenstown/1-Si
+B0|3|73744_Miss. Malake Attalah|female|17 years|0|0|14.4583 £|From Southampton to New York/1-Si
+B0|3|18883_Mr. Edvard Pekoniemi|M|21 years|0|0|7.925 £|From Southampton to Queenstown/0-Si
+B0|3|33462_Mr. Patrick Connors|M|70.5 years|0|0|7.75 £|From Southampton to New York/1-no
+B0|. 2 _/.|67630_Mr. William John Robert Turpin|M|29 years|1|0|21 £|From Southampton to Queenstown/1-no
+B0|. 1 _/.|30882_Mr. Quigg Edmond Baxter|M|24 years|0|1|247.5208 £|From Southampton to Cherburgo/1-Si
+B0|3|38452_Miss. Ellis Anna Maria Andersson|female|2 years|4|2|31.275 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|86545_Mr. Stanley George Hickman|M|21 years|2|0|73.5 £|From Southampton to Cherburgo/0-Si
+B0|3|86799_Mr. Leonard Charles Moore|M|19 years|0|0|8.05 £|From Southampton to Cherburgo/1-no
+B0|. 2 _/.|50971_Mr. Nicholas Nasser|M|32.5 years|1|0|30.0708 £|From Southampton to Cherburgo/1-Si
+e1|2 _|68613_Miss. Susan Webber|female|32.5 years|0|0|13 £|From Southampton to New York/1-no
+B0|. 1 _/.|37920_Mr. Percival Wayland White|M|54 years|0|1|77.2875 £|From Southampton to Queenstown/1-Si
+e1|3 _|01721_Master. Elias Nicola-Yarred|M|12 years|1|0|11.2417 £|From Southampton to Cherburgo/1-no
+B0|3|01901_Mr. Martin McMahon|M|19 years|0|0|7.75 £|From Southampton to New York/1-no
+e1|3 _|71577_Mr. Fridtjof Arne Madsen|M|24 years|0|0|7.1417 £|From Southampton to Queenstown/1-Si
+e1|3 _|84413_Miss. Anna Peter|female|2 years|1|1|22.3583 £|From Southampton to New York/1-Si
+B0|3|01611_Mr. Johan Ekstrom|M|45 years|0|0|6.975 £|From Southampton to New York/0-no
+B0|3|86112_Mr. Jozef Drazenoic|M|33 years|0|0|7.8958 £|From Southampton to Queenstown/0-no
+B0|3|06288_Mr. Domingos Fernandeo Coelho|M|20 years|0|0|7.05 £|From Southampton to Queenstown/1-Si
+B0|3|55975_Mrs. Alexander A (Grace Charity Laury) Robins|female|47 years|1|0|14.5 £|From Southampton to New York/0-no
+e1|2 _|67391_Mrs. Leopold (Mathilde Francoise Pede) Weisz|female|29 years|1|0|26 £|From Southampton to Cherburgo/0-Si
+B0|. 2 _/.|70462_Mr. Samuel James Hayden Sobey|M|25 years|0|0|13 £|From Southampton to Cherburgo/0-no
+B0|. 2 _/.|87701_Mr. Emile Richard|M|23 years|0|0|15.0458 £|From Southampton to Cherburgo/0-no
+e1|_1|62796_Miss. Helen Monypeny Newsom|female|19 years|0|2|26.2833 £|From Southampton to Queenstown/1-Si
+B0|. 1 _/.|91143_Mr. Jacques Heath Futrelle|M|37 years|1|0|53.1 £|From Southampton to New York/1-no
+B0|3|17827_Mr. Olaf Elon Osen|M|16 years|0|0|9.2167 £|From Southampton to Cherburgo/1-no
+B0|. 1 _/.|32744_Mr. Victor Giglio|M|24 years|0|0|79.2 £|From Southampton to Cherburgo/1-Si
+B0|3|11857_Mrs. Joseph (Sultana) Boulos|female|40 years|0|2|15.2458 £|From Southampton to Queenstown/0-no
+e1|3 _|50696_Miss. Anna Sofia Nysten|female|22 years|0|0|7.75 £|From Southampton to New York/0-no
+e1|3 _|18712_Mrs. Pekka Pietari (Elin Matilda Dolck) Hakkarainen|female|24 years|1|0|15.85 £|From Southampton to Cherburgo/1-Si
+B0|3|12184_Mr. Jeremiah Burke|M|19 years|0|0|6.75 £|From Southampton to Queenstown/0-no
+B0|. 2 _/.|43954_Mr. Edgardo Samuel Andrew|M|18 years|0|0|11.5 £|From Southampton to Queenstown/0-Si
+B0|. 2 _/.|40586_Mr. Joseph Charles Nicholls|M|19 years|1|1|36.75 £|From Southampton to New York/1-Si
+e1|3 _|52584_Mr. August Edvard Andersson|M|27 years|0|0|7.7958 £|From Southampton to Cherburgo/1-no
+B0|3|96516_Miss. Robina Maggie Ford|female|9 years|2|2|34.375 £|From Southampton to New York/1-no
+B0|. 2 _/.|28155_Mr. Michel Navratil|M|36.5 years|0|2|26 £|From Southampton to Queenstown/0-no
+B0|. 2 _/.|44090_Rev. Thomas Roussel Davids Byles|M|42 years|0|0|13 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|94473_Rev. Robert James Bateman|M|51 years|0|0|12.525 £|From Southampton to New York/0-no
+e1|_1|12434_Mrs. Thomas (Edith Wearne) Pears|female|22 years|1|0|66.6 £|From Southampton to Queenstown/0-Si
+B0|3|41973_Mr. Alfonzo Meo|M|55.5 years|0|0|8.05 £|From Southampton to New York/0-no
+B0|3|65015_Mr. Austin Blyler van Billiard|M|40.5 years|0|2|14.5 £|From Southampton to Cherburgo/1-no
+B0|3|02766_Mr. Ole Martin Olsen|M|27 years|0|0|7.3125 £|From Southampton to New York/0-no
+B0|. 1 _/.|22161_Mr. Charles Duane Williams|M|51 years|0|1|61.3792 £|From Southampton to New York/0-no
+e1|3 _|33898_Miss. Katherine Gilnagh|female|16 years|0|0|7.7333 £|From Southampton to Queenstown/1-no
+B0|3|27818_Mr. Harry Corn|M|30 years|0|0|8.05 £|From Southampton to New York/0-Si
+B0|3|48300_Mr. Mile Smiljanic|M|37 years|0|0|8.6625 £|From Southampton to Queenstown/0-Si
+B0|3|18572_Master. Thomas Henry Sage|M|5 years|8|2|69.55 £|From Southampton to New York/0-Si
+B0|3|06887_Mr. John Hatfield Cribb|M|44 years|0|1|16.1 £|From Southampton to Queenstown/1-Si
+e1|2 _|91375_Mrs. James (Elizabeth Inglis Milne) Watt|female|40 years|0|0|15.75 £|From Southampton to Cherburgo/1-Si
+B0|3|20158_Mr. John Viktor Bengtsson|M|26 years|0|0|7.775 £|From Southampton to Cherburgo/0-Si
+B0|3|12934_Mr. Jovo Calic|M|17 years|0|0|8.6625 £|From Southampton to New York/1-no
+B0|3|11376_Master. Eino Viljami Panula|M|1 years|4|1|39.6875 £|From Southampton to New York/0-Si
+e1|3 _|47656_Master. Frank John William Goldsmith|M|9 years|0|2|20.525 £|From Southampton to Cherburgo/0-no
+e1|_1|27189_Mrs. (Edith Martha Bowerman) Chibnall|female|48 years|0|1|55 £|From Southampton to Queenstown/0-no
+B0|3|28736_Mrs. William (Anna Bernhardina Karlsson) Skoog|female|45 years|1|4|27.9 £|From Southampton to New York/0-Si
+B0|. 1 _/.|08910_Mr. John D Baumann|M|60 years|0|0|25.925 £|From Southampton to New York/0-no
+B0|3|50612_Mr. Lee Ling|M|28 years|0|0|56.4958 £|From Southampton to Cherburgo/0-Si
+B0|. 1 _/.|55513_Mr. Wyckoff Van der hoef|M|61 years|0|0|33.5 £|From Southampton to New York/1-no
+B0|3|62413_Master. Arthur Rice|M|4 years|4|1|29.125 £|From Southampton to New York/0-Si
+e1|3 _|71300_Miss. Eleanor Ileen Johnson|female|1 years|1|1|11.1333 £|From Southampton to Cherburgo/1-no
+B0|3|15399_Mr. Antti Wilhelm Sivola|M|21 years|0|0|7.925 £|From Southampton to Queenstown/1-no
+B0|. 1 _/.|07052_Mr. James Clinch Smith|M|56 years|0|0|30.6958 £|From Southampton to New York/1-no
+B0|3|75335_Mr. Klas Albin Klasen|M|18 years|1|1|7.8542 £|From Southampton to Cherburgo/0-Si
+B0|3|60889_Master. Henry Forbes Lefebre|M|5 years|3|1|25.4667 £|From Southampton to Queenstown/1-Si
+B0|. 1 _/.|00115_Miss. Ann Elizabeth Isham|female|50 years|0|0|28.7125 £|From Southampton to Queenstown/1-no
+B0|. 2 _/.|88271_Mr. Reginald Hale|M|30 years|0|0|13 £|From Southampton to New York/1-no
+B0|3|30032_Mr. Lionel Leonard|M|36 years|0|0|0 £|From Southampton to New York/1-no
+B0|3|42878_Miss. Constance Gladys Sage|female|8 years|8|2|69.55 £|From Southampton to Queenstown/0-no
+B0|. 2 _/.|39724_Mr. Rene Pernot|M|39 years|0|0|15.05 £|From Southampton to Queenstown/0-no
+B0|3|22814_Master. Clarence Gustaf Hugo Asplund|M|9 years|4|2|31.3875 £|From Southampton to Cherburgo/0-Si
+e1|2 _|63633_Master. Richard F Becker|M|1 years|2|1|39 £|From Southampton to Cherburgo/1-no
+e1|3 _|92213_Miss. Luise Gretchen Kink-Heilmann|female|4 years|0|2|22.025 £|From Southampton to Queenstown/0-Si
+B0|. 1 _/.|05428_Mr. Hugh Roscoe Rood|M|39 years|0|0|50 £|From Southampton to Queenstown/0-Si
+e1|3 _|59644_Mrs. Thomas (Johanna Godfrey) O'Brien|female|26 years|1|0|15.5 £|From Southampton to Queenstown/1-Si
+e1|_1|23231_Mr. Charles Hallace Romaine|M|45 years|0|0|26.55 £|From Southampton to New York/0-no
+B0|3|74415_Mr. John Bourke|M|40 years|1|1|15.5 £|From Southampton to New York/1-no
+B0|3|67307_Mr. Stjepan Turcin|M|36 years|0|0|7.8958 £|From Southampton to Queenstown/1-no
+e1|2 _|80042_Mrs. (Rosa) Pinsky|female|32 years|0|0|13 £|From Southampton to New York/1-no
+B0|. 2 _/.|44971_Mr. William Carbines|M|19 years|0|0|13 £|From Southampton to Queenstown/0-Si
+e1|3 _|81691_Miss. Carla Christine Nielsine Andersen-Jensen|female|19 years|1|0|7.8542 £|From Southampton to Cherburgo/0-Si
+e1|2 _|96567_Master. Michel M Navratil|M|3 years|1|1|26 £|From Southampton to New York/0-Si
+e1|_1|76069_Mrs. James Joseph (Margaret Tobin) Brown|female|44 years|0|0|27.7208 £|From Southampton to Queenstown/1-Si
+e1|_1|36068_Miss. Elise Lurette|female|58 years|0|0|146.5208 £|From Southampton to New York/0-Si
+B0|3|77186_Mr. Robert Mernagh|M|28 years|0|0|7.75 £|From Southampton to Queenstown/0-Si
+B0|3|44312_Mr. Karl Siegwart Andreas Olsen|M|42 years|0|1|8.4042 £|From Southampton to Queenstown/0-no
+e1|3 _|56328_Miss. Margaret Madigan|female|21 years|0|0|7.75 £|From Southampton to Queenstown/0-Si
+B0|. 2 _/.|23406_Miss. Henriette Yrois|female|24 years|0|0|13 £|From Southampton to New York/0-no
+B0|3|66959_Mr. Nestor Cyriel Vande Walle|M|28 years|0|0|9.5 £|From Southampton to Cherburgo/0-no
+B0|3|31647_Mr. Frederick Sage|M|17 years|8|2|69.55 £|From Southampton to Cherburgo/0-Si
+B0|3|36295_Mr. Jakob Alfred Johanson|M|34 years|0|0|6.4958 £|From Southampton to Queenstown/0-Si
+B0|3|79505_Mr. Gerious Youseff|M|45.5 years|0|0|7.225 £|From Southampton to Cherburgo/1-no
+e1|3 _|68749_Mr. Gurshon Cohen|M|18 years|0|0|8.05 £|From Southampton to Queenstown/1-Si
+B0|3|90557_Miss. Telma Matilda Strom|female|2 years|0|1|10.4625 £|From Southampton to Queenstown/1-no
+B0|3|13792_Mr. Karl Alfred Backstrom|M|32 years|1|0|15.85 £|From Southampton to Cherburgo/1-Si
+e1|3 _|27811_Mr. Nassef Cassem Albimona|M|26 years|0|0|18.7875 £|From Southampton to New York/1-Si
+e1|3 _|84389_Miss. Helen Carr|female|16 years|0|0|7.75 £|From Southampton to New York/0-no
+e1|_1|72883_Mr. Henry Blank|M|40 years|0|0|31 £|From Southampton to Cherburgo/0-no
+B0|3|16758_Mr. Ahmed Ali|M|24 years|0|0|7.05 £|From Southampton to New York/1-no
+e1|2 _|17606_Miss. Clear Annie Cameron|female|35 years|0|0|21 £|From Southampton to New York/1-no
+B0|3|69883_Mr. John Henry Perkin|M|22 years|0|0|7.25 £|From Southampton to Cherburgo/0-Si
+B0|. 2 _/.|39633_Mr. Hans Kristensen Givard|M|30 years|0|0|13 £|From Southampton to New York/0-no
+B0|3|63414_Mr. Philip Kiernan|M|22 years|1|0|7.75 £|From Southampton to Cherburgo/0-Si
+e1|_1|50369_Miss. Madeleine Newell|female|31 years|1|0|113.275 £|From Southampton to New York/1-no
+e1|3 _|19846_Miss. Eliina Honkanen|female|27 years|0|0|7.925 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|31896_Mr. Sidney Samuel Jacobsohn|M|42 years|1|0|27 £|From Southampton to Queenstown/0-no
+e1|_1|60691_Miss. Albina Bazzani|female|32 years|0|0|76.2917 £|From Southampton to Queenstown/1-Si
+B0|. 2 _/.|14133_Mr. Walter Harris|M|30 years|0|0|10.5 £|From Southampton to Cherburgo/0-no
+e1|3 _|53681_Mr. Victor Francis Sunderland|M|16 years|0|0|8.05 £|From Southampton to New York/0-no
+B0|. 2 _/.|31972_Mr. James H Bracken|M|27 years|0|0|13 £|From Southampton to New York/1-Si
+B0|3|40060_Mr. George Henry Green|M|51 years|0|0|8.05 £|From Southampton to Queenstown/0-no
+B0|3|58534_Mr. Christo Nenkoff|M|22 years|0|0|7.8958 £|From Southampton to Queenstown/1-no
+e1|_1|64997_Mr. Frederick Maxfield Hoyt|M|38 years|1|0|90 £|From Southampton to Queenstown/1-Si
+B0|3|86116_Mr. Karl Ivar Sven Berglund|M|22 years|0|0|9.35 £|From Southampton to Cherburgo/0-no
+e1|2 _|71664_Mr. William John Mellors|M|19 years|0|0|10.5 £|From Southampton to New York/0-Si
+B0|3|02533_Mr. John Hall Lovell|M|20.5 years|0|0|7.25 £|From Southampton to Queenstown/1-Si
+B0|. 2 _/.|72900_Mr. Arne Jonas Fahlstrom|M|18 years|0|0|13 £|From Southampton to Cherburgo/0-no
+B0|3|96840_Miss. Mathilde Lefebre|female|12 years|3|1|25.4667 £|From Southampton to New York/1-no
+e1|_1|58405_Mrs. Henry Birkhardt (Irene Wallach) Harris|female|35 years|1|0|83.475 £|From Southampton to New York/0-Si
+B0|3|33155_Mr. Bengt Edvin Larsson|M|29 years|0|0|7.775 £|From Southampton to New York/1-Si
+B0|. 2 _/.|41289_Mr. Ernst Adolf Sjostedt|M|59 years|0|0|13.5 £|From Southampton to Cherburgo/1-no
+e1|3 _|48333_Miss. Lillian Gertrud Asplund|female|5 years|4|2|31.3875 £|From Southampton to Queenstown/0-Si
+B0|. 2 _/.|11466_Mr. Robert William Norman Leyson|M|24 years|0|0|10.5 £|From Southampton to Queenstown/1-Si
+B0|3|41052_Miss. Alice Phoebe Harknett|female|21 years|0|0|7.55 £|From Southampton to Queenstown/1-Si
+B0|. 2 _/.|16886_Mr. Stephen Hold|M|44 years|1|0|26 £|From Southampton to Cherburgo/1-Si
+e1|2 _|53352_Miss. Marjorie Collyer|female|8 years|0|2|26.25 £|From Southampton to New York/0-no
+B0|. 2 _/.|52051_Mr. Frederick William Pengelly|M|19 years|0|0|10.5 £|From Southampton to Cherburgo/0-Si
+B0|. 2 _/.|79252_Mr. George Henry Hunt|M|33 years|0|0|12.275 £|From Southampton to Cherburgo/0-no
+B0|3|37760_Miss. Thamine Zabour|female|19 years|1|0|14.4542 £|From Southampton to Cherburgo/0-no
+e1|3 _|19383_Miss. Katherine Murphy|female|18 years|1|0|15.5 £|From Southampton to New York/0-no
+B0|. 2 _/.|34086_Mr. Reginald Charles Coleridge|M|29 years|0|0|10.5 £|From Southampton to New York/1-Si
+B0|3|32799_Mr. Matti Alexanteri Maenpaa|M|22 years|0|0|7.125 £|From Southampton to Cherburgo/1-Si
+B0|3|80256_Mr. Sleiman Attalah|M|30 years|0|0|7.225 £|From Southampton to New York/1-Si
+B0|. 1 _/.|67416_Dr. William Edward Minahan|M|44 years|2|0|90 £|From Southampton to New York/0-Si
+B0|3|06743_Miss. Agda Thorilda Viktoria Lindahl|female|25 years|0|0|7.775 £|From Southampton to Cherburgo/0-Si
+e1|2 _|16049_Mrs. William (Anna) Hamalainen|female|24 years|0|2|14.5 £|From Southampton to New York/0-no
+e1|_1|26128_Mr. Richard Leonard Beckwith|M|37 years|1|1|52.5542 £|From Southampton to Queenstown/1-Si
+B0|. 2 _/.|28588_Rev. Ernest Courtenay Carter|M|54 years|1|0|26 £|From Southampton to Queenstown/0-Si
+B0|3|68297_Mr. James George Reed|M|18 years|0|0|7.25 £|From Southampton to New York/0-no
+B0|3|38938_Mrs. Wilhelm (Elna Matilda Persson) Strom|female|29 years|1|1|10.4625 £|From Southampton to Cherburgo/0-no
+B0|. 1 _/.|15254_Mr. William Thomas Stead|M|62 years|0|0|26.55 £|From Southampton to Cherburgo/0-Si
+B0|3|61146_Mr. William Arthur Lobb|M|30 years|1|0|16.1 £|From Southampton to Cherburgo/1-no
+B0|3|48726_Mrs. Viktor (Helena Wilhelmina) Rosblom|female|41 years|0|2|20.2125 £|From Southampton to New York/0-Si
+e1|3 _|22403_Mrs. Darwis (Hanne Youssef Razi) Touma|female|29 years|0|2|15.2458 £|From Southampton to Cherburgo/0-no
+e1|_1|82699_Mrs. Gertrude Maybelle Thorne|female|38 years|0|0|79.2 £|From Southampton to New York/0-Si
+e1|_1|55449_Miss. Gladys Cherry|female|30 years|0|0|86.5 £|From Southampton to New York/1-Si
+e1|_1|82451_Miss. Anna Ward|female|35 years|0|0|512.3292 £|From Southampton to Queenstown/0-no
+e1|2 _|86513_Mrs. (Lutie Davis) Parrish|female|50 years|0|1|26 £|From Southampton to Queenstown/1-Si
+e1|3 _|16276_Master. Edvin Rojj Felix Asplund|M|3 years|4|2|31.3875 £|From Southampton to Cherburgo/1-Si
+B0|. 1 _/.|36340_Mr. Emil Taussig|M|52 years|1|1|79.65 £|From Southampton to Cherburgo/0-Si
+B0|. 1 _/.|09877_Mr. William Harrison|M|40 years|0|0|0 £|From Southampton to Queenstown/1-Si
+B0|3|81471_Miss. Delia Henry|female|21 years|0|0|7.75 £|From Southampton to Cherburgo/0-Si
+B0|. 2 _/.|65296_Mr. David Reeves|M|36 years|0|0|10.5 £|From Southampton to Cherburgo/0-Si
+B0|3|65073_Mr. Ernesti Arvid Panula|M|16 years|4|1|39.6875 £|From Southampton to New York/1-Si
+e1|3 _|07604_Mr. Ernst Ulrik Persson|M|25 years|1|0|7.775 £|From Southampton to Queenstown/1-Si
+e1|_1|63088_Mrs. William Thompson (Edith Junkins) Graham|female|58 years|0|1|153.4625 £|From Southampton to Queenstown/0-no
+e1|_1|17744_Miss. Amelia Bissette|female|35 years|0|0|135.6333 £|From Southampton to Cherburgo/0-Si
+B0|. 1 _/.|73974_Mr. Alexander Cairns|M|28 years|0|0|31 £|From Southampton to Queenstown/1-Si
+e1|3 _|97832_Mr. William Henry Tornquist|M|25 years|0|0|0 £|From Southampton to New York/0-no
+e1|2 _|10082_Mrs. (Elizabeth Anne Maidment) Mellinger|female|41 years|0|1|19.5 £|From Southampton to Cherburgo/1-no
+B0|. 1 _/.|96960_Mr. Charles H Natsch|M|37 years|0|1|29.7 £|From Southampton to Cherburgo/0-Si
+e1|3 _|93716_Miss. Hanora Healy|female|33 years|0|0|7.75 £|From Southampton to New York/0-no
+e1|_1|40665_Miss. Kornelia Theodosia Andrews|female|63 years|1|0|77.9583 £|From Southampton to New York/0-Si
+B0|3|50837_Miss. Augusta Charlotta Lindblom|female|45 years|0|0|7.75 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|68651_Mr. Francis Parkes|M|21 years|0|0|0 £|From Southampton to Queenstown/1-no
+B0|3|93536_Master. Eric Rice|M|7 years|4|1|29.125 £|From Southampton to Queenstown/1-no
+e1|3 _|51932_Mrs. Stanton (Rosa Hunt) Abbott|female|35 years|1|1|20.25 £|From Southampton to New York/0-no
+B0|3|39197_Mr. Frank Duane|M|65 years|0|0|7.75 £|From Southampton to New York/1-no
+B0|3|56988_Mr. Nils Johan Goransson Olsson|M|28 years|0|0|7.8542 £|From Southampton to Cherburgo/0-Si
+B0|3|31976_Mr. Alfons de Pelsmaeker|M|16 years|0|0|9.5 £|From Southampton to Cherburgo/1-Si
+e1|3 _|41845_Mr. Edward Arthur Dorking|M|19 years|0|0|8.05 £|From Southampton to New York/0-Si
+B0|. 1 _/.|30424_Mr. Richard William Smith|M|57 years|0|0|26 £|From Southampton to New York/1-no
+B0|3|71631_Mr. Ivan Stankovic|M|33 years|0|0|8.6625 £|From Southampton to Cherburgo/0-Si
+e1|3 _|99223_Mr. Theodore de Mulder|M|30 years|0|0|9.5 £|From Southampton to Queenstown/0-Si
+B0|3|19415_Mr. Penko Naidenoff|M|22 years|0|0|7.8958 £|From Southampton to Cherburgo/0-Si
+e1|2 _|47871_Mr. Masabumi Hosono|M|42 years|0|0|13 £|From Southampton to Cherburgo/0-no
+e1|3 _|68460_Miss. Kate Connolly|female|22 years|0|0|7.75 £|From Southampton to Queenstown/1-Si
+e1|_1|54269_Miss. Ellen Barber|female|26 years|0|0|78.85 £|From Southampton to New York/0-Si
+e1|_1|28003_Mrs. Dickinson H (Helen Walton) Bishop|female|19 years|1|0|91.0792 £|From Southampton to Queenstown/0-Si
+B0|. 2 _/.|57623_Mr. Rene Jacques Levy|M|36 years|0|0|12.875 £|From Southampton to Cherburgo/0-no
+B0|3|12656_Miss. Aloisia Haas|female|24 years|0|0|8.85 £|From Southampton to Cherburgo/0-Si
+B0|3|23446_Mr. Ivan Mineff|M|24 years|0|0|7.8958 £|From Southampton to Cherburgo/1-Si
+B0|. 1 _/.|01691_Mr. Ervin G Lewy|M|30 years|0|0|27.7208 £|From Southampton to Cherburgo/0-Si
+B0|3|87513_Mr. Mansour Hanna|M|23.5 years|0|0|7.2292 £|From Southampton to New York/1-no
+B0|. 1 _/.|11586_Miss. Helen Loraine Allison|female|2 years|1|2|151.55 £|From Southampton to Queenstown/0-no
+e1|_1|96166_Mr. Adolphe Saalfeld|M|47 years|0|0|30.5 £|From Southampton to Queenstown/0-no
+e1|_1|60758_Mrs. James (Helene DeLaudeniere Chaput) Baxter|female|50 years|0|1|247.5208 £|From Southampton to New York/0-Si
+e1|3 _|18237_Miss. Anna Katherine Kelly|female|20 years|0|0|7.75 £|From Southampton to Cherburgo/0-Si
+e1|3 _|52225_Mr. Bernard McCoy|M|24 years|2|0|23.25 £|From Southampton to Queenstown/0-Si
+B0|3|55044_Mr. William Cahoone Jr Johnson|M|19 years|0|0|0 £|From Southampton to New York/0-Si
+e1|2 _|61039_Miss. Nora A Keane|female|46 years|0|0|12.35 £|From Southampton to Cherburgo/0-Si
+B0|3|41553_Mr. Howard Hugh Williams|M|28 years|0|0|8.05 £|From Southampton to Queenstown/1-Si
+e1|_1|56368_Master. Hudson Trevor Allison|M|0.92 years|1|2|151.55 £|From Southampton to Cherburgo/0-Si
+e1|_1|94888_Miss. Margaret Fleming|female|42 years|0|0|110.8833 £|From Southampton to Queenstown/0-Si
+e1|_1|90200_Mrs. Victor de Satode (Maria Josefa Perez de Soto y Vallejo) Penasco y Castellana|female|17 years|1|0|108.9 £|From Southampton to New York/0-no
+B0|. 2 _/.|00867_Mr. Samuel Abelson|M|30 years|1|0|24 £|From Southampton to Cherburgo/1-Si
+e1|_1|39254_Miss. Laura Mabel Francatelli|female|30 years|0|0|56.9292 £|From Southampton to Queenstown/0-no
+e1|_1|12480_Miss. Margaret Bechstein Hays|female|24 years|0|0|83.1583 £|From Southampton to Cherburgo/0-no
+e1|_1|53830_Miss. Emily Borie Ryerson|female|18 years|2|2|262.375 £|From Southampton to Queenstown/1-no
+B0|. 2 _/.|66336_Mrs. William (Anna Sylfven) Lahtinen|female|26 years|1|1|26 £|From Southampton to Cherburgo/1-Si
+B0|3|51981_Mr. Ignjac Hendekovic|M|28 years|0|0|7.8958 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|48580_Mr. Benjamin Hart|M|43 years|1|1|26.25 £|From Southampton to Cherburgo/0-no
+e1|3 _|97242_Miss. Helmina Josefina Nilsson|female|26 years|0|0|7.8542 £|From Southampton to Queenstown/0-Si
+e1|2 _|15999_Mrs. Sinai (Miriam Sternin) Kantor|female|24 years|1|0|26 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|74171_Dr. Ernest Moraweck|M|54 years|0|0|14 £|From Southampton to Cherburgo/1-no
+e1|_1|03709_Miss. Mary Natalie Wick|female|31 years|0|2|164.8667 £|From Southampton to Cherburgo/1-no
+e1|_1|74438_Mrs. Frederic Oakley (Margaretta Corning Stone) Spedden|female|40 years|1|1|134.5 £|From Southampton to New York/1-no
+B0|3|04925_Mr. Samuel Dennis|M|22 years|0|0|7.25 £|From Southampton to Queenstown/1-no
+B0|3|66715_Mr. Yoto Danoff|M|27 years|0|0|7.8958 £|From Southampton to Cherburgo/0-no
+e1|2 _|18878_Miss. Hilda Mary Slayter|female|30 years|0|0|12.35 £|From Southampton to Queenstown/1-Si
+e1|2 _|89571_Mrs. Albert Francis (Sylvia Mae Harbaugh) Caldwell|female|22 years|1|1|29 £|From Southampton to Queenstown/1-no
+B0|3|76570_Mr. George John Jr Sage|M|20 years|8|2|69.55 £|From Southampton to Cherburgo/1-no
+e1|_1|03236_Miss. Marie Grice Young|female|36 years|0|0|135.6333 £|From Southampton to Queenstown/1-no
+B0|3|46892_Mr. Johan Hansen Nysveen|M|61 years|0|0|6.2375 £|From Southampton to New York/1-Si
+e1|2 _|41758_Mrs. (Ada E Hall) Ball|female|36 years|0|0|13 £|From Southampton to New York/1-no
+e1|3 _|90145_Mrs. Frank John (Emily Alice Brown) Goldsmith|female|31 years|1|1|20.525 £|From Southampton to Queenstown/1-Si
+e1|_1|62418_Miss. Jean Gertrude Hippach|female|16 years|0|1|57.9792 £|From Southampton to New York/0-no
+e1|3 _|90436_Miss. Agnes McCoy|female|28 years|2|0|23.25 £|From Southampton to Queenstown/0-no
+B0|. 1 _/.|88671_Mr. Austen Partner|M|45.5 years|0|0|28.5 £|From Southampton to Queenstown/1-Si
+B0|. 1 _/.|65721_Mr. George Edward Graham|M|38 years|0|1|153.4625 £|From Southampton to Queenstown/1-no
+B0|3|01309_Mr. Leo Edmondus Vander Planke|M|16 years|2|0|18 £|From Southampton to New York/0-Si
+e1|_1|22675_Mrs. Henry William (Clara Heinsheimer) Frauenthal|female|42 years|1|0|133.65 £|From Southampton to Queenstown/1-Si
+B0|3|00412_Mr. Mitto Denkoff|M|30 years|0|0|7.8958 £|From Southampton to New York/1-Si
+B0|. 1 _/.|69781_Mr. Thomas Clinton Pears|M|29 years|1|0|66.6 £|From Southampton to New York/1-no
+e1|_1|60560_Miss. Elizabeth Margaret Burns|female|41 years|0|0|134.5 £|From Southampton to Cherburgo/0-no
+e1|3 _|10031_Mr. Karl Edwart Dahl|M|45 years|0|0|8.05 £|From Southampton to Queenstown/0-Si
+B0|. 1 _/.|72473_Mr. Stephen Weart Blackwell|M|45 years|0|0|35.5 £|From Southampton to New York/0-Si
+e1|2 _|49908_Master. Edmond Roger Navratil|M|2 years|1|1|26 £|From Southampton to Queenstown/0-no
+e1|_1|03025_Miss. Alice Elizabeth Fortune|female|24 years|3|2|263 £|From Southampton to Queenstown/0-Si
+B0|. 2 _/.|59025_Mr. Erik Gustaf Collander|M|28 years|0|0|13 £|From Southampton to Queenstown/1-Si
+B0|. 2 _/.|27813_Mr. Charles Frederick Waddington Sedgwick|M|25 years|0|0|13 £|From Southampton to New York/0-no
+B0|. 2 _/.|65047_Mr. Stanley Hubert Fox|M|36 years|0|0|13 £|From Southampton to Queenstown/0-Si
+e1|2 _|19572_Miss. Amelia Brown|female|24 years|0|0|13 £|From Southampton to Queenstown/0-no
+e1|2 _|07751_Miss. Marion Elsie Smith|female|40 years|0|0|13 £|From Southampton to Queenstown/1-no
+e1|3 _|79763_Mrs. Thomas Henry (Mary E Finck) Davison|female|34 years|1|0|16.1 £|From Southampton to Queenstown/0-no
+e1|3 _|73321_Master. William Loch Coutts|M|3 years|1|1|15.9 £|From Southampton to New York/1-Si
+B0|3|94821_Mr. Jovan Dimic|M|42 years|0|0|8.6625 £|From Southampton to Queenstown/0-no
+B0|3|76281_Mr. Nils Martin Odahl|M|23 years|0|0|9.225 £|From Southampton to Queenstown/1-Si
+B0|. 1 _/.|99539_Mr. Fletcher Fellows Williams-Lambert|M|43 years|0|0|35 £|From Southampton to New York/1-no
+B0|3|03686_Mr. Tannous Elias|M|15 years|1|1|7.2292 £|From Southampton to Queenstown/1-no
+B0|3|66662_Mr. Josef Arnold-Franchi|M|25 years|1|0|17.8 £|From Southampton to Cherburgo/0-no
+B0|3|96040_Mr. Wazli Yousif|M|23 years|0|0|7.225 £|From Southampton to Cherburgo/0-Si
+B0|3|08593_Mr. Leo Peter Vanden Steen|M|28 years|0|0|9.5 £|From Southampton to New York/1-Si
+e1|_1|60110_Miss. Elsie Edith Bowerman|female|22 years|0|1|55 £|From Southampton to Cherburgo/0-no
+B0|. 2 _/.|78639_Miss. Annie Clemmer Funk|female|38 years|0|0|13 £|From Southampton to Cherburgo/0-Si
+e1|3 _|34755_Miss. Mary McGovern|female|22 years|0|0|7.8792 £|From Southampton to Queenstown/0-Si
+e1|3 _|77466_Miss. Helen Mary Mockler|female|23 years|0|0|7.8792 £|From Southampton to Cherburgo/0-Si
+B0|3|73311_Mr. Wilhelm Skoog|M|40 years|1|4|27.9 £|From Southampton to Queenstown/1-Si
+B0|. 2 _/.|88652_Mr. Sebastiano del Carlo|M|29 years|1|0|27.7208 £|From Southampton to Cherburgo/0-Si
+B0|3|25154_Mrs. (Catherine David) Barbara|female|45 years|0|1|14.4542 £|From Southampton to Cherburgo/1-no
+B0|3|34867_Mr. Adola Asim|M|35 years|0|0|7.05 £|From Southampton to New York/0-no
+B0|3|65279_Mr. Thomas O'Brien|M|27 years|1|0|15.5 £|From Southampton to New York/0-Si
+B0|3|03918_Mr. Mauritz Nils Martin Adahl|M|30 years|0|0|7.25 £|From Southampton to New York/1-no
+e1|_1|69202_Mrs. Frank Manley (Anna Sophia Atkinson) Warren|female|60 years|1|0|75.25 £|From Southampton to New York/1-Si
+e1|3 _|69853_Mrs. (Mantoura Boulos) Moussa|female|35 years|0|0|7.2292 £|From Southampton to Cherburgo/1-no
+e1|3 _|14791_Miss. Annie Jermyn|female|22 years|0|0|7.75 £|From Southampton to Cherburgo/1-no
+e1|_1|76522_Mme. Leontine Pauline Aubart|female|24 years|0|0|69.3 £|From Southampton to Cherburgo/1-no
+e1|_1|24017_Mr. George Achilles Harder|M|25 years|1|0|55.4417 £|From Southampton to New York/1-no
+B0|3|51270_Mr. Jakob Alfred Wiklund|M|18 years|1|0|6.4958 £|From Southampton to New York/0-Si
+B0|3|93688_Mr. William Thomas Beavan|M|19 years|0|0|8.05 £|From Southampton to Queenstown/0-Si
+B0|. 1 _/.|93454_Mr. Sante Ringhini|M|22 years|0|0|135.6333 £|From Southampton to Queenstown/0-Si
+B0|3|11061_Miss. Stina Viola Palsson|female|3 years|3|1|21.075 £|From Southampton to New York/0-Si
+e1|_1|41257_Mrs. Edgar Joseph (Leila Saks) Meyer|female|25 years|1|0|82.1708 £|From Southampton to New York/1-no
+e1|3 _|57558_Miss. Aurora Adelia Landergren|female|22 years|0|0|7.25 £|From Southampton to New York/1-no
+B0|. 1 _/.|99839_Mr. Harry Elkins Widener|M|27 years|0|2|211.5 £|From Southampton to Queenstown/0-no
+B0|3|11099_Mr. Tannous Betros|M|20 years|0|0|4.0125 £|From Southampton to Cherburgo/0-no
+B0|3|50068_Mr. Karl Gideon Gustafsson|M|19 years|0|0|7.775 £|From Southampton to Cherburgo/0-Si
+e1|_1|92823_Miss. Rosalie Bidois|female|42 years|0|0|227.525 £|From Southampton to Cherburgo/0-no
+e1|3 _|00835_Miss. Maria Nakid|female|1 years|0|2|15.7417 £|From Southampton to Queenstown/0-Si
+B0|3|70845_Mr. Juho Tikkanen|M|32 years|0|0|7.925 £|From Southampton to Cherburgo/0-no
+e1|_1|92989_Mrs. Alexander Oskar (Mary Aline Towner) Holverson|female|35 years|1|0|52 £|From Southampton to New York/1-Si
+B0|3|64694_Mr. Vasil Plotcharsky|M|27 years|0|0|7.8958 £|From Southampton to Queenstown/0-Si
+B0|. 2 _/.|88156_Mr. Charles Henry Davies|M|18 years|0|0|73.5 £|From Southampton to Cherburgo/0-Si
+B0|3|57892_Master. Sidney Leonard Goodwin|M|1 years|5|2|46.9 £|From Southampton to Cherburgo/0-Si
+e1|2 _|35113_Miss. Kate Buss|female|36 years|0|0|13 £|From Southampton to Queenstown/0-Si
+B0|3|04271_Mr. Matthew Sadlier|M|19 years|0|0|7.7292 £|From Southampton to New York/1-no
+e1|2 _|30118_Miss. Bertha Lehmann|female|17 years|0|0|12 £|From Southampton to New York/1-Si
+e1|_1|08885_Mr. William Ernest Carter|M|36 years|1|2|120 £|From Southampton to New York/0-no
+e1|3 _|25440_Mr. Carl Olof Jansson|M|21 years|0|0|7.7958 £|From Southampton to Cherburgo/1-Si
+B0|3|23235_Mr. Johan Birger Gustafsson|M|28 years|2|0|7.925 £|From Southampton to Cherburgo/0-no
+e1|_1|79577_Miss. Marjorie Newell|female|23 years|1|0|113.275 £|From Southampton to Cherburgo/0-Si
+e1|3 _|42261_Mrs. Hjalmar (Agnes Charlotta Bengtsson) Sandstrom|female|24 years|0|2|16.7 £|From Southampton to New York/1-no
+B0|3|22438_Mr. Erik Johansson|M|22 years|0|0|7.7958 £|From Southampton to New York/1-Si
+B0|3|14778_Miss. Elina Olsson|female|31 years|0|0|7.8542 £|From Southampton to Cherburgo/1-no
+B0|. 2 _/.|04844_Mr. Peter David McKane|M|46 years|0|0|26 £|From Southampton to Cherburgo/0-no
+B0|. 2 _/.|57351_Dr. Alfred Pain|M|23 years|0|0|10.5 £|From Southampton to Cherburgo/1-no
+e1|2 _|23936_Mrs. William H (Jessie L) Trout|female|28 years|0|0|12.65 £|From Southampton to Cherburgo/1-no
+e1|3 _|62479_Mr. Juha Niskanen|M|39 years|0|0|7.925 £|From Southampton to New York/1-no
+B0|3|71022_Mr. John Adams|M|26 years|0|0|8.05 £|From Southampton to Queenstown/1-no
+B0|3|97845_Miss. Mari Aina Jussila|female|21 years|1|0|9.825 £|From Southampton to Queenstown/0-no
+B0|3|59375_Mr. Pekka Pietari Hakkarainen|M|28 years|1|0|15.85 £|From Southampton to Queenstown/0-Si
+B0|3|54746_Miss. Marija Oreskovic|female|20 years|0|0|8.6625 £|From Southampton to New York/1-Si
+B0|. 2 _/.|48098_Mr. Shadrach Gale|M|34 years|1|0|21 £|From Southampton to Cherburgo/1-no
+B0|3|58500_Mr. Carl/Charles Peter Widegren|M|51 years|0|0|7.75 £|From Southampton to Queenstown/1-Si
+e1|2 _|31354_Master. William Rowe Richards|M|3 years|1|1|18.75 £|From Southampton to New York/0-Si
+B0|3|97812_Mr. Hans Martin Monsen Birkeland|M|21 years|0|0|7.775 £|From Southampton to Queenstown/1-no
+B0|3|85933_Miss. Ida Lefebre|female|3 years|3|1|25.4667 £|From Southampton to Queenstown/0-no
+B0|3|72810_Mr. Todor Sdycoff|M|42 years|0|0|7.8958 £|From Southampton to New York/1-Si
+B0|3|53874_Mr. Henry Hart|M|27 years|0|0|6.8583 £|From Southampton to Queenstown/1-Si
+e1|_1|61877_Miss. Daisy E Minahan|female|33 years|1|0|90 £|From Southampton to New York/0-Si
+B0|. 2 _/.|00990_Mr. Alfred Fleming Cunningham|M|22 years|0|0|0 £|From Southampton to New York/0-no
+e1|3 _|75766_Mr. Johan Julian Sundman|M|44 years|0|0|7.925 £|From Southampton to New York/1-Si
+B0|3|97109_Mrs. Thomas (Annie Louise Rowley) Meek|F|32 years|0|0|8.05 £|From Southampton to Cherburgo/0-Si
+e1|2 _|49289_Mrs. James Vivian (Lulu Thorne Christian) Drew|F|34 years|1|1|32.5 £|From Southampton to Queenstown/1-no
+e1|2 _|17282_Miss. Lyyli Karoliina Silven|F|18 years|0|2|13 £|From Southampton to Queenstown/0-no
+B0|. 2 _/.|40113_Mr. William John Matthews|M|30 years|0|0|13 £|From Southampton to New York/0-no
+B0|3|89114_Miss. Catharina Van Impe|F|10 years|0|2|24.15 £|From Southampton to Cherburgo/1-Si
+B0|3|72457_Mr. David Charters|M|21 years|0|0|7.7333 £|From Southampton to Cherburgo/0-no
+B0|3|60450_Mr. Leo Zimmerman|M|29 years|0|0|7.875 £|From Southampton to Cherburgo/1-Si
+B0|3|11698_Mrs. Ernst Gilbert (Anna Sigrid Maria Brogren) Danbom|F|28 years|1|1|14.4 £|From Southampton to Cherburgo/1-no
+B0|3|63470_Mr. Viktor Richard Rosblom|M|18 years|1|1|20.2125 £|From Southampton to New York/0-Si
+B0|3|47341_Mr. Phillippe Wiseman|M|54 years|0|0|7.25 £|From Southampton to Queenstown/0-Si
+e1|2 _|32183_Mrs. Charles V (Ada Maria Winfield) Clarke|F|28 years|1|0|26 £|From Southampton to Cherburgo/1-no
+e1|2 _|34824_Miss. Kate Florence Phillips|F|19 years|0|0|26 £|From Southampton to Cherburgo/1-Si
+B0|3|73781_Mr. James Flynn|M|28 years|0|0|7.75 £|From Southampton to Cherburgo/1-no
+e1|3 _|60194_Mr. Berk (Berk Trembisky) Pickard|M|32 years old|0|0|8.05 £|From Southampton to Cherburgo/0-Si
+e1|_1|47835_Mr. Mauritz Hakan Bjornstrom-Steffansson|M|28 years old|0|0|26.55 £|From Southampton to Cherburgo/0-no
+e1|3 _|73026_Mrs. Percival (Florence Kate White) Thorneycroft|F|33 years old|1|0|16.1 £|From Southampton to New York/0-no
+e1|2 _|22653_Mrs. Charles Alexander (Alice Adelaide Slow) Louch|F|42 years old|1|0|26 £|From Southampton to Queenstown/0-no
+B0|3|03816_Mr. Nikolai Erland Kallio|M|17 years old|0|0|7.125 £|From Southampton to New York/1-no
+B0|. 1 _/.|27992_Mr. William Baird Silvey|M|50 years old|1|0|55.9 £|From Southampton to Cherburgo/1-no
+e1|_1|87856_Miss. Lucile Polk Carter|F|14 years old|1|2|120 £|From Southampton to Queenstown/0-no
+B0|3|03787_Miss. Doolina Margaret Ford|F|21 years old|2|2|34.375 £|From Southampton to Queenstown/0-no
+e1|2 _|89723_Mrs. Sidney (Emily Hocking) Richards|F|24 years old|2|3|18.75 £|From Southampton to Queenstown/1-no
+B0|. 1 _/.|11298_Mr. Mark Fortune|M|64 years old|1|4|263 £|From Southampton to New York/0-no
+B0|. 2 _/.|51997_Mr. Johan Henrik Johannesson Kvillner|M|31 years old|0|0|10.5 £|From Southampton to New York/0-no
+e1|2 _|86838_Mrs. Benjamin (Esther Ada Bloomfield) Hart|F|45 years old|1|1|26.25 £|From Southampton to Queenstown/1-Si
+B0|3|27158_Mr. Leon Hampe|M|20 years old|0|0|9.5 £|From Southampton to New York/0-Si
+B0|3|68313_Mr. Johan Emil Petterson|M|25 years old|1|0|7.775 £|From Southampton to Queenstown/1-no
+e1|2 _|40963_Ms. Encarnacion Reynaldo|F|28 years old|0|0|13 £|From Southampton to Queenstown/1-no
+e1|3 _|28047_Mr. Bernt Johannesen-Bratthammer|M|29 years old|0|0|8.1125 £|From Southampton to Queenstown/0-no
+e1|_1|65831_Master. Washington Dodge|M|4 years old|0|2|81.8583 £|From Southampton to New York/0-no
+e1|2 _|69789_Miss. Madeleine Violet Mellinger|F|13 years old|0|1|19.5 £|From Southampton to Cherburgo/1-no
+e1|_1|23765_Mr. Frederic Kimber Seward|M|34 years old|0|0|26.55 £|From Southampton to Queenstown/0-Si
+e1|3 _|91311_Miss. Marie Catherine Baclini|F|5 years old|2|1|19.2583 £|From Southampton to Cherburgo/1-no
+e1|_1|62471_Major. Arthur Godfrey Peuchen|M|52 years old|0|0|30.5 £|From Southampton to Queenstown/1-Si
+B0|. 2 _/.|53577_Mr. Edwy Arthur West|male|36 years old|1|2|27.75 £|From Southampton to New York/1-no
+B0|3|06187_Mr. Ingvald Olai Olsen Hagland|male|28 years old|1|0|19.9667 £|From Southampton to New York/0-Si
+B0|. 1 _/.|97926_Mr. Benjamin Laventall Foreman|male|30 years old|0|0|27.75 £|From Southampton to Queenstown/1-Si
+e1|_1|85639_Mr. Samuel L Goldenberg|male|49 years old|1|0|89.1042 £|From Southampton to Cherburgo/1-Si
+B0|3|51943_Mr. Joseph Peduzzi|male|24 years old|0|0|8.05 £|From Southampton to New York/1-no
+e1|3 _|67027_Mr. Ivan Jalsevac|male|29 years old|0|0|7.8958 £|From Southampton to Cherburgo/0-Si
+B0|. 1 _/.|40146_Mr. Francis Davis Millet|male|65 years old|0|0|26.55 £|From Southampton to Cherburgo/1-Si
+e1|_1|10705_Mrs. Frederick R (Marion) Kenyon|F|41 years old|1|0|51.8625 £|From Southampton to Queenstown/1-no
+e1|2 _|52973_Miss. Ellen Toomey|F|50 years old|0|0|10.5 £|From Southampton to Queenstown/1-Si
+B0|3|19232_Mr. Maurice O'Connor|male|17 years old|0|0|7.75 £|From Southampton to Queenstown/0-no
+e1|_1|26640_Mr. Harry Anderson|male|48 years old|0|0|26.55 £|From Southampton to New York/1-Si
+B0|3|17660_Mr. William Morley|male|34 years old|0|0|8.05 £|From Southampton to New York/1-no
+B0|. 1 _/.|24791_Mr. Arthur H Gee|male|47 years old|0|0|38.5 £|From Southampton to Cherburgo/0-no
+B0|. 2 _/.|23296_Mr. Jacob Christian Milling|male|48 years old|0|0|13 £|From Southampton to New York/0-Si
+B0|3|09603_Mr. Simon Maisner|male|34 years old|0|0|8.05 £|From Southampton to Cherburgo/1-no
+B0|3|75422_Mr. Manuel Estanslas Goncalves|male|38 years old|0|0|7.05 £|From Southampton to New York/0-Si
+B0|. 2 _/.|67063_Mr. William Campbell|male|21 years old|0|0|0 £|From Southampton to New York/1-no
+B0|. 1 _/.|13827_Mr. John Montgomery Smart|male|56 years old|0|0|26.55 £|From Southampton to Queenstown/1-no
+B0|3|68449_Mr. James Scanlan|male|22 years old|0|0|7.725 £|From Southampton to Queenstown/1-Si
+e1|3 _|75413_Miss. Helene Barbara Baclini|F|0.75 years old|2|1|19.2583 £|From Southampton to Cherburgo/0-no
+B0|3|91212_Mr. Arthur Keefe|male|39 years old|0|0|7.25 £|From Southampton to Cherburgo/1-Si
+B0|3|57799_Mr. Luka Cacic|male|38 years old|0|0|8.6625 £|From Southampton to Cherburgo/1-Si
+e1|2 _|85184_Mrs. Edwy Arthur (Ada Mary Worth) West|F|33 years old|1|2|27.75 £|From Southampton to Queenstown/0-no
+e1|2 _|19051_Mrs. Amin S (Marie Marthe Thuillard) Jerwan|F|23 years old|0|0|13.7917 £|From Southampton to New York/0-no
+B0|3|49081_Miss. Ida Sofia Strandberg|F|22 years old|0|0|9.8375 £|From Southampton to Queenstown/0-Si
+B0|. 1 _/.|78154_Mr. George Quincy Clifford|male|40 years old|0|0|52 £|From Southampton to Queenstown/1-Si
+B0|. 2 _/.|07855_Mr. Peter Henry Renouf|male|34 years old|1|0|21 £|From Southampton to Cherburgo/1-Si
+B0|3|85081_Mr. Lewis Richard Braund|male|29 years old|1|0|7.0458 £|From Southampton to Cherburgo/0-no
+B0|3|18705_Mr. Nils August Karlsson|male|22 years old|0|0|7.5208 £|From Southampton to Cherburgo/0-no
+e1|3 _|77498_Miss. Hildur E Hirvonen|F|2 years old|0|1|12.2875 £|From Southampton to Queenstown/1-Si
+B0|3|78945_Master. Harold Victor Goodwin|male|9 years old|5|2|46.9 £|From Southampton to Queenstown/1-Si
+B0|. 2 _/.|48251_Mr. Anthony Wood Frost|male|37 years old|0|0|0 £|From Southampton to Queenstown/0-no
+B0|3|52212_Mr. Richard Henry Rouse|male|50 years old|0|0|8.05 £|From Southampton to Queenstown/0-Si
+e1|3 _|34431_Mrs. (Hedwig) Turkula|F|63 years old|0|0|9.5875 £|From Southampton to Queenstown/0-Si
+e1|_1|10383_Mr. Dickinson H Bishop|male|25 years old|1|0|91.0792 £|From Southampton to New York/1-no
+B0|3|88764_Miss. Jeannie Lefebre|F|8 years old|3|1|25.4667 £|From Southampton to Queenstown/0-no
+e1|_1|06246_Mrs. Frederick Maxfield (Jane Anne Forby) Hoyt|F|35 years old|1|0|90 £|From Southampton to Queenstown/1-Si
+B0|. 1 _/.|79450_Mr. Edward Austin Kent|male|58 years old|0|0|29.7 £|From Southampton to New York/1-Si
+B0|3|47865_Mr. Francis William Somerton|male|30 years old|0|0|8.05 £|From Southampton to Queenstown/1-Si
+e1|3 _|62886_Master. Eden Leslie Coutts|male|9 years old|1|1|15.9 £|From Southampton to Queenstown/0-no
+B0|3|68532_Mr. Konrad Mathias Reiersen Hagland|male|19 years old|1|0|19.9667 £|From Southampton to Cherburgo/0-no
+B0|3|56142_Mr. Einar Windelov|male|21 years old|0|0|7.25 £|From Southampton to Queenstown/0-no
+B0|. 1 _/.|72412_Mr. Harry Markland Molson|male|55 years old|0|0|30.5 £|From Southampton to New York/1-no
+B0|. 1 _/.|68903_Mr. Ramon Artagaveytia|male|71 years old|0|0|49.5042 £|From Southampton to New York/0-no
+B0|3|52847_Mr. Edward Roland Stanley|male|21 years old|0|0|8.05 £|From Southampton to Queenstown/1-no
+B0|3|20278_Mr. Gerious Yousseff|male|26 years old|0|0|14.4583 £|From Southampton to New York/1-Si
+e1|_1|17625_Miss. Elizabeth Mussey Eustis|F|54 years old|1|0|78.2667 £|From Southampton to Queenstown/1-Si
+B0|3|74485_Mr. Frederick William Shellard|male|55 years old|0|0|15.1 £|From Southampton to New York/0-Si
+B0|. 1 _/.|45268_Mrs. Hudson J C (Bessie Waldo Daniels) Allison|F|25 years old|1|2|151.55 £|From Southampton to New York/1-Si
+B0|3|15485_Mr. Olof Svensson|male|24 years old|0|0|7.7958 £|From Southampton to New York/1-no
+B0|3|35587_Mr. Petar Calic|male|17 years old|0|0|8.6625 £|From Southampton to Queenstown/0-no
+B0|3|15895_Miss. Mary Canavan|F|21 years old|0|0|7.75 £|From Southampton to New York/0-no
+B0|3|87517_Miss. Bridget Mary O'Sullivan|F|21 years old|0|0|7.6292 £|From Southampton to Queenstown/0-Si
+B0|3|66750_Miss. Kristina Sofia Laitinen|F|37 years old|0|0|9.5875 £|From Southampton to Queenstown/1-Si
+e1|_1|75215_Miss. Roberta Maioni|F|16 years old|0|0|86.5 £|From Southampton to New York/0-Si
+B0|. 1 _/.|08422_Mr. Victor de Satode Penasco y Castellana|male|18 years old|1|0|108.9 £|From Southampton to Cherburgo/0-Si
+e1|2 _|78848_Mrs. Frederick Charles (Jane Richards) Quick|F|33 years old|0|2|26 £|From Southampton to Queenstown/0-no
+e1|_1|95249_Mr. George Bradley|male|37 years old|0|0|26.55 £|From Southampton to Cherburgo/0-no
+B0|3|43747_Mr. Henry Margido Olsen|male|28 years old|0|0|22.525 £|From Southampton to New York/1-no
+e1|3 _|39606_Mr. Fang Lang|male|26 years old|0|0|56.4958 £|From Southampton to New York/1-no
+e1|3 _|49695_Mr. Eugene Patrick Daly|male|29 years old|0|0|7.75 £|From Southampton to New York/0-no
+B0|3|39291_Mr. James Webber|male|66 years old|0|0|8.05 £|From Southampton to Queenstown/1-no
+e1|_1|13557_Mr. James Robert McGough|male|36 years old|0|0|26.2875 £|From Southampton to Cherburgo/0-no
+e1|_1|69083_Mrs. Martin (Elizabeth L. Barrett) Rothschild|F|54 years old|1|0|59.4 £|From Southampton to Queenstown/1-Si
+B0|3|87480_Mr. Satio Coleff|male|24 years old|0|0|7.4958 £|From Southampton to Queenstown/0-Si
+B0|. 1 _/.|43243_Mr. William Anderson Walker|male|47 years old|0|0|34.0208 £|From Southampton to Queenstown/0-no
+e1|2 _|06711_Mrs. (Amelia Milley) Lemore|F|34 years old|0|0|10.5 £|From Southampton to New York/1-no
+B0|3|65361_Mr. Patrick Ryan|male|30 years old|0|0|24.15 £|From Southampton to Cherburgo/0-Si
+e1|2 _|18915_Mrs. William A (Florence Agnes Hughes) Angle|F|36 years old|1|0|26 £|From Southampton to Cherburgo/0-Si
+B0|3|42782_Mr. Stefo Pavlovic|male|32 years old|0|0|7.8958 £|From Southampton to Queenstown/1-no
+e1|_1|72703_Miss. Anne Perreault|F|30 years old|0|0|93.5 £|From Southampton to New York/1-Si
+B0|3|21516_Mr. Janko Vovk|male|22 years old|0|0|7.8958 £|From Southampton to Cherburgo/0-Si
+B0|3|45509_Mr. Sarkis Lahoud|male|35 years old|0|0|7.225 £|From Southampton to Cherburgo/1-Si
+e1|_1|33787_Mrs. Louis Albert (Ida Sophia Fischer) Hippach|F|44 years old|0|1|57.9792 £|From Southampton to Queenstown/1-no
+B0|3|26790_Mr. Fared Kassem|male|18 years old|0|0|7.2292 £|From Southampton to Cherburgo/1-no
+B0|3|83820_Mr. James Farrell|male|40.5 years old|0|0|7.75 £|From Southampton to Cherburgo/1-Si
+e1|2 _|67501_Miss. Lucy Ridsdale|F|50 years old|0|0|10.5 £|From Southampton to Cherburgo/1-Si
+B0|. 1 _/.|69419_Mr. John Farthing|male|49 years old|0|0|221.7792 £|From Southampton to Cherburgo/1-Si
+B0|3|59578_Mr. Johan Werner Salonen|male|39 years old|0|0|7.925 £|From Southampton to New York/1-no
+B0|. 2 _/.|07374_Mr. Richard George Hocking|male|23 years old|2|1|11.5 £|From Southampton to Queenstown/0-Si
+e1|2 _|43374_Miss. Phyllis May Quick|F|2 years old|1|1|26 £|From Southampton to Cherburgo/0-no
+B0|3|41540_Mr. Nakli Toufik|male|17 years old|0|0|7.2292 £|From Southampton to New York/1-Si
+B0|3|84569_Mr. Joseph Jr Elias|male|17 years old|1|1|7.2292 £|From Southampton to Queenstown/1-Si
+e1|3 _|37767_Mrs. Catherine (Catherine Rizk) Peter|F|24 years old|0|2|22.3583 £|From Southampton to Queenstown/1-no
+B0|3|19180_Miss. Marija Cacic|F|30 years old|0|0|8.6625 £|From Southampton to Cherburgo/0-Si
+e1|2 _|60000_Miss. Eva Miriam Hart|F|7 years old|0|2|26.25 £|From Southampton to New York/0-no
+B0|. 1 _/.|27718_Major. Archibald Willingham Butt|male|45 years old|0|0|26.55 £|From Southampton to Cherburgo/0-Si
+e1|_1|00803_Miss. Bertha LeRoy|F|30 years old|0|0|106.425 £|From Southampton to Cherburgo/1-Si
+B0|3|41715_Mr. Samuel Beard Risien|male|69 years old|0|0|14.5 £|From Southampton to New York/1-no
+e1|_1|56859_Miss. Hedwig Margaritha Frolicher|F|22 years old|0|2|49.5 £|From Southampton to New York/1-Si
+e1|_1|61797_Miss. Harriet R Crosby|F|36 years old|0|2|71 £|From Southampton to Cherburgo/1-Si
+B0|3|40489_Miss. Ingeborg Constanzia Andersson|F|9 years old|4|2|31.275 £|From Southampton to Cherburgo/0-Si
+B0|3|73114_Miss. Sigrid Elisabeth Andersson|F|11 years old|4|2|31.275 £|From Southampton to New York/1-Si
+e1|2 _|39480_Mr. Edward Beane|male|32 years old|1|0|26 £|From Southampton to Queenstown/1-Si
+B0|. 1 _/.|92150_Mr. Walter Donald Douglas|male|50 years old|1|0|106.425 £|From Southampton to Cherburgo/1-no
+B0|. 1 _/.|78193_Mr. Arthur Ernest Nicholson|male|64 years old|0|0|26 £|From Southampton to New York/0-no
+e1|2 _|84820_Mrs. Edward (Ethel Clarke) Beane|F|19 years old|1|0|26 £|From Southampton to New York/1-no
+e1|2 _|63799_Mr. Julian Padro y Manent|male|27 years old|0|0|13.8625 £|From Southampton to Queenstown/1-Si
+B0|3|02735_Mr. Frank John Goldsmith|male|33 years old|1|1|20.525 £|From Southampton to Cherburgo/0-Si
+e1|2 _|75836_Master. John Morgan Jr Davies|male|8 years old|1|1|36.75 £|From Southampton to New York/0-no
+e1|_1|38969_Mr. John Borland Jr Thayer|male|17 years old|0|2|110.8833 £|From Southampton to Cherburgo/0-no
+B0|. 2 _/.|40968_Mr. Percival James R Sharp|male|27 years old|0|0|26 £|From Southampton to Queenstown/1-Si
+B0|3|05192_Mr. Timothy O'Brien|male|21 years old|0|0|7.8292 £|From Southampton to Queenstown/0-Si
+e1|3 _|66954_Mr. Fahim Leeni|male|22 years old|0|0|7.225 £|From Southampton to New York/1-Si
+e1|3 _|06152_Miss. Velin Ohman|F|22 years old|0|0|7.775 £|From Southampton to Cherburgo/1-no
+B0|. 1 _/.|80005_Mr. George Wright|male|62 years old|0|0|26.55 £|From Southampton to Cherburgo/1-no
+e1|_1|18154_Lady. (Lucille Christiana Sutherland)Duff Gordon|F|48 years old|1|0|39.6 £|From Southampton to Cherburgo/0-Si
+B0|. 1 _/.|38966_Mr. Victor Robbins|male|45 years old|0|0|227.525 £|From Southampton to New York/0-Si
+e1|_1|59308_Mrs. Emil (Tillie Mandelbaum) Taussig|F|39 years old|1|1|79.65 £|From Southampton to Cherburgo/0-no
+e1|3 _|39597_Mrs. Guillaume Joseph (Emma) de Messemaeker|F|36 years old|1|0|17.4 £|From Southampton to Queenstown/1-Si
+B0|3|90662_Mr. Thomas Rowan Morrow|male|30 years old|0|0|7.75 £|From Southampton to Queenstown/1-no
+B0|3|24261_Mr. Husein Sivic|male|40 years old|0|0|7.8958 £|From Southampton to New York/1-Si
+B0|. 2 _/.|75244_Mr. Robert Douglas Norman|male|28 years old|0|0|13.5 £|From Southampton to New York/1-no
+B0|3|01424_Mr. John Simmons|male|40 years old|0|0|8.05 £|From Southampton to Queenstown/1-no
+B0|3|31390_Miss. (Marion Ogden) Meanwell|F|62 years old|0|0|8.05 £|From Southampton to Queenstown/1-no
+B0|3|31422_Mr. Alfred J Davies|male|24 years old|2|0|24.15 £|From Southampton to Cherburgo/0-no
+B0|3|28185_Mr. Ilia Stoytcheff|male|19 years old|0|0|7.8958 £|From Southampton to Cherburgo/0-no
+B0|3|83675_Mrs. Nils (Alma Cornelia Berglund) Palsson|F|29 years old|0|4|21.075 £|From Southampton to Cherburgo/1-no
+B0|3|15175_Mr. Tannous Doharr|male|28 years old|0|0|7.2292 £|From Southampton to Cherburgo/1-no
+e1|3 _|18270_Mr. Carl Jonsson|male|32 years old|0|0|7.8542 £|From Southampton to Queenstown/0-no
+e1|2 _|78442_Mr. George Harris|male|62 years old|0|0|10.5 £|From Southampton to Cherburgo/1-no
+e1|_1|80315_Mrs. Edward Dale (Charlotte Lamson) Appleton|F|53 years old|2|0|51.4792 £|From Southampton to Cherburgo/1-Si
+e1|_1|88387_Mr. John Irwin Flynn|male|36 years old|0|0|26.3875 £|From Southampton to Queenstown/0-Si
+e1|3 _|15168_Miss. Mary Kelly|F|22 years old|0|0|7.75 £|From Southampton to Queenstown/0-Si
+B0|3|16921_Mr. Alfred George John Rush|male|16 years old|0|0|8.05 £|From Southampton to New York/0-Si
+B0|3|31389_Mr. George Patchett|male|19 years old|0|0|14.5 £|From Southampton to New York/1-Si
+e1|2 _|77808_Miss. Ethel Garside|F|34 years old|0|0|13 £|From Southampton to New York/0-no
+e1|_1|75118_Mrs. William Baird (Alice Munger) Silvey|F|39 years old|1|0|55.9 £|From Southampton to New York/1-Si
+B0|3|61979_Mrs. Joseph (Maria Elias) Caram|F|18 years old|1|0|14.4583 £|From Southampton to New York/0-Si
+e1|3 _|88677_Mr. Eiriik Jussila|male|32 years old|0|0|7.925 £|From Southampton to Queenstown/0-Si
+e1|2 _|20660_Miss. Julie Rachel Christy|F|25 years old|1|1|30 £|From Southampton to Queenstown/1-Si
+e1|_1|59220_Mrs. John Borland (Marian Longstreth Morris) Thayer|F|39 years old|1|1|110.8833 £|From Southampton to New York/1-no
+B0|. 2 _/.|46947_Mr. William James Downton|male|54 years old|0|0|26 £|From Southampton to Cherburgo/1-no
+B0|. 1 _/.|94903_Mr. John Hugo Ross|male|36 years old|0|0|40.125 £|From Southampton to New York/0-no
+B0|3|71802_Mr. Uscher Paulner|male|16 years old|0|0|8.7125 £|From Southampton to New York/1-no
+e1|_1|08171_Miss. Ruth Taussig|F|18 years old|0|2|79.65 £|From Southampton to New York/1-no
+B0|. 2 _/.|18259_Mr. John Denzil Jarvis|male|47 years old|0|0|15 £|From Southampton to New York/0-Si
+e1|_1|06180_Mr. Maxmillian Frolicher-Stehli|male|60 years old|1|1|79.2 £|From Southampton to Cherburgo/1-Si
+B0|3|15298_Mr. Eliezer Gilinski|male|22 years old|0|0|8.05 £|From Southampton to Cherburgo/0-Si
+B0|3|74503_Mr. Joseph Murdlin|male|22 years old|0|0|8.05 £|From Southampton to Cherburgo/1-no
+B0|3|37682_Mr. Matti Rintamaki|male|35 years old|0|0|7.125 £|From Southampton to Queenstown/1-Si
+e1|_1|26948_Mrs. Walter Bertram (Martha Eustis) Stephenson|F|52 years old|1|0|78.2667 £|From Southampton to Queenstown/1-Si
+B0|3|81457_Mr. William James Elsbury|male|47 years old|0|0|7.25 £|From Southampton to Cherburgo/0-no
+B0|3|85064_Miss. Mary Bourke|F|40 years old|0|2|7.75 £|From Southampton to Queenstown/1-Si
+B0|. 2 _/.|39313_Mr. John Henry Chapman|male|37 years old|1|0|26 £|From Southampton to Cherburgo/1-Si
+B0|3|77217_Mr. Jean Baptiste Van Impe|male|36 years old|1|1|24.15 £|From Southampton to Cherburgo/1-no
+e1|2 _|47474_Miss. Jessie Wills Leitch|F|31 years old|0|0|33 £|From Southampton to Cherburgo/1-Si
+B0|3|46235_Mr. Alfred Johnson|male|49 years old|0|0|0 £|From Southampton to New York/0-no
+B0|3|37372_Mr. Hanna Boulos|male|18 years old|0|0|7.225 £|From Southampton to Queenstown/1-no
+e1|_1|44491_Sir. Cosmo Edmund Duff Gordon|male|49 years old|1|0|56.9292 £|From Southampton to Queenstown/0-no
+e1|2 _|83636_Mrs. Sidney Samuel (Amy Frances Christy) Jacobsohn|F|24 years old|2|1|27 £|From Southampton to Queenstown/1-no
+B0|3|90066_Mr. Petco Slabenoff|male|42 years old|0|0|7.8958 £|From Southampton to Cherburgo/1-no
+B0|. 1 _/.|94809_Mr. Charles H Harrington|male|37 years old|0|0|42.4 £|From Southampton to Queenstown/1-Si
+B0|3|63790_Mr. Ernst William Torber|male|44 years old|0|0|8.05 £|From Southampton to Cherburgo/0-no
+e1|_1|98694_Mr. Harry Homer|male|35 years old|0|0|26.55 £|From Southampton to Queenstown/0-Si
+B0|3|21370_Mr. Edvard Bengtsson Lindell|male|36 years old|1|0|15.55 £|From Southampton to New York/0-no
+B0|3|51636_Mr. Milan Karaic|male|30 years old|0|0|7.8958 £|From Southampton to Queenstown/0-Si
+e1|_1|19573_Mr. Robert Williams Daniel|male|27 years old|0|0|30.5 £|From Southampton to New York/1-no
+e1|2 _|18626_Mrs. Joseph (Juliette Marie Louise Lafargue) Laroche|F|22 years old|1|2|41.5792 £|From Southampton to Queenstown/1-Si
+e1|_1|36260_Miss. Elizabeth W Shutes|F|40 years old|0|0|153.4625 £|From Southampton to Queenstown/0-Si
+B0|3|91651_Mrs. Anders Johan (Alfrida Konstantia Brogren) Andersson|F|39 years old|1|5|31.275 £|From Southampton to New York/1-no
+B0|3|30576_Mr. Jose Neto Jardin|male|21 years old|0|0|7.05 £|From Southampton to Cherburgo/0-Si
+e1|3 _|52683_Miss. Margaret Jane Murphy|F|18 years old|1|0|15.5 £|From Southampton to New York/1-Si
+B0|3|27826_Mr. John Horgan|male|22 years old|0|0|7.75 £|From Southampton to New York/0-no
+B0|3|03732_Mr. William Alfred Brocklebank|male|35 years old|0|0|8.05 £|From Southampton to Queenstown/1-no
+e1|2 _|14742_Miss. Alice Herman|F|24 years old|1|2|65 £|From Southampton to New York/0-no
+B0|3|68322_Mr. Ernst Gilbert Danbom|male|34 years old|1|1|14.4 £|From Southampton to Cherburgo/1-no
+B0|3|75563_Mrs. William Arthur (Cordelia K Stanlick) Lobb|F|26 years old|1|0|16.1 £|From Southampton to New York/0-no
+e1|2 _|55225_Miss. Marion Louise Becker|F|4 years old|2|1|39 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|44893_Mr. Lawrence Gavey|male|26 years old|0|0|10.5 £|From Southampton to New York/0-no
+B0|3|84690_Mr. Antoni Yasbeck|male|27 years old|1|0|14.4542 £|From Southampton to Cherburgo/1-no
+e1|_1|81125_Mr. Edwin Nelson Jr Kimball|male|42 years old|1|0|52.5542 £|From Southampton to Cherburgo/0-Si
+e1|3 _|91522_Mr. Sahid Nakid|male|20 years old|1|1|15.7417 £|From Southampton to Cherburgo/0-no
+B0|3|21643_Mr. Henry Damsgaard Hansen|male|21 years old|0|0|7.8542 £|From Southampton to New York/1-no
+B0|3|60382_Mr. David John Bowen|male|21 years old|0|0|16.1 £|From Southampton to Cherburgo/0-no
+B0|. 1 _/.|80698_Mr. Frederick Sutton|male|61 years old|0|0|32.3208 £|From Southampton to Cherburgo/0-no
+B0|. 2 _/.|28705_Rev. Charles Leonard Kirkland|male|57 years old|0|0|12.35 £|From Southampton to Cherburgo/1-Si
+e1|_1|47267_Miss. Gretchen Fiske Longley|F|21 years old|0|0|77.9583 £|From Southampton to New York/0-no
+B0|3|82987_Mr. Guentcho Bostandyeff|male|26 years old|0|0|7.8958 £|From Southampton to New York/1-Si
+B0|3|24116_Mr. Patrick D O'Connell|male|18 years old|0|0|7.7333 £|From Southampton to Cherburgo/0-no
+e1|_1|96471_Mr. Algernon Henry Wilson Barkworth|male|80 years old|0|0|30 £|From Southampton to Cherburgo/0-no
+B0|3|21472_Mr. Johan Svensson Lundahl|male|51 years old|0|0|7.0542 £|From Southampton to New York/0-Si
+e1|_1|26862_Dr. Max Stahelin-Maeglin|male|32 years old|0|0|30.5 £|From Southampton to New York/0-Si
+B0|. 1 _/.|73423_Mr. William Henry Marsh Parr|male|30 years old|0|0|0 £|From Southampton to New York/0-no
+B0|3|68224_Miss. Mabel Skoog|F|9 years old|3|2|27.9 £|From Southampton to Cherburgo/0-no
+e1|2 _|07135_Miss. Mary Davis|F|28 years old|0|0|13 £|From Southampton to New York/1-Si
+B0|3|02764_Mr. Antti Gustaf Leinonen|male|32 years old|0|0|7.925 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|74856_Mr. Harvey Collyer|male|31 years old|1|1|26.25 £|From Southampton to New York/1-no
+B0|3|55836_Mrs. Juha (Maria Emilia Ojala) Panula|F|41 years old|0|5|39.6875 £|From Southampton to New York/1-no
+B0|3|13157_Mr. Percival Thorneycroft|male|37 years old|1|0|16.1 £|From Southampton to Queenstown/1-no
+B0|3|96541_Mr. Hans Peder Jensen|male|20 years old|0|0|7.8542 £|From Southampton to Queenstown/0-Si
+e1|_1|89889_Mlle. Emma Sagesser|F|24 years old|0|0|69.3 £|From Southampton to New York/1-no
+B0|3|82600_Miss. Margit Elizabeth Skoog|F|2 years old|3|2|27.9 £|From Southampton to New York/1-Si
+e1|3 _|45062_Mr. Choong Foo|male|32 years old|0|0|56.4958 £|From Southampton to New York/0-no
+e1|3 _|69489_Miss. Eugenie Baclini|F|0.75 years old|2|1|19.2583 £|From Southampton to New York/1-Si
+e1|_1|50202_Mr. Henry Sleeper Harper|male|48 years old|1|0|76.7292 £|From Southampton to Queenstown/1-Si
+B0|3|12925_Mr. Liudevit Cor|male|19 years old|0|0|7.8958 £|From Southampton to New York/0-no
+e1|_1|81045_Col. Oberst Alfons Simonius-Blumer|male|56 years old|0|0|35.5 £|From Southampton to Cherburgo/0-Si
+B0|3|38782_Mr. Edward Willey|male|21 years old|0|0|7.55 £|From Southampton to Queenstown/1-no
+e1|3 _|93865_Miss. Amy Zillah Elsie Stanley|F|23 years old|0|0|7.55 £|From Southampton to Cherburgo/1-no
+B0|3|17774_Mr. Mito Mitkoff|male|23 years old|0|0|7.8958 £|From Southampton to Queenstown/0-no
+e1|2 _|30427_Miss. Elsie Doling|F|18 years old|0|1|23 £|From Southampton to Queenstown/0-no
+B0|3|42681_Mr. Johannes Halvorsen Kalvik|male|21 years old|0|0|8.4333 £|From Southampton to Queenstown/0-Si
+e1|3 _|36401_Miss. Hanora O'Leary|F|16 years old|0|0|7.8292 £|From Southampton to Cherburgo/0-Si
+B0|3|40699_Miss. Hanora Hegarty|F|18 years old|0|0|6.75 £|From Southampton to New York/0-no
+B0|. 2 _/.|36310_Mr. Leonard Mark Hickman|male|24 years old|2|0|73.5 £|From Southampton to Cherburgo/0-Si
+B0|3|54258_Mr. Alexander Radeff|male|27 years old|0|0|7.8958 £|From Southampton to Cherburgo/0-Si
+B0|3|96962_Mrs. John (Catherine) Bourke|F|32 years old|1|1|15.5 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|38815_Mr. George Floyd Eitemiller|male|23 years old|0|0|13 £|From Southampton to Queenstown/0-Si
+B0|. 1 _/.|64333_Mr. Arthur Webster Newell|male|58 years old|0|2|113.275 £|From Southampton to Cherburgo/1-no
+e1|_1|00582_Dr. Henry William Frauenthal|male|50 years old|2|0|133.65 £|From Southampton to New York/1-Si
+B0|3|07213_Mr. Mohamed Badt|male|40 years old|0|0|7.225 £|From Southampton to Cherburgo/1-Si
+B0|. 1 _/.|54558_Mr. Edward Pomeroy Colley|male|47 years old|0|0|25.5875 £|From Southampton to Queenstown/1-no
+B0|3|10239_Mr. Peju Coleff|male|36 years old|0|0|7.4958 £|From Southampton to Cherburgo/0-no
+e1|3 _|61567_Mr. Eino William Lindqvist|male|20 years old|1|0|7.925 £|From Southampton to Queenstown/0-no
+B0|. 2 _/.|64700_Mr. Lewis Hickman|male|32 years old|2|0|73.5 £|From Southampton to Queenstown/0-no
+B0|. 2 _/.|72961_Mr. Reginald Fenton Butler|male|25 years old|0|0|13 £|From Southampton to New York/1-no
+B0|3|18714_Mr. Knud Paust Rommetvedt|male|49 years old|0|0|7.775 £|From Southampton to New York/0-Si
+B0|3|04954_Mr. Jacob Cook|male|43 years old|0|0|8.05 £|From Southampton to Cherburgo/0-Si
+e1|_1|10824_Mrs. Elmer Zebley (Juliet Cummins Wright) Taylor|F|48 years old|1|0|52 £|From Southampton to Cherburgo/1-Si
+e1|2 _|04611_Mrs. Thomas William Solomon (Elizabeth Catherine Ford) Brown|F|40 years old|1|1|39 £|From Southampton to New York/1-Si
+B0|. 1 _/.|12940_Mr. Thornton Davidson|male|31 years old|1|0|52 £|From Southampton to New York/1-no
+B0|. 2 _/.|83040_Mr. Henry Michael Mitchell|male|70 years old|0|0|10.5 £|From Southampton to Queenstown/0-Si
+e1|2 _|06415_Mr. Charles Wilhelms|male|31 years old|0|0|13 £|From Southampton to Cherburgo/0-Si
+B0|. 2 _/.|34841_Mr. Ennis Hastings Watson|male|19 years old|0|0|0 £|From Southampton to New York/1-no
+B0|3|09536_Mr. Gustaf Hjalmar Edvardsson|male|18 years old|0|0|7.775 £|From Southampton to Cherburgo/1-no
+B0|3|81786_Mr. Frederick Charles Sawyer|male|24.5 years old|0|0|8.05 £|From Southampton to Queenstown/0-no
+e1|3 _|43241_Miss. Anna Sofia Turja|F|18 years old|0|0|9.8417 £|From Southampton to Cherburgo/1-no
+B0|3|08629_Mrs. Frederick (Augusta Tyler) Goodwin|F|43 years old|1|6|46.9 £|From Southampton to Cherburgo/1-Si
+e1|_1|00063_Mr. Thomas Drake Martinez Cardeza|male|36 years old|0|1|512.3292 £|From Southampton to Cherburgo/1-no
+B0|3|65108_Miss. Katie Peters|F|28 years old|0|0|8.1375 £|From Southampton to Cherburgo/1-no
+e1|_1|20611_Mr. Hammad Hassab|male|27 years old|0|0|76.7292 £|From Southampton to Cherburgo/0-no
+B0|3|28762_Mr. Thor Anderson Olsvigen|male|20 years old|0|0|9.225 £|From Southampton to New York/1-no
+B0|3|06999_Mr. Charles Edward Goodwin|male|14 years old|5|2|46.9 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|89563_Mr. Thomas William Solomon Brown|male|60 years old|1|1|39 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|48272_Mr. Joseph Philippe Lemercier Laroche|male|25 years old|1|2|41.5792 £|From Southampton to Queenstown/0-no
+B0|3|92324_Mr. Jaako Arnold Panula|male|14 years old|4|1|39.6875 £|From Southampton to Queenstown/0-no
+B0|3|18270_Mr. Branko Dakic|male|19 years old|0|0|10.1708 £|From Southampton to Queenstown/1-no
+B0|3|57528_Mr. Eberhard Thelander Fischer|male|18 years old|0|0|7.7958 £|From Southampton to New York/0-Si
+e1|_1|00662_Miss. Georgette Alexandra Madill|F|15 years old|0|1|211.3375 £|From Southampton to Cherburgo/0-Si
+e1|_1|30982_Mr. Albert Adrian Dick|male|31 years old|1|0|57 £|From Southampton to New York/1-Si
+e1|3 _|21643_Miss. Manca Karun|F|4 years old|0|1|13.4167 £|From Southampton to Queenstown/0-no
+e1|3 _|10700_Mr. Ali Lam|male|37 years old|0|0|56.4958 £|From Southampton to Cherburgo/0-no
+B0|3|54360_Mr. Khalil Saad|male|25 years old|0|0|7.225 £|From Southampton to New York/0-Si
+B0|. 1 _/.|95964_Col. John Weir|male|60 years old|0|0|26.55 £|From Southampton to Queenstown/0-no
+B0|. 2 _/.|68743_Mr. Charles Henry Chapman|male|52 years old|0|0|13.5 £|From Southampton to New York/1-Si
+B0|3|37152_Mr. James Kelly|male|44 years old|0|0|8.05 £|From Southampton to Queenstown/1-no
+e1|3 _|86687_Miss. Katherine Mullens|F|19 years old|0|0|7.7333 £|From Southampton to New York/1-no
+B0|. 1 _/.|64524_Mr. John Borland Thayer|male|49 years old|1|1|110.8833 £|From Southampton to Cherburgo/0-no
+B0|3|01985_Mr. Adolf Mathias Nicolai Olsen Humblen|male|42 years old|0|0|7.65 £|From Southampton to Cherburgo/1-Si
+e1|_1|25960_Mrs. John Jacob (Madeleine Talmadge Force) Astor|F|18 years old|1|0|227.525 £|From Southampton to New York/1-Si
+e1|_1|76905_Mr. Spencer Victor Silverthorne|male|35 years old|0|0|26.2875 £|From Southampton to Queenstown/1-no
+B0|3|48001_Miss. Saiide Barbara|F|18 years old|0|1|14.4542 £|From Southampton to New York/1-Si
+B0|3|01157_Mr. Martin Gallagher|male|25 years old|0|0|7.7417 £|From Southampton to Cherburgo/1-Si
+B0|3|28449_Mr. Henrik Juul Hansen|male|26 years old|1|0|7.8542 £|From Southampton to New York/1-Si
+B0|. 2 _/.|71273_Mr. Henry Samuel Morley|male|39 years old|0|0|26 £|From Southampton to Cherburgo/0-no
+e1|2 _|87194_Mrs. Florence Kelly|F|45 years old|0|0|13.5 £|From Southampton to New York/0-Si
+e1|_1|92166_Mr. Edward Pennington Calderhead|male|42 years old|0|0|26.2875 £|From Southampton to New York/0-no
+e1|_1|77493_Miss. Alice Cleaver|F|22 years old|0|0|151.55 £|From Southampton to New York/1-Si
+e1|3 _|36645_Master. Halim Gonios Moubarek|male|4 years old|1|1|15.2458 £|From Southampton to Cherburgo/0-Si
+e1|_1|81222_Mlle. Berthe Antonine Mayne|F|24 years old|0|0|49.5042 £|From Southampton to Queenstown/1-no
+B0|. 1 _/.|91479_Mr. Herman Klaber|male|41 years old|0|0|26.55 £|From Southampton to New York/1-Si
+e1|_1|00960_Mr. Elmer Zebley Taylor|male|48 years old|1|0|52 £|From Southampton to Queenstown/0-no
+B0|3|88578_Mr. August Viktor Larsson|male|29 years old|0|0|9.4833 £|From Southampton to Cherburgo/1-no
+B0|. 2 _/.|99250_Mr. Samuel Greenberg|male|52 years old|0|0|13 £|From Southampton to Cherburgo/0-no
+B0|3|59582_Mr. Peter Andreas Lauritz Andersen Soholt|male|19 years old|0|0|7.65 £|From Southampton to New York/1-Si
+e1|_1|59375_Miss. Caroline Louise Endres|F|38 years old|0|0|227.525 £|From Southampton to Queenstown/0-no
+e1|2 _|34751_Miss. Edwina Celia Troutt|F|27 years old|0|0|10.5 £|From Southampton to Cherburgo/1-Si
+B0|3|20544_Mr. Malkolm Joackim Johnson|male|33 years old|0|0|7.775 £|From Southampton to New York/1-Si
+e1|2 _|91891_Miss. Annie Jessie Harper|F|6 years old|0|1|33 £|From Southampton to New York/1-Si
+B0|3|43389_Mr. Svend Lauritz Jensen|male|17 years old|1|0|7.0542 £|From Southampton to New York/0-no
+B0|. 2 _/.|29262_Mr. William Henry Gillespie|male|34 years old|0|0|13 £|From Southampton to New York/0-Si
+B0|. 2 _/.|98309_Mr. Henry Price Hodges|male|50 years old|0|0|13 £|From Southampton to New York/0-no
+e1|_1|92667_Mr. Norman Campbell Chambers|male|27 years old|1|0|53.1 £|From Southampton to New York/0-Si
+B0|3|92029_Mr. Luka Oreskovic|male|20 years old|0|0|8.6625 £|From Southampton to Cherburgo/0-no
+e1|2 _|33219_Mrs. Peter Henry (Lillian Jefferys) Renouf|F|30 years old|3|0|21 £|From Southampton to Queenstown/1-Si
+e1|3 _|48351_Miss. Margareth Mannion|F|28 years old|0|0|7.7375 £|From Southampton to Cherburgo/1-no
+B0|. 2 _/.|16426_Mr. Kurt Arnold Gottfrid Bryhl|male|25 years old|1|0|26 £|From Southampton to Cherburgo/0-Si
+B0|3|37503_Miss. Pieta Sofia Ilmakangas|F|25 years old|1|0|7.925 £|From Southampton to Queenstown/0-Si
+e1|_1|62603_Miss. Elisabeth Walton Allen|F|29 years old|0|0|211.3375 £|From Southampton to New York/1-Si
+B0|3|63996_Mr. Houssein G N Hassan|male|11 years old|0|0|18.7875 £|From Southampton to Queenstown/1-Si
+B0|. 2 _/.|07726_Mr. Robert J Knight|male|41 years old|0|0|0 £|From Southampton to Queenstown/1-Si
+B0|. 2 _/.|24808_Mr. William John Berriman|male|23 years old|0|0|13 £|From Southampton to New York/1-Si
+B0|. 2 _/.|93202_Mr. Moses Aaron Troupiansky|male|23 years old|0|0|13 £|From Southampton to Queenstown/0-Si
+B0|3|48174_Mr. Leslie Williams|male|28.5 years old|0|0|16.1 £|From Southampton to Cherburgo/0-no
+B0|3|52264_Mrs. Edward (Margaret Ann Watson) Ford|F|48 years old|1|3|34.375 £|From Southampton to Queenstown/0-no
+e1|_1|23049_Mr. Gustave J Lesurer|male|35 years old|0|0|512.3292 £|From Southampton to New York/0-Si
+B0|3|62174_Mr. Kanio Ivanoff|male|20 years old|0|0|7.8958 £|From Southampton to New York/0-Si
+B0|3|40749_Mr. Minko Nankoff|male|32 years old|0|0|7.8958 £|From Southampton to New York/1-Si
+e1|_1|42603_Mr. Walter James Hawksford|male|45 years old|0|0|30 £|From Southampton to Queenstown/1-Si
+B0|. 1 _/.|55650_Mr. Tyrell William Cavendish|male|36 years old|1|0|78.85 £|From Southampton to Queenstown/0-no
+e1|_1|98837_Miss. Susan Parker Ryerson|F|21 years old|2|2|262.375 £|From Southampton to Queenstown/1-Si
+B0|3|28955_Mr. Neal McNamee|male|24 years old|1|0|16.1 £|From Southampton to Cherburgo/1-no
+e1|3 _|49218_Mr. Juho Stranden|male|31 years old|0|0|7.925 £|From Southampton to Cherburgo/0-no
+B0|. 1 _/.|24130_Capt. Edward Gifford Crosby|male|70 years old|1|1|71 £|From Southampton to Queenstown/0-no
+B0|3|35348_Mr. Rossmore Edward Abbott|male|16 years old|1|1|20.25 £|From Southampton to Cherburgo/1-no
+e1|2 _|30961_Miss. Anna Sinkkonen|F|30 years old|0|0|13 £|From Southampton to Queenstown/0-no
+B0|. 1 _/.|11514_Mr. Daniel Warner Marvin|male|19 years old|1|0|53.1 £|From Southampton to Cherburgo/1-Si
+B0|3|90143_Mr. Michael Connaghton|male|31 years old|0|0|7.75 £|From Southampton to Cherburgo/1-Si
+e1|2 _|05179_Miss. Joan Wells|F|4 years old|1|1|23 £|From Southampton to Queenstown/0-Si
+e1|3 _|88068_Master. Meier Moor|male|6 years old|0|1|12.475 £|From Southampton to Cherburgo/1-no
+B0|3|12011_Mr. Johannes Joseph Vande Velde|male|33 years old|0|0|9.5 £|From Southampton to Queenstown/1-no
+B0|3|32681_Mr. Lalio Jonkoff|male|23 years old|0|0|7.8958 £|From Southampton to Cherburgo/0-Si
+e1|2 _|98263_Mrs. Samuel (Jane Laver) Herman|F|48 years old|1|2|65 £|From Southampton to Cherburgo/0-Si
+e1|2 _|35414_Master. Viljo Hamalainen|male|0.67 years old|1|1|14.5 £|From Southampton to Queenstown/0-no
+B0|3|73099_Mr. August Sigfrid Carlsson|male|28 years old|0|0|7.7958 £|From Southampton to New York/1-no
+B0|. 2 _/.|86884_Mr. Percy Andrew Bailey|male|18 years old|0|0|11.5 £|From Southampton to New York/0-no
+B0|3|88665_Mr. Thomas Leonard Theobald|male|34 years old|0|0|8.05 £|From Southampton to Queenstown/0-no
+e1|_1|03411_the Countess. of (Lucy Noel Martha Dyer-Edwards) Rothes|F|33 years old|0|0|86.5 £|From Southampton to Queenstown/1-Si
+B0|3|72390_Mr. John Garfirth|male|23 years old|0|0|14.5 £|From Southampton to New York/1-Si
+B0|3|16553_Mr. Iisakki Antino Aijo Nirva|male|41 years old|0|0|7.125 £|From Southampton to New York/1-no
+e1|3 _|34028_Mr. Hanna Assi Barah|male|20 years old|0|0|7.2292 £|From Southampton to New York/0-Si
+e1|_1|19379_Mrs. William Ernest (Lucile Polk) Carter|F|36 years old|1|2|120 £|From Southampton to New York/0-Si
+B0|3|35802_Mr. Hans Linus Eklund|male|16 years old|0|0|7.775 £|From Southampton to Cherburgo/0-Si
+e1|_1|37458_Mrs. John C (Anna Andrews) Hogeboom|F|51 years old|1|0|77.9583 £|From Southampton to Queenstown/0-no
+B0|. 1 _/.|02021_Dr. Arthur Jackson Brewe|male|46 years old|0|0|39.6 £|From Southampton to Queenstown/0-Si
+B0|3|94598_Miss. Mary Mangan|F|30.5 years old|0|0|7.75 £|From Southampton to Cherburgo/1-no
+B0|3|00414_Mr. Daniel J Moran|male|28 years old|1|0|24.15 £|From Southampton to New York/1-Si
+B0|3|86597_Mr. Daniel Danielsen Gronnestad|male|32 years old|0|0|8.3625 £|From Southampton to Queenstown/1-Si
+B0|3|93555_Mr. Rene Aime Lievens|male|24 years old|0|0|9.5 £|From Southampton to Queenstown/0-Si
+B0|3|81184_Mr. Niels Peder Jensen|male|48 years old|0|0|7.8542 £|From Southampton to Queenstown/1-no
+B0|. 2 _/.|86913_Mrs. (Mary) Mack|F|57 years old|0|0|10.5 £|From Southampton to New York/0-no
+B0|3|34040_Mr. Dibo Elias|male|29 years old|0|0|7.225 £|From Southampton to Queenstown/0-no
+e1|2 _|57235_Mrs. Elizabeth (Eliza Needs) Hocking|F|54 years old|1|3|23 £|From Southampton to Queenstown/0-no
+B0|3|83277_Mr. Pehr Fabian Oliver Malkolm Myhrman|male|18 years old|0|0|7.75 £|From Southampton to New York/0-no
+B0|3|21653_Mr. Roger Tobin|male|20 years old|0|0|7.75 £|From Southampton to Queenstown/1-no
+e1|3 _|93911_Miss. Virginia Ethel Emanuel|F|5 years old|0|0|12.475 £|From Southampton to New York/1-Si
+B0|3|10426_Mr. Thomas J Kilgannon|male|22 years old|0|0|7.7375 £|From Southampton to New York/0-Si
+e1|_1|64287_Mrs. Edward Scott (Elisabeth Walton McMillan) Robert|F|43 years old|0|1|211.3375 £|From Southampton to Cherburgo/0-Si
+e1|3 _|99094_Miss. Banoura Ayoub|F|13 years old|0|0|7.2292 £|From Southampton to Cherburgo/0-no
+e1|_1|75512_Mrs. Albert Adrian (Vera Gillespie) Dick|F|17 years old|1|0|57 £|From Southampton to New York/0-Si
+B0|. 1 _/.|65664_Mr. Milton Clyde Long|male|29 years old|0|0|30 £|From Southampton to Cherburgo/1-no
+B0|3|94921_Mr. Andrew G Johnston|male|35 years old|1|2|23.45 £|From Southampton to New York/0-Si
+B0|3|94924_Mr. William Ali|male|25 years old|0|0|7.05 £|From Southampton to New York/1-Si
+B0|3|32143_Mr. Abraham (David Lishin) Harmer|male|25 years old|0|0|7.25 £|From Southampton to New York/0-no
+e1|3 _|35419_Miss. Anna Sofia Sjoblom|F|18 years old|0|0|7.4958 £|From Southampton to New York/0-Si
+B0|3|14054_Master. George Hugh Rice|male|8 years old|4|1|29.125 £|From Southampton to Queenstown/0-no
+e1|3 _|64435_Master. Bertram Vere Dean|male|1 years old|1|2|20.575 £|From Southampton to New York/1-Si
+B0|. 1 _/.|32438_Mr. Benjamin Guggenheim|male|46 years old|0|0|79.2 £|From Southampton to New York/0-no
+B0|3|50623_Mr. Andrew Keane|male|20 years old|0|0|7.75 £|From Southampton to Queenstown/1-no
+B0|. 2 _/.|70995_Mr. Alfred Gaskell|male|16 years old|0|0|26 £|From Southampton to Queenstown/1-no
+B0|3|43321_Miss. Stella Anna Sage|F|21 years old|8|2|69.55 £|From Southampton to Cherburgo/0-no
+B0|. 1 _/.|78549_Mr. William Fisher Hoyt|male|43 years old|0|0|30.6958 £|From Southampton to Cherburgo/0-no
+B0|3|28013_Mr. Ristiu Dantcheff|male|25 years old|0|0|7.8958 £|From Southampton to Queenstown/1-no
+B0|. 2 _/.|06563_Mr. Richard Otter|male|39 years old|0|0|13 £|From Southampton to Cherburgo/0-no
+e1|_1|02457_Dr. Alice (Farnham) Leader|F|49 years old|0|0|25.9292 £|From Southampton to Queenstown/1-Si
+e1|3 _|43929_Mrs. Mara Osman|F|31 years old|0|0|8.6833 £|From Southampton to Cherburgo/1-Si
+B0|3|52178_Mr. Yousseff Ibrahim Shawah|male|30 years old|0|0|7.2292 £|From Southampton to New York/1-Si
+B0|3|12717_Mrs. Jean Baptiste (Rosalie Paula Govaert) Van Impe|F|30 years old|1|1|24.15 £|From Southampton to New York/1-no
+B0|. 2 _/.|35830_Mr. Martin Ponesell|male|34 years old|0|0|13 £|From Southampton to Cherburgo/1-no
+e1|2 _|88924_Mrs. Harvey (Charlotte Annie Tate) Collyer|F|31 years old|1|1|26.25 £|From Southampton to Queenstown/0-Si
+e1|_1|68723_Master. William Thornton II Carter|male|11 years old|1|2|120 £|From Southampton to Queenstown/1-Si
+e1|3 _|00946_Master. Assad Alexander Thomas|male|0.42 years old|0|1|8.5167 £|From Southampton to Queenstown/1-Si
+e1|3 _|46400_Mr. Oskar Arvid Hedman|male|27 years old|0|0|6.975 £|From Southampton to Queenstown/0-Si
+B0|3|25640_Mr. Karl Johan Johansson|male|31 years old|0|0|7.775 £|From Southampton to Queenstown/1-no
+B0|. 1 _/.|30093_Mr. Thomas Jr Andrews|male|39 years old|0|0|0 £|From Southampton to Queenstown/0-no
+B0|3|71480_Miss. Ellen Natalia Pettersson|F|18 years old|0|0|7.775 £|From Southampton to New York/1-no
+B0|. 2 _/.|67524_Mr. August Meyer|male|39 years old|0|0|13 £|From Southampton to New York/1-Si
+e1|_1|95634_Mrs. Norman Campbell (Bertha Griggs) Chambers|F|33 years old|1|0|53.1 £|From Southampton to Cherburgo/0-no
+B0|3|74491_Mr. William Alexander|male|26 years old|0|0|7.8875 £|From Southampton to New York/1-Si
+B0|3|03654_Mr. James Lester|male|39 years old|0|0|24.15 £|From Southampton to New York/0-no
+B0|. 2 _/.|65958_Mr. Richard James Slemen|male|35 years old|0|0|10.5 £|From Southampton to New York/1-no
+B0|3|39444_Miss. Ebba Iris Alfrida Andersson|F|6 years old|4|2|31.275 £|From Southampton to Cherburgo/0-no
+B0|3|20675_Mr. Ernest Portage Tomlin|male|30.5 years old|0|0|8.05 £|From Southampton to Cherburgo/1-no
+B0|. 1 _/.|16166_Mr. Richard Fry|male|39 years old|0|0|0 £|From Southampton to Cherburgo/0-Si
+B0|3|85428_Miss. Wendla Maria Heininen|F|23 years old|0|0|7.925 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|89772_Mr. Albert Mallet|male|31 years old|1|1|37.0042 £|From Southampton to New York/1-no
+B0|3|68529_Mr. John Fredrik Alexander Holm|male|43 years old|0|0|6.45 £|From Southampton to New York/0-no
+B0|3|99561_Master. Karl Thorsten Skoog|male|10 years old|3|2|27.9 £|From Southampton to Cherburgo/1-Si
+e1|_1|16224_Mrs. Charles Melville (Clara Jennings Gregg) Hays|F|52 years old|1|1|93.5 £|From Southampton to Queenstown/1-no
+e1|3 _|94594_Mr. Nikola Lulic|male|27 years old|0|0|8.6625 £|From Southampton to New York/0-Si
+B0|. 1 _/.|52717_Jonkheer. John George Reuchlin|male|38 years old|0|0|0 £|From Southampton to New York/1-no
+e1|3 _|60439_Mrs. (Beila) Moor|F|27 years old|0|1|12.475 £|From Southampton to New York/0-Si
+B0|3|04007_Master. Urho Abraham Panula|male|2 years old|4|1|39.6875 £|From Southampton to Cherburgo/0-no
+B0|3|95730_Mr. John Flynn|male|36 years old|0|0|6.95 £|From Southampton to New York/0-Si
+B0|3|08172_Mr. Len Lam|male|23 years old|0|0|56.4958 £|From Southampton to Cherburgo/0-no
+e1|2 _|89421_Master. Andre Mallet|male|1 years old|0|2|37.0042 £|From Southampton to Queenstown/0-Si
+e1|3 _|61733_Mr. Thomas Joseph McCormack|male|19 years old|0|0|7.75 £|From Southampton to New York/0-Si
+e1|_1|99203_Mrs. George Nelson (Martha Evelyn) Stone|F|62 years old|0|0|80 £|From Southampton to New York/0-Si
+e1|3 _|55150_Mrs. Antoni (Selini Alexander) Yasbeck|F|15 years old|1|0|14.4542 £|From Southampton to New York/1-no
+e1|2 _|68953_Master. George Sibley Richards|male|0.83 years old|1|1|18.75 £|From Southampton to Cherburgo/1-Si
+B0|3|19178_Mr. Amin Saad|male|30 years old|0|0|7.2292 £|From Southampton to New York/0-Si
+B0|3|41211_Mr. Albert Augustsson|male|23 years old|0|0|7.8542 £|From Southampton to Cherburgo/0-no
+B0|3|69084_Mr. Owen George Allum|male|18 years old|0|0|8.3 £|From Southampton to Queenstown/1-Si
+e1|_1|95763_Miss. Sara Rebecca Compton|F|39 years old|1|1|83.1583 £|From Southampton to New York/0-Si
+B0|3|30094_Mr. Jakob Pasic|male|21 years old|0|0|8.6625 £|From Southampton to New York/1-no
+B0|3|84848_Mr. Maurice Sirota|male|20 years old|0|0|8.05 £|From Southampton to Queenstown/0-no
+e1|3 _|35104_Mr. Chang Chip|male|32 years old|0|0|56.4958 £|From Southampton to New York/1-no
+e1|_1|66218_Mr. Pierre Marechal|male|29 years old|0|0|29.7 £|From Southampton to Cherburgo/0-Si
+B0|3|65083_Mr. Ilmari Rudolf Alhomaki|male|20 years old|0|0|7.925 £|From Southampton to Queenstown/1-no
+B0|. 2 _/.|16120_Mr. Thomas Charles Mudd|male|16 years old|0|0|10.5 £|From Southampton to New York/0-no
+e1|_1|53862_Miss. Augusta Serepeca|F|30 years old|0|0|31 £|From Southampton to Queenstown/1-no
+B0|3|73688_Mr. Peter L Lemberopolous|male|34.5 years old|0|0|6.4375 £|From Southampton to Cherburgo/1-Si
+B0|3|72933_Mr. Jeso Culumovic|male|17 years old|0|0|8.6625 £|From Southampton to Cherburgo/0-Si
+B0|3|00545_Mr. Anthony Abbing|male|42 years old|0|0|7.55 £|From Southampton to New York/0-Si
+B0|3|76691_Mr. Douglas Bullen Sage|male|18 years old|8|2|69.55 £|From Southampton to New York/1-no
+B0|3|25733_Mr. Marin Markoff|male|35 years old|0|0|7.8958 £|From Southampton to Queenstown/0-no
+B0|. 2 _/.|69928_Rev. John Harper|male|28 years old|0|1|33 £|From Southampton to New York/1-no
+e1|_1|57107_Mrs. Samuel L (Edwiga Grabowska) Goldenberg|F|40 years old|1|0|89.1042 £|From Southampton to Queenstown/0-no
+B0|3|62777_Master. Sigvard Harald Elias Andersson|male|4 years old|4|2|31.275 £|From Southampton to New York/0-no
+B0|3|95702_Mr. Johan Svensson|male|74 years old|0|0|7.775 £|From Southampton to Queenstown/0-no
+B0|3|92322_Miss. Nourelain Boulos|F|9 years old|1|1|15.2458 £|From Southampton to Cherburgo/0-no
+e1|_1|07907_Miss. Mary Conover Lines|F|16 years old|0|1|39.4 £|From Southampton to Queenstown/1-no
+B0|. 2 _/.|74897_Mrs. Ernest Courtenay (Lilian Hughes) Carter|F|44 years old|1|0|26 £|From Southampton to Cherburgo/1-Si
+e1|3 _|53927_Mrs. Sam (Leah Rosen) Aks|F|18 years old|0|1|9.35 £|From Southampton to Queenstown/1-Si
+e1|_1|60483_Mrs. George Dennick (Mary Hitchcock) Wick|F|45 years old|1|1|164.8667 £|From Southampton to New York/0-Si
+e1|_1|23299_Mr. Peter Denis Daly|male|51 years old|0|0|26.55 £|From Southampton to Cherburgo/1-no
+e1|3 _|06641_Mrs. Solomon (Latifa Qurban) Baclini|F|24 years old|0|3|19.2583 £|From Southampton to Queenstown/1-no
+B0|3|92259_Mr. Raihed Razi|male|30 years old|0|0|7.2292 £|From Southampton to New York/0-no
+B0|3|92366_Mr. Claus Peter Hansen|male|41 years old|2|0|14.1083 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|33626_Mr. Frederick Edward Giles|male|21 years old|1|0|11.5 £|From Southampton to Queenstown/1-Si
+e1|_1|42886_Mrs. Frederick Joel (Margaret Welles Barron) Swift|F|48 years old|0|0|25.9292 £|From Southampton to Cherburgo/1-no
+B0|3|20335_Miss. Dorothy Edith Sage|F|14 years old|8|2|69.55 £|From Southampton to Cherburgo/1-Si
+B0|. 2 _/.|01055_Mr. John William Gill|male|24 years old|0|0|13 £|From Southampton to Queenstown/0-no
+e1|2 _|11528_Mrs. (Karolina) Bystrom|F|42 years old|0|0|13 £|From Southampton to Cherburgo/1-Si
+e1|2 _|84308_Miss. Asuncion Duran y More|F|27 years old|1|0|13.8583 £|From Southampton to New York/0-Si
+B0|. 1 _/.|99774_Mr. Washington Augustus II Roebling|male|31 years old|0|0|50.4958 £|From Southampton to Queenstown/1-no
+B0|3|58086_Mr. Philemon van Melkebeke|male|23 years old|0|0|9.5 £|From Southampton to Queenstown/0-no
+e1|3 _|14939_Master. Harold Theodor Johnson|male|4 years old|1|1|11.1333 £|From Southampton to Queenstown/1-Si
+B0|3|54233_Mr. Cerin Balkic|male|26 years old|0|0|7.8958 £|From Southampton to Cherburgo/0-Si
+e1|_1|80113_Mrs. Richard Leonard (Sallie Monypeny) Beckwith|F|47 years old|1|1|52.5542 £|From Southampton to Cherburgo/1-no
+B0|. 1 _/.|60938_Mr. Frans Olof Carlsson|male|33 years old|0|0|5 £|From Southampton to New York/0-Si
+B0|3|92531_Mr. Victor Vander Cruyssen|male|47 years old|0|0|9 £|From Southampton to Cherburgo/0-no
+e1|2 _|92153_Mrs. Samuel (Hannah Wizosky) Abelson|F|28 years old|1|0|24 £|From Southampton to New York/0-Si
+e1|3 _|61081_Miss. Adele Kiamie Najib|F|15 years old|0|0|7.225 £|From Southampton to New York/1-Si
+B0|3|98535_Mr. Alfred Ossian Gustafsson|male|20 years old|0|0|9.8458 £|From Southampton to Cherburgo/0-Si
+B0|3|98985_Mr. Nedelio Petroff|male|19 years old|0|0|7.8958 £|From Southampton to Cherburgo/0-Si
+B0|3|21395_Mr. Kristo Laleff|male|23 years old|0|0|7.8958 £|From Southampton to Cherburgo/0-Si
+e1|_1|62950_Mrs. Thomas Jr (Lily Alexenia Wilson) Potter|F|56 years old|0|1|83.1583 £|From Southampton to Cherburgo/1-no
+e1|2 _|94903_Mrs. William (Imanita Parrish Hall) Shelley|F|25 years old|0|1|26 £|From Southampton to Cherburgo/1-no
+B0|3|06827_Mr. Johann Markun|male|33 years old|0|0|7.8958 £|From Southampton to Queenstown/1-no
+B0|3|41502_Miss. Gerda Ulrika Dahlberg|F|22 years old|0|0|10.5167 £|From Southampton to New York/1-Si
+B0|. 2 _/.|75400_Mr. Frederick James Banfield|male|28 years old|0|0|10.5 £|From Southampton to Queenstown/0-Si
+B0|3|70698_Mr. Henry Jr Sutehall|male|25 years old|0|0|7.05 £|From Southampton to New York/1-no
+B0|3|68342_Mrs. William (Margaret Norton) Rice|F|39 years old|0|5|29.125 £|From Southampton to Queenstown/0-Si
+B0|. 2 _/.|77214_Rev. Juozas Montvila|male|27 years old|0|0|13 £|From Southampton to New York/1-no
+e1|_1|29298_Miss. Margaret Edith Graham|F|19 years old|0|0|30 £|From Southampton to Queenstown/1-Si
+B0|3|78134_Miss. Catherine Helen Johnston|F|7 years old|1|2|23.45 £|From Southampton to New York/0-no
+e1|_1|71239_Mr. Karl Howell Behr|male|26 years old|0|0|30 £|From Southampton to Cherburgo/1-no
+B0|3|38465_Mr. Patrick Dooley|male|32 years old|0|0|7.75 £|From Southampton to Cherburgo/1-Si
