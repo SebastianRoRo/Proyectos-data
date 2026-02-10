@@ -1,0 +1,249 @@
+---
+title: "Análisis de Incidencia de Cáncer de Pulmón"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+date: "2025-03-25"
+---
+
+```{r setup, include=FALSE}
+rm(list = ls(all.names = TRUE))
+gc()
+library(ggplot2)
+
+#Cargamos nuestras librerías
+library(ggplot2)
+library(MASS)
+library(DHARMa)  
+library(multcomp)
+library(dplyr)
+library(car)
+
+#Cargamos nuestros datos y convertimos en factor a las covariables categóricas
+datos <- read.csv("https://raw.githubusercontent.com/SebastianRoRo/archivo_analisis/refs/heads/main/Incidencia_cancer.csv")
+datos$Age <- as.factor(datos$Age)
+datos$City <- as.factor(datos$City)
+str(datos)
+
+```
+
+## Incidencia de Cáncer de Pulmón en Dinamarca.
+
+Se nos proporciona una base de datos, con los casos de cáncer de pulmón en personas desde los 40 años a los 74, en cuatro ciudades de Dinamarca de 1968 a 1971. La edad de los pacientes está categorizada en 5 grupos, de 40 a 54, 55 a 59, 60 a 64, 65 a 69 y 70 a 74.
+
+Nuestro objetivo es ver si la probabilidad de presentar cáncer de pulmón aumenta al también aumentar la edad. Antes que nada veamos que no podemos hablar de los casos totales, pues no todas estas ciudades tienen la misma población, por lo que no sería justo comparar los valores absolutos. Por esta razón vamos a hablar de tasas de incidencia, dividiendo los casos entre la población.
+
+Ya que tenemos las tasas de incidencia, veamos la siguiente gráfica:
+
+```{r gráfica 1, include=FALSE}
+graf <-ggplot(data=datos, aes(x=Age,y=Cases/Pop, colour=City))+ geom_point()+
+  labs(
+    x = "Edad",
+    y = "Tasa de Incidencia (Cases/Pop)",
+    title = "Tasas de Incidencia de Cáncer de Pulmón (por edad y ciudad)"
+  )
+  theme_minimal()
+```
+
+```{r, echo=FALSE, fig.width=5, fig.height=3, fig.align='center'}
+
+print(graf)
+```
+
+Podemos ver en general un crecimiento de las tasas de incidencia respecto a la edad. Tanto en Fredericia como en Kolding, podemos notar un crecimiento constante, pero en Vejle y Horsens si vemos un decrecimiento en cierta edad, para después volver a crecer. Esto se puede deber a muchas causas, como cuidados personales y de la salud. Pero en general si vemos menor incidencia para las edades 40 a 54, que de 70 a 74.
+
+Para el análisis de este caso primero veremos un modelo donde incluyamos las covariables Age y City, así como sus interacciones:
+
+```{r, include=FALSE}
+datos$logPop <- log(datos$Pop) 
+```
+
+```{r modelo poisson con interacciones}
+modeloP1 <- glm(Cases ~ offset(logPop) + Age*City, family = poisson(link = "log"), data = datos) 
+```
+
+```{r, include=FALSE}
+summary(modeloP1)
+```
+
+Este modelo tiene muchas interacciones pues las covariables son categóricas, entonces tenemos un modelo muy complejo, por lo que también vamos a ver un modelo mas simple que solamente incluya a la covariable Age:
+
+```{r modelo poisson solo con Age}
+modeloP2 <-glm(Cases ~ offset(logPop) + Age, family = poisson(link = "log"), data = datos)
+```
+
+```{r, include=FALSE}
+summary(modeloP2)
+```
+
+```{r comparación de modelos, include=FALSE}
+c(AIC(modeloP1), AIC(modeloP2))
+```
+
+Comparamos los dos modelos usando AIC, y el resultado de esta nos indica que podemos usar el modelo más simple, es decir, el modelo que solo contiene a la covariable Age.
+
+Ahora, este modelo que tenemos es usando la distribución Poisson con liga logarítmica, pero ajustemos el modelo usando la distribución binomial negativa con liga logarítmica.
+
+```{r, include=FALSE}
+modeloBN <- glm.nb(Cases ~ offset(logPop) + Age, data = datos, link = "log")
+summary(modeloBN)
+
+c(AIC(modeloP2), AIC(modeloBN))
+```
+
+Comparamos ambos modelos usando AIC, y decidimos usar el modelo poisson.
+
+```{r verificación de supuestos,include=FALSE}
+set.seed(1234)
+fitres <- simulateResiduals(fittedModel = modeloP2)
+plot(fitres)
+```
+
+Ya que tenemos un modelo que determinamos que hasta ahorita es el “mejor” para nuestro análisis, verificamos los supuestos, y vemos que si se cumplen, por lo que podemos seguir trabajando con este.
+
+Ahora, usando el modelo escogido, es decir el que tiene distribución Poisson, vamos a calcular los intervalos de confianza simultáneos y vamos a observarlos sobre nuestra primera gráfica:
+
+```{r, echo=FALSE, message=FALSE,warning=FALSE, fig.width=5, fig.height=3, fig.align='center'}
+K = matrix(c(1,0,0,0,0,
+                1,1,0,0,0,
+                1,0,1,0,0,
+                1,0,0,1,0,
+                1,0,0,0,1), ncol=5, nrow=5, byrow=TRUE)
+fitE <- glht(modeloP2,linfct = K)
+fitci <- confint(fitE, level = 0.9)
+
+ci_data <- data.frame(
+  Age = levels(datos$Age),
+  est = exp(fitci$confint[, "Estimate"]),
+  lower = exp(fitci$confint[, "lwr"]),
+  upper = exp(fitci$confint[, "upr"])
+)
+
+
+ggplot(data = datos, aes(x = Age, y = Cases/Pop, colour = City)) +
+  geom_point(size = 3, alpha = 0.7) +
+  # Intervalos de confianza del modelo
+  geom_errorbar(
+    data = ci_data,
+    aes(y = est, ymin = lower, ymax = upper),
+    color = "black", width = 0.3, size = .5
+  ) +
+  geom_point(
+    data = ci_data,
+    aes(y = est), color = "black", size = 2
+  ) +
+  labs(
+    x = "Edad",
+    y = "Tasa de Incidencia (Cases/Pop)",
+    title = "Tasas de Incidencia con ICs Simultáneos"
+  ) +
+  theme_classic()
+
+```
+
+Al ver nuestros intervalos podemos notar que hay unos significativamente más grandes que otros, en específico nuestro intervalo de confianza de 40 a 54 años es mucho más pequeño que cualquier otro. Esto podría tener varias razones, una de ellas podría ser el tamaño de la muestra, ya que es bastante pequeña, pero también nos podría indicar que en los intervalos más grandes hay menor precisión en la estimación y en los más cortos hay mayor certeza sobre el valor estimado. En general seguimos viendo una tendencia creciente, podemos indicar que comparando el grupo de 40 a 54 contra todos los demás, a mayor edad si hay mayor incidencia de cáncer de pulmón, sin embargo no podemos afirmar lo mismo para los demás grupos de edad, pues nuestros intervalos se traslapan mucho, por lo que las diferencias que observamos podrían no ser tan significativas.
+
+Ya que el usar a Age como categórica podría dificultar nuestra interpretación, lo que haremos será crear una nueva variable llamada Ageprima, usando el punto medio de cada intervalo de edad, y así usarla como una coovariable continua y no categórica. Con esta nueva variable ajustamos dos nuevos modelos, uno poisson y otro binomial negativo, y tenemos el siguiente modelo:
+
+$log(\mu) = \beta_0 + \beta_1 * ageprima + log(Pop)$
+
+Consideramos la opción de incluir a Ageprima\^2 en nuestro modelo y nuestro nuevo modelo nos quedaría de la siguiente forma:
+
+$log(\mu) = \beta_0 + \beta_1 * ageprima + \beta_2 * ageprima^2 + log(Pop)$
+
+```{r, include=FALSE}
+datos <- datos %>%
+  mutate(ageprima=case_when(
+    Age == "40-54"~40.5,
+    Age == "55-59"~57,
+    Age == "60-64"~62,
+    Age == "65-69"~67,
+    Age == "70-74"~72
+  ))
+
+modeloP3 <- glm(Cases ~ offset(logPop) + ageprima, family = poisson(link = "log"), data = datos)  
+modeloP3cuad <- glm(Cases ~ offset(logPop) + ageprima + I(ageprima**2), family = poisson(link = "log"), data = datos)  
+modeloBN1 <- glm.nb(Cases ~ offset(logPop) + ageprima, data = datos, link = "log")
+modeloBN1cuad <- glm.nb(Cases ~ offset(logPop) + ageprima + I(ageprima**2), data = datos, link = "log")
+
+anova(modeloP3, modeloP3cuad,test="Chisq") #Rechazamos que el modelo más simple sea plausible
+anova(modeloBN1, modeloBN1cuad,test="Chisq")#Rechazamos que el modelo más simple sea plausible
+c(AIC(modeloP3cuad), AIC(modeloBN1cuad))
+#Nos quedamos con el modelo poisson con Ageprima al cuadrado
+set.seed(1234)
+fitres1 <- simulateResiduals(fittedModel = modeloP3cuad)
+plot(fitres1)
+#Cumple los supuestos
+summary(modeloP3cuad)
+```
+
+Comparamos nuestros 4 modelos, primero el poisson complejo contra el más simple usando anova, luego lo mismo con el binomial negativo, para ambos llegamos a la conclusión de que no hay evidencia suficiente que nos diga que el modelo simple es plausible, por lo que nos quedamos con los que incluyen a ageprima\^2. Comparamos estos 2 modelos restantes, el poisson y el binomial negativo, y por AIC nos decidimos por usar el modelo poisson, que se ve de la siguiente manera:
+
+```{r}
+modeloP3cuad <- glm(Cases ~ offset(logPop) + ageprima + I(ageprima**2), family = poisson(link = "log"), data = datos) 
+```
+
+Lo que queremos ver es si la función es creciente, para esto tenemos que ver si la derivada de nuestro modelo es mayor a 0 en nuestra malla de edades. Por lo que hacemos pruebas de hipótesis simultaneas donde comparamos:
+
+$H_0: Derivada \leq 0 \quad vs. \quad H_a: Derivada > 0$
+
+es decir
+
+$H_0: \beta_1+2*\beta_2*ageprima \leq 0 \ vs. \ H_a: \beta_1+2*\beta_2*ageprima > 0$
+
+```{r prueba de hipotesis, include=FALSE}
+derivada <- matrix(
+  c(0, 1, 2*47,  
+    0, 1, 2*72), nrow = 2, byrow = TRUE)
+colnames(derivada) <- names(coef(modeloP3cuad))
+m=c(0,0)
+
+#Pruebas simultáneas (H0: derivada <= 0 vs H1: derivada > 0)
+prueba <- glht(modeloP3cuad, linfct = derivada, rhs = m,alternative = "greater")
+
+# 3. Resultados con corrección para múltiples pruebas
+summary(prueba)
+
+
+malla_edades <- seq(40, 74, by = 1) 
+# Extraer coeficientes del modelo
+coefs <- coef(modeloP3cuad)
+n_coef <- length(coefs)
+
+# Matriz de contrastes: 1 fila por edad en la malla
+K <- matrix(0, nrow = length(malla_edades), ncol = n_coef)
+colnames(K) <- names(coefs)
+
+# Llenar la matriz con los coeficientes de la derivada
+for (i in 1:length(malla_edades)) {
+  K[i, "ageprima"] <- 1  # Coeficiente de ageprima
+  K[i, "I(ageprima^2)"] <- 2 * malla_edades[i]  # Coeficiente de ageprima^2
+}
+
+# Ajustar contrastes
+prueba_malla <- glht(modeloP3cuad, linfct = K, rhs = 0, alternative = "greater")
+
+summary(prueba_malla)
+```
+
+Los resultados que nos regresa son algo interesantes, pues nuestra hipótesis se rechaza desde la edad 40 hasta la edad 69, es decir en el intervalo de edades de 40 a 69 años no hay suficiente evidencia para rechazar que la derivada es mayor a 0, por lo que podemos decir que nuestra función es creciente dentro de esas edades, sin embargo de 70 a 74 no podemos decir lo mismo, pues nuestra prueba de hipótesis se rechaza y no hay suficiente evidencia para rechazar que no es creciente en este intervalo.
+
+Por todo esto, con los datos proporcionados, podemos llegar a la conclusión que a mayor edad si hay mayor incidencia de cáncer de pulmón de la edad de 40 años a 69 años. Esto podría ser así por varias circunstancias, por ejemplo, el cáncer de pulmón normalmente se da tras años de exposición a factores que afectan a los pulmones, por lo que entre más tiempo de exposición tengas a estos factores más será la probabilidad de contraer cáncer, o simplemente porque entre alguien tenga mayor edad, su sistema inmunológico se vuelve menos eficiente, y es más fácil que estos factores los afecten.
+
+En la siguiente gráfica podemos observar nuestra conclusión, la cual es que, en efecto, a mayor edad la tasa de incidencia de cáncer de pulmón es mayor en un intervalo de 40 a 69 años:
+
+```{r, echo=FALSE, message=FALSE,warning=FALSE, fig.width=5, fig.height=3, fig.align='center'}
+datos$predicciones <- predict(modeloP3cuad, type = "response") / datos$Pop
+
+datos$Incidencia <- datos$Cases/datos$Pop
+
+ggplot(datos, aes(x = ageprima, y = Incidencia)) +
+  geom_line(aes(y = predicciones), size = 1, color = "purple") + 
+  scale_x_continuous(limits = c(40,69))+
+  labs(title = "Tasa de Incidencia de Cáncer de Pulmón",
+       x = "Edad",
+       y = "Tasa de Incidencia",
+       color = "Ciudad") +
+  theme_minimal()
+```
