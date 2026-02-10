@@ -3,7 +3,8 @@ This repository contains a collection of projects focused on the application of 
 
 ### EDA. Data cleaning and exploratory analysis using Python and pandas. (Python)
 [CODE][https://github.com/SebastianRoRo/Proyectos-data/blob/main/EDA/Code/LimpiezaDatos.ipynb]
-[HTML][
+[HTML][https://github.com/SebastianRoRo/Proyectos-data/blob/main/EDA/HTML/LimpiezaDatos.html]
+
 --- 
 
 ## Statistical Analysis (R)
