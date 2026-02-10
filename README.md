@@ -14,18 +14,18 @@ This repository contains a collection of projects focused on the application of 
 ---
 
 ## Statistical Analysis (R)
-### Análisis estadístico a la incidencia de cáncer de pulmón. (aplicación de modelos lineales generalizados)
+### Lung Cancer Analysis. (R) [GLM for Count Data] 
 - [CODE][https://github.com/SebastianRoRo/Proyectos-data/tree/main/StatisticalAnalysis/GLM/Code/Incidencia_cancer.Rmd]
 - [HTML][https://sebastianroro.github.io/Proyectos-data/StatisticalAnalysis/GLM/HTML/Incidencia_cancer.html]
 
 ---
 
-### Statistical analysis of university students' opinions regarding master's and doctoral programs. (R)
+### Statistical analysis of university students' opinions regarding master's and doctoral programs. (R) [GLM for Categorical Data]
 - [CODE][https://github.com/SebastianRoRo/Proyectos-data/tree/main/StatisticalAnalysis/GLM%20for%20Categorical%20Data/Code/Universitarios_opinion2.Rmd]
 - [HTML][https://sebastianroro.github.io/Proyectos-data/StatisticalAnalysis/GLM%20for%20Categorical%20Data/HTML/Universitarios_opinion2.html]
 
 ---
 
-### Insecticides Analysis. (R)
+### Insecticides Analysis. (R) [GLM for Binary Data]
 - [CODE][https://github.com/SebastianRoRo/Proyectos-data/tree/main/StatisticalAnalysis/GLM%20for%20Binary%20Data/Code/Insecticidas.Rmd]
 - [HTML][https://sebastianroro.github.io/Proyectos-data/StatisticalAnalysis/GLM%20for%20Binary%20Data/HTML/Insecticidas.html]
