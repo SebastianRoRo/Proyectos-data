@@ -2,8 +2,8 @@
 This repository contains a collection of projects focused on the application of statistical methods and data analysis techniques.
 
 ### EDA. Data cleaning and exploratory analysis using Python and pandas. (Python)
-[CODE[
-
+[CODE][https://github.com/SebastianRoRo/Proyectos-data/blob/main/EDA/Code/LimpiezaDatos.ipynb]
+[HTML][
 --- 
 
 ## Statistical Analysis (R)
