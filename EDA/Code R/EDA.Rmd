@@ -1,0 +1,260 @@
+---
+title: "Análisis Exploratorio de datos"
+author: "Romero Rossano Sebastián"
+output: html_document
+date: "2024-12-01"
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(dplyr)
+library(tidyverse)
+```
+
+Hagamos un análisis exploratorio rápido a los datos, para ver a qué nos vamos a encontrar.
+
+```{r, echo=FALSE}
+ruta <- "C:/Users/sebro/Downloads/BD_Supervivencia.csv"
+datos <- read.csv(ruta)
+datos <- data.frame(datos)
+head(datos)
+```
+
+La base de datos está muy cruda, necesitando muchos cambios, entonces empecemos. Primero, agregaremos las columnas correspondientes de forma separada.
+
+```{r, echo=FALSE}
+library(stringr)
+
+datos[c('Survived', 'Pclass', 'CP_Name', 'Sex', 'Age', 'Siblings/Spouses Aboard', 'Parents/Children Aboard', 'Fare', 'FROM.TO.LUGGAGE.PET')] <- str_split_fixed(datos$Survived.Pclass.CP_Name.Sex.Age.Siblings.Spouses.Aboard.Parents.Children.Aboard.Fare.FROM.TO.LUGGAGE.PET
+, '\\|', 9)
+
+bd_base <- datos[c('Survived', 'Pclass', 'CP_Name', 'Sex', 'Age', 'Siblings/Spouses Aboard', 'Parents/Children Aboard', 'Fare', 'FROM.TO.LUGGAGE.PET')]
+bd <- datos[c('Survived', 'Pclass', 'CP_Name', 'Sex', 'Age', 'Siblings/Spouses Aboard', 'Parents/Children Aboard', 'Fare', 'FROM.TO.LUGGAGE.PET')]
+head(bd)
+
+```
+
+Una vez traducida nuestra base de datos a R y separadas en sus respectivas columnas, hagamos los siguientes pasos.
+
+# Minería de datos.
+
+Convirtamos las variables de Parents/Children Aboard y Siblings/Spouses a tipo numérico.
+
+En base a lo realizado en el chunk 'r SibPar', tenemos que:
+```{r SibPar, echo=FALSE}
+bd$`Siblings/Spouses Aboard` <- as.numeric(bd$`Siblings/Spouses Aboard`)
+bd$`Parents/Children Aboard` <- as.numeric(bd$`Parents/Children Aboard`)
+
+print(
+  paste(
+    'La variable Siblings/Spouses Aboard es:',
+    class(bd$`Siblings/Spouses Aboard`),
+    ', y la variable Parents/Children Aboard es:',
+    class(bd$`Parents/Children Aboard`)
+  )
+)
+```
+Empecemos con el resto de las columnas.
+
+## 1. Limpieza del campo Survived de tal manera que solo tenga los valores numéricos 1 o 0.
+
+Entonces, básicamente lo que haremos es eliminar aquellas letras B, e dependiendo de la que toque. Una vez hecho esto, tendremos caracteres en vez de números, entonces después de eliminar estas letras, pasemos nuestros caracteres a números.
+
+Previa a la transformación, nuestro campo se ve tal que:
+
+```{r echo=FALSE}
+head(bd$Survived)
+```
+
+
+Gracias a lo obtenido en el chunk 'r Survived', vemos que al limpiar la columna, solamente nos quedan los datos:
+
+```{r Survived, echo=FALSE}
+bd$Survived <- substr(bd$Survived, 2,2)
+bd$Survived <- as.numeric(bd$Survived)
+distinct(bd, Survived)
+```
+
+## 2. Limpieza del campo Pclase, solo tendrá valores numéricos del 1 al 3.
+
+Entonces, para esta lo que haremos es primero quitar sus signos que no nos importan, después de ésto quitaremos espacios para que solo nos queden los números para finalmente convertirlo a tipo de dato numérico.
+
+Antes de hacer la limpieza, nuestro campo se ve de la siguiente forma:
+
+```{r echo=FALSE}
+head(bd$Pclass)
+```
+
+Ahora, gracias al chunk 'r Pclass', vemos que al limpiar el campo y después de quitar los signos los únicos resultados son:
+
+```{r Pclass, echo=FALSE}
+bd$Pclass <- as.numeric(trimws(gsub( "[[:punct:]]", "" ,bd$Pclass)))
+distinct(bd,Pclass)
+```
+
+## 3. Separación del campo CP_Name en dos:
+#####   i. CP: solo los primeros 5 dígitos en formato numérico.
+#####   ii. Nombre: debe contener solo letras, sin acentos y todo en mayúscula. En los casos donde venga un nombre entre paréntesis se debe dejar solo este nombre, por ejemplo “63196_Mrs. (Mary D Kingcome) Hewlett” solo debe quedar “Mary D kingcome”.
+
+Previo a la separación de columnas, el campo se ve de la siguiente forma:
+
+```{r echo=FALSE}
+head(bd$CP_Name)
+```
+
+
+Primero separemos en 2, en CP y Nombre, cosa que haremos gracias a que la separación de estas dos variables es "_", entonces con lo realizado en el chunk 'r CPName' nos quedan las columnas separadas de la siguiente forma:
+
+```{r CPName, echo=FALSE}
+bd$CP <- substr(bd$CP_Name, 1, regexpr("_", bd$CP_Name) - 1)
+bd$Nombre <- substr(bd$CP_Name, regexpr(" ", bd$CP_Name) + 1, nchar(bd$CP_Name))
+# Una vez separadas las varaibles, eliminemos la que tiene ambos datos juntos.
+bd <- bd[,-3]
+head(bd[, c("CP", "Nombre")])
+```
+
+Una vez hecho esto, separemos los nombres como mencionamos con anterioridad.
+
+```{r echo=FALSE}
+columnas <- grepl( "\\(| \\)", bd$Nombre) #se pone de esa forma porque el paréntesis es una cadena de caracter especial, donde si la buscas solo con "(" da error.
+
+bd$Nombre[columnas] <- sub(".*\\(([^)]+)\\).*", "\\1", bd$Nombre[columnas])
+
+head(bd[, c("CP", "Nombre")])
+```
+Por lo que, podemos confirmar que aquellos datos que tienen nombres entre paréntesis, han quedado modificados.
+
+Una vez separados estos datos, convirtamos a CP como número tal que:
+
+```{r CP, echo=FALSE}
+bd$CP <- as.numeric(bd$CP)
+
+print(
+  paste(
+    'La variable CP es de tipo:',
+    class(bd$CP)
+  )
+)
+```
+
+## 4. Homologar el campo Sex, solo debe tener 2 categorías, M y F, en mayúsculas.
+
+Primero vemos con las variables distintas con las que nos estamos encontrando para después hacer los cambios:
+
+```{r DifSex, echo=FALSE}
+distinct(bd, Sex)
+```
+
+Entonces, con ayuda del chunk 'r separacion' tenemos que ahora las categorías son:
+```{r echo=FALSE}
+bd <- bd %>%
+  mutate(Sex = case_when(
+    Sex %in% c("F", "female") ~ "F",
+    Sex %in% c("M", "male") ~ "M",
+    TRUE ~ Sex 
+  ))
+distinct(bd,Sex)
+```
+Por lo que, de la mano de dplyr, hemos cambiado esta variable.
+
+## 5. Cambio del campo Age, solo tendrá datos numéricos tipo entero, donde lo redondearemos al menor entero.
+
+Después de hacer una exploración rápida tenemos que en la base hay 2 casos, donde nos dice 'X years' y 'X years old', así que quitaremos ambos casos de la columna, luego quitaremos espacios para finalmente volverlo dato numérico y finalmente tomar la función piso para redondearlo al menor entero.
+
+Antes de la limpieza tenemos:
+```{r echo=FALSE}
+head(bd$Age)
+```
+
+Ahora, procedemos a la limpieza donde con lo realizado en el chunk 'r Age' nos resulta:
+
+```{r echo=FALSE}
+bd$Age <- gsub( "years old","", bd$Age )
+bd$Age <- gsub( "years","", bd$Age )
+bd$Age <- floor(as.integer(trimws(bd$Age)))
+bd$Age <- as.integer(bd$Age)
+
+print(
+  paste(
+    'La variable Age es de tipo:',
+    class(bd$Age)
+  )
+)
+```
+Y los datos quedaron de la siguiente forma:
+
+```{r echo=FALSE}
+head(bd$Age)
+```
+
+
+## 6. Quitar los datos especiales del campo Fare, de tal manera que solo queden datos numéricos decimales.
+
+Tenemos que al ver la base de datos, al verla en Excel teníamos el símbolo de euros y al pasarlo a R se convirtió en \ xa3, entonces después de una investigación descubrimos que se debe a que hubo un cambio en la codificación para la moneda. Entonces lo que haremos es modificarla para que tengamos el formato de moneda y de ahí agarramos nuestros datos numéricos.
+
+¿El por qué tenemos que cambiar la codificación? Porque de no hacerlo nos dará un error. Con ayuda del chunk 'r Fare', nos resulta:
+
+```{r echo=FALSE}
+text_utf8 <- iconv(bd$Fare, from = "ISO-8859-1", to = "UTF-8")
+# Una vez hecha la modificación, hagamos el cambio de forma normal
+bd$Fare <- floor(as.numeric(gsub("[^0-9.]", "", text_utf8)))
+
+print(
+  paste(
+    'La variable Fare es de tipo:',
+    class(bd$Fare)
+  )
+)
+```
+
+```{r echo=FALSE}
+head(bd$Fare)
+```
+
+## 7. Segmentación de la variable FROM.TO.LUGGAGE.PET de tal forma que: 
+
+FROM: primera ciudad de donde parte
+
+TO: la segunda ciudad, hacia donde se dirige
+
+LUGGAGE: 1 si tiene equipaje, 0 si no.
+
+PET: Si si cuenta con equipaje documentado, 0 si no.
+
+La columna inicial (que eliminaremos posteriormente) se veía así:
+
+```{r echo=FALSE}
+head(bd$FROM.TO.LUGGAGE.PET)
+```
+
+Y con el chunk 'r luggPack' lo resolvimos tal que:
+
+```{r echo=FALSE}
+bd <- bd %>%
+  mutate(
+    From = str_match(FROM.TO.LUGGAGE.PET,
+                     "From\\s+(.*?)\\s+to\\s+(.*?)/(\\d+)-(.*)")[,2],
+    To = str_match(FROM.TO.LUGGAGE.PET,
+                   "From\\s+(.*?)\\s+to\\s+(.*?)/(\\d+)-(.*)")[,3],
+    Luggage = str_match(FROM.TO.LUGGAGE.PET,
+                        "From\\s+(.*?)\\s+to\\s+(.*?)/(\\d+)-(.*)")[,4],
+    Pet = str_match(FROM.TO.LUGGAGE.PET,
+                    "From\\s+(.*?)\\s+to\\s+(.*?)/(\\d+)-(.*)")[,5]
+  ) %>%
+  select(-FROM.TO.LUGGAGE.PET)
+
+head(bd[, c("From", "To", "Luggage", "Pet")])
+```
+
+Así que, finalmente, primero veamos cómo teníamos la base inicial:
+
+```{r echo=FALSE}
+head(bd_base)
+```
+
+Y ahora, veamos cuál fue nuestro trabajo final:
+
+```{r echo=FALSE}
+head(bd)
+```
+
+Pudiendo concluir que logramos hacer un buen análisis exploratorio de nuestra base de datos.
