@@ -1,0 +1,371 @@
+---
+title: "Un análisis a los universitarios ¿Quieren maestría/doctorado?"
+date: "2025-03-29"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+
+```{r cd, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(GGally)
+library(multcomp) 
+library(car)
+library(broom)
+library(purrr)
+library(VGAM)
+library(gridExtra)
+```
+
+```{r Datos, include= FALSE}
+mtr <- read.csv("https://raw.githubusercontent.com/SebastianRoRo/Proyectos-an-lisis/refs/heads/main/CollegeData.csv")
+head(mtr)
+summary(mtr)
+```
+
+Analicemos acerca de la muestra aleatoria con la que contamos, donde buscamos ver que de los 400 estudiantes encuestados, ver los que sí tienen algún interés en aplicar una maestría o doctorado, al igual que sobre los que no tengan interés.
+
+Como primera parte de este análisis, presentemos una gráfica donde podremos ver cómo se distribuye la frecuencia de las respuestas, tomando en cuenta el tipo de universidad del que vienen, así como ver si sus padres cursaron algún tipo de posgrado.
+
+```{r Cat, echo=FALSE, warning=FALSE, out.width="85%", fig.align = "center"}
+library(tidyr)
+
+mtr$pared <- factor(mtr$pared, levels = c(0, 1), labels = c('No', 'Sí'))
+mtr$public <- factor(mtr$public, levels = c(0, 1), labels = c("Private", "Public"))
+mtr$apply <- factor(mtr$apply, levels = c("unlikely", "somewhat likely", "very likely"))
+mtr$unos <- 1
+
+
+ggplot(mtr, aes(x = pared, fill = apply)) +
+  geom_bar(aes(label = apply), position = position_dodge(width = 0.9), vjust = -0.5) + 
+  
+  facet_grid(. ~ mtr$public) +
+  
+  labs( title = "Gráfica de frecuencias", x = "Posgrado", y = "Frecuencia") 
+```
+
+En base a la gráfica presentada para empezar notamos como la proporción de los estudiantes preguntados fueron en mayor medida de escuelas privadas.
+
+Posteriormente, podemos notar una clara tendencia sobre todo en aquellos que estudiaron en escuela privada y que sus padres no han tomado algún tipo de posgrado, con una obvia tendencia a que no es probable que tomen alguna maestría o doctorado. Es más, podemos ver que en la mayoría de las 4 categorías es más probable que no se tome algún estudio extra, el único caso donde es más probable que sí se tome es para aquellos que son de escuelas privadas y sus padres sí tomaron algún posgrado, esto a priori tiene sentido pues como son de escuelas privadas, podemos pensar que cuentan con el capital para hacerlo y ven a sus padres con algún posgrado y quieren seguir sus pasos.
+
+Ya habiendo analizado las interacciones entre estudiantes con diferente tipo de escuela y diferente tipo de estudio de los padres, ahora analicemos en base al rendimiento que tienen estos.
+
+```{r Cont, echo=FALSE, out.width="85%", fig.align = "center"}
+
+ggplot(mtr, aes(x = apply, y = gpa, fill = apply)) +
+  geom_boxplot(color = 'black') +
+  labs(title = 'Boxplot según el rendimiento', x = 'Probabilidad de elegir maestría', y = 'Rendimiento')
+
+```
+
+En este caso, tenemos que los resultados no se disparan de una forma tan evidente como por ejemplo en el gráfico anterior, pero sí podemos observar que aquellos que tienen una mejor media en su rendimiento académico tienden más hacia sí querer cursar una maestría o doctorado, mientras que los que menos quieren tomar esto son aquellos donde su media es menor. Esto tiene sentido porque aquellos que tienen mejor rendimiento académico querrán enriquecerse de más conocimiento, mientras que los que tienen un rendimiento académico menor, es menos probable que quieran extender sus conocimientos de esta forma.
+
+Ahora analizaremos el modelo con interacciones y sin interacciones y después decidiremos con qué modelo nos quedaremos.
+
+```{R ModComp, echo = FALSE, include = FALSE, warnings = FALSE}
+# Ahora pasemos a modelar.Primero el modelo completo
+
+mtr_comp <- vglm(apply ~ pared * public * gpa , 
+                 family = multinomial(refLevel = "unlikely"),
+                 data = mtr)
+summary(mtr_comp)
+
+```
+
+
+```{r ModR, echo=FALSE, include=FALSE}
+# Ahora, analicemos el modelo reducido que no tiene interacciones y, posteriormente, aplicamos el anova para ver si nos quedamos con el modelo completo o el modelo reducido
+mtr_red <- vglm(apply ~ pared + public + gpa , 
+                 family = multinomial(refLevel = "unlikely"),
+                 data = mtr)
+
+summary(mtr_red)
+```
+
+```{r ModNull, echo=FALSE, include=FALSE}
+
+mtr_null <- vglm(apply ~ 1, 
+                 family = multinomial(refLevel = "unlikely"),
+                 data = mtr)
+
+summary(mtr_null)
+```
+
+```{r ComModNC, echo=FALSE, include=FALSE}
+# Para ver en un principio qué modelo usar, haremos uso de la función anova donde en base a el p-value que tengamos, veremos si usaremos el modelo resumido, o el modelo completo, primero analicemos el completo vs. el que solo tiene al intercepto.
+
+anova(mtr_null, mtr_comp, type = "I")
+
+# Debido a nuestra significancia del 0.05 podemos trabajar con el modelo completo
+
+```
+
+```{r ComModNR, echo=FALSE, include=FALSE}
+# Ahora analicemos el modelo reducido vs. modelo con solo intercepto
+
+anova(mtr_null, mtr_red, type = "I")
+
+# Con un nivel de significancia del 0.05 decimos que podemos utilizar el modelo reducido.
+
+```
+
+```{r CompModCR, echo=FALSE, include=FALSE}
+# Finalmente, vemos modelo completo vs. modelo reducido
+
+anova(mtr_red, mtr_comp, type = "I")
+
+```
+
+Gracias a lo visto en el chunk 'r CompModCR' podemos ver que no hay evidencia en contra de preferir el modelo sin interacciones, así que podríamos usar el modelo reducido.
+
+Como medida extra, veamos el AIC del modelo completo, así como del modelo reducido, para ver si podemos fortalecer más nuestras conclusiones.
+
+```{r AICMCompSR, echo=FALSE}
+
+print(paste("El AIC del modelo considerando interacciones es: ", AIC(mtr_comp)))
+
+print(paste("El AIC del modelo sin considerar interacciones es: ", AIC(mtr_red)))
+
+```
+
+Viendo que, en efecto, nos ayuda a tomar una conclusión, donde el AIC del modelo sin interacciones es mejor, por lo que nos quedaremos de momento con el modelo sin interacciones.
+
+Ahora, como tenemos respuestas que van desde el muy probable, al probable hasta el poco probable, estamos lidiando con un modelo ordinal, donde según la respuesta, tiene mayor o menor peso que las otras según lo que queremos ver, entonces si hacemos un análisis tenemos que, al no tomar en cuenta las probabilidades proporcionales y después considerando las probabilidades proporcionales analizaremos esto y veremos con qué modelo nos quedamos.
+
+```{r SProbaPr, echo=FALSE, warning=FALSE, include=FALSE}
+
+# Empezamos ajustando el modelo sin probabilidades proporcionales
+
+mtr_nopr <- vglm(apply ~ pared+public+gpa,
+                 family = cumulative(parallel = FALSE),
+                 data = mtr)
+
+summary(mtr_nopr)
+```
+
+```{r CProbaPr, echo=FALSE, warning = FALSE, include=FALSE}
+# Proseguimos a ajustar el modelo, ahora considerando las probabilidades proporcionales.
+
+mtr_sipr <- vglm(apply ~ pared+public+gpa,
+                 family = cumulative(parallel = TRUE),
+                 data = mtr)
+
+summary(mtr_sipr)
+
+```
+
+```{r noVar, echo=FALSE, warning=FALSE, include=FALSE}
+# Ajustamos el modelo sin variables para compararlo con los 2 anteriores.
+mtr_noV <- vglm(apply ~ 1, 
+                family = cumulative(parallel = FALSE),
+                    data = mtr)
+
+summary(mtr_noV)
+```
+
+```{r PFNPr, echo=FALSE, include=FALSE}
+# Nuevamente, ocupamos la función anova para ver si podemos usar algún modelo con probas proporcionales, empezamos con modelo ConProbasProp vs. modelo solo con intercepto.
+
+anova(mtr_noV, mtr_sipr, test = "LR", type = "I")
+
+# Veremos que se rechaza la hipótesis nula, por lo que podríamos trabajar con el modelo considerando proporcionalidad.
+```
+
+```{r PHNNPr, echo=FALSE, include=FALSE}
+# Ahora, analicemos el modelo SinProbaProp vs. modelo con solo intercepto.
+
+anova(mtr_nopr, mtr_noV, test = "LR", type = "I")
+
+# Veremos que se rechaza la hipótesis nula, por lo que podríamos trabajar con el modelo no considerando proporcionalidad.
+
+```
+
+```{r PHPro, echo=FALSE, include=FALSE, warning=FALSE}
+# Finalmente, analicemos el modelo ConProbaProp vs. modelo SinProbaProp
+
+anova(mtr_nopr, mtr_sipr, test = "LR", type = "I")
+
+```
+
+Por lo que vemos en el chunk 'r PHPro', no hay evidencia que rechace nuestra hipótesis nula, por lo que podría ser buena idea quedarnos con el modelo reducido, es decir, el modelo que tiene probabilidades proporcionales.
+
+Como extra complementario, veamos los AIC del modelo considerando proporcionalidad y sin considerarla, para poder tener una decisión más clara.
+
+```{r AICmPr, echo=FALSE}
+
+print(paste("El AIC del modelo considerando proporcionalidad es: ", AIC(mtr_sipr)))
+
+print(paste("El AIC del modelo sin considerar proporcionalidad es: ", AIC(mtr_nopr)))
+```
+
+Coincidiendo en que el modelo considerando proporcionalidad tiene un AIC mejor que el que no considera proporcionalidad, por lo que nos quedaremos con el modelo que sí considera proporcionalidad.
+
+Ahora, contamos con dos posibles modelos para usar, para poder tomar una decisión de si tomar el modelo reducido del inicio o el modelo con probas proporcionales que acabamos de elegir, veamos los AIC.
+
+```{r AIC_nominal, echo=FALSE}
+
+data.frame("Nominal"=c(AIC(mtr_red)), "ProbaProp" = c(AIC(mtr_sipr)))
+
+```
+
+Al tener que se calculan de diferente forma tanto el modelo nominal como el ordinal, vemos que, gracias a los AIC, el del modelo con probabilidades proporcionales es mejor, decidiendo entonces que, en nuestro caso este es el modelo que usaremos.
+
+Veamos como quedarían nuestros coeficientes de nuestro modelo elegido:
+
+```{r Coef, echo=FALSE, include=FALSE}
+
+coef(mtr_sipr, matrix = TRUE)
+
+```
+
+Por lo que nos quedaría lo siguiente:
+
+$$\beta_{0}^{(i)} + \beta_{1}X_{ConPosgrado} + \beta_{2}X_{EscuelaPública} + \beta_{3}X_{GPA}$$
+
+Una vez visto los coeficientes, obtengamos las probabilidades estimadas de cada respuesta que obtuvimos según las combinaciones del tipo de universidad y si sus padres estudiaron algún posgrado.
+
+```{r datos, echo=FALSE}
+difGpa <- c(min(mtr$gpa), 
+                seq(min(mtr$gpa), max(mtr$gpa), length.out = 5)[-c(1, 5)], 
+                max(mtr$gpa))
+
+# Con posgrado y escuela pública
+posgPub <- predict(mtr_sipr, 
+                   newdata = data.frame(pared = factor("Sí", levels = c("No", "Sí")),
+                   public = factor("Public", levels = c("Private", "Public")),
+                   gpa = difGpa),
+                   type = "response")
+
+# Con posgrado y escuela privada
+posgPriv <- predict(mtr_sipr, 
+                    newdata = data.frame(pared = factor("Sí", levels = c("No", "Sí")),
+                    public = factor("Private", levels = c("Private", "Public")),
+                    gpa = difGpa),
+                    type = "response")
+
+# Sin posgrado y escuela pública.
+NPosgP <- predict(mtr_sipr, 
+                  newdata = data.frame(pared = factor("No", levels = c("No", "Sí")),
+                  public = factor("Public", levels = c("Private", "Public")),
+                  gpa = difGpa),
+                  type = "response")
+
+# Sin posgrado y escuela privada
+NPosgPr <- predict(mtr_sipr, 
+                   newdata = data.frame(pared = factor("No", levels = c("No", "Sí")),
+                   public = factor("Private", levels = c("Private", "Public")),
+                   gpa = difGpa),
+                   type = "response")
+
+# Vemos c/proba
+# FreqSíPosgrado y escuela pública
+FreqSiP <- data.frame(GPA = difGpa,
+                      Unlikely = posgPub[, 1],
+                      Somewhat_Likely = posgPub[, 2],
+                      Very_Likely = posgPub[, 3])
+# FreqSíPosgrado y escuela privada
+FreqSiPr <- data.frame(GPA = difGpa,
+                       Unlikely = posgPriv[, 1],
+                       Somewhat_Likely = posgPriv[, 2],
+                       Very_Likely = posgPriv[, 3])
+# FreqNoPosgrsado y escuela pública
+FreqNoP <- data.frame(GPA = difGpa,
+                      Unlikely = NPosgP[, 1],
+                      Somewhat_Likely = NPosgP[, 2],
+                      Very_Likely = NPosgP[, 3])
+# FreqNoPosgrsado y escuela privada
+FreqNoPr <- data.frame(GPA = difGpa,
+                       Unlikely = NPosgPr[, 1],
+                       Somewhat_Likely = NPosgPr[, 2],
+                       Very_Likely = NPosgPr[, 3])
+
+```
+
+```{r long, echo=FALSE}
+# Hacemos los datos tipo long
+
+# Con posgrado y escuela pública
+data_long1 <- pivot_longer(FreqSiP, cols = c(Unlikely, Somewhat_Likely, Very_Likely),
+                           names_to = "Respuesta", values_to = "Probabilidad")
+
+# Con posgrado y escuela privada
+data_long2 <- pivot_longer(FreqSiPr, cols = c(Unlikely, Somewhat_Likely, Very_Likely),
+                           names_to = "Respuesta", values_to = "Probabilidad")
+
+# Sin posgrado y escuela pública
+data_long3 <- pivot_longer(FreqNoP, cols = c(Unlikely, Somewhat_Likely, Very_Likely),
+                           names_to = "Respuesta", values_to = "Probabilidad")
+
+# Sin posgrado y escuela privada
+data_long4<- pivot_longer(FreqNoPr, cols = c(Unlikely, Somewhat_Likely, Very_Likely),
+                          names_to = "Respuesta", values_to = "Probabilidad")
+
+```
+
+```{r graf1, echo=FALSE, fig.width=12, fig.height=6}
+
+g1 <- ggplot(data_long1, aes(x = GPA, y = Probabilidad, fill = Respuesta)) +
+  geom_bar(stat = "identity", position = "fill") +
+  labs(title = "Probas con posgrado y escuela pública", x = "Rendminiento", y = "Probabilidad")
+
+g2 <- ggplot(data_long2, aes(x = GPA, y = Probabilidad, fill = Respuesta)) +
+  geom_bar(stat = "identity", position = "fill") +
+  labs(title = "Probas con posgrado y escuela privada", x = "Rendminiento", y = "Probabilidad")
+
+grid.arrange(g1, g2, ncol = 2)  # ncol = 2 para que estén en una fila
+
+```
+
+```{r graf3, echo=FALSE, fig.width=12, fig.height=6}
+g3 <- ggplot(data_long3, aes(x = GPA, y = Probabilidad, fill = Respuesta)) +
+  geom_bar(stat = "identity", position = "fill") +
+  labs(title = "Probas Sin posgrado y escuela pública", x = "Rendminiento", y = "Probabilidad")
+
+g4 <- ggplot(data_long4, aes(x = GPA, y = Probabilidad, fill = Respuesta)) +
+  geom_bar(stat = "identity", position = "fill") +
+  labs(title = "Probas Sin posgrado y escuela privada", x = "Rendminiento", y = "Probabilidad")
+
+grid.arrange(g3, g4, ncol = 2)  # ncol = 2 para que estén en una fila
+
+```
+
+```{r PHPosg, echo=FALSE, warning=FALSE, include=FALSE, include=FALSE}
+# Vamos a probar con el uso de la tabla ANOVA en base a nuestros 5 coeficientes. Veamos el efecto de si los padres cursaron algún posgrado
+
+k = matrix(c(0, 0, 1, 0, 0), ncol = 5, nrow = 1, byrow = TRUE)
+m = c(0)
+summary(glht(mtr_sipr, linfct = k, rhs = m), test =Chisqtest())
+
+# Podemos ver que, al rechazar la hipótesis nula, el que los padres hayan cursado un posgrado tiene un efecto significativo en la decisión de sus hijos.
+
+```
+
+```{r PHesc, echo=FALSE, include=FALSE}
+# Veamos el efecto del tipo de escuela
+
+k = matrix(c(0, 0, 0, 1, 0), ncol = 5, nrow = 1, byrow = TRUE)
+m = c(0)
+summary(glht(mtr_sipr, linfct = k, rhs = m), test =Chisqtest())
+
+# Al ver que no rechazamos la hipótesis nula, tenemos que no hay evidencia para poder afirmar que tiene un efecto significativo el tipo de escuela de la que vienen.
+```
+
+```{r PHgpa, echo=FALSE, include=FALSE, warning= FALSE}
+# Veamos el efecto del GPA
+
+k = matrix(c(0, 0, 0, 0, 1), ncol = 5, nrow = 1, byrow = TRUE)
+m = c(0)
+summary(glht(mtr_sipr, linfct = k, rhs = m), test =Chisqtest())
+
+# Podemos ver que, al rechazar la hipótesis nula, el promedio tiene un efecto significativo a la hora de tomar esta decisión.
+```
+
+Podemos ver que, tanto para aquellos que estuvieron en escuela pública como en escuela privada donde en ningún caso alguno de sus padres cursó algún posgrado, sus hijos no tienen tanto interés en cursar alguno, pues podríamos atribuirlo a que como sus padres no tienen, a ellos no les parecerá tan importante, por lo que es significativo tomar en cuenta si los padres tomaron algún posgrado.
+
+Por otro lado, vemos que aquellos estudiantes cuyos padres cursaron algún tipo de posgrado (tanto para aquellos de escuelas privadas como para los de pública), tienen un mayor interés en cursar un posgrado, posiblemente se deba a que como sus padres cursaron alguno, al llegar a esta etapa les habrán inculcado la importancia y relevancia de cursar uno.
+
+
+Y finalmente, podemos ver que, en cuanto mejor rendimiento tenga el estudiante, más probable es que quiera cursar algún posgrado. Para todos los casos podemos ver que el tipo de escuela es un aspecto que no tiene tanta relevancia como los otros casos que mencionamos.
