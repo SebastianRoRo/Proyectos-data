@@ -7,7 +7,7 @@ This repository contains a collection of projects focused on the application of 
 
 --- 
 
-### EDA. Data cleaning and exploratory analysis using Python and pandas. (R)
+### EDA. Data cleaning and exploratory analysis using R and dplyr. (R)
 - [CODE][https://github.com/SebastianRoRo/Proyectos-data/blob/main/EDA/Code%20R/EDA.Rmd]
 - [HTML][https://sebastianroro.github.io/Proyectos-data/EDA/HTML%20R/EDA.html]
 
