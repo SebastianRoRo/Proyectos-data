@@ -2,12 +2,16 @@
 This repository contains a collection of projects focused on the application of statistical methods and data analysis techniques.
 
 ### EDA. Data cleaning and exploratory analysis using Python and pandas. (Python)
-- [CODE][https://github.com/SebastianRoRo/Proyectos-data/blob/main/EDA/Code/LimpiezaDatos.ipynb]
+- [CODE][https://github.com/SebastianRoRo/Proyectos-data/blob/main/EDA/Code%20Python/LimpiezaDatos.ipynb]
 - [HTML][https://sebastianroro.github.io/Proyectos-data/EDA/HTML%20Python/LimpiezaDatos.html]
 
-https://github.com/SebastianRoRo/Proyectos-data/tree/main/EDA/HTML%20Python
-
 --- 
+
+### EDA. Data cleaning and exploratory analysis using Python and pandas. (R)
+- [CODE][https://github.com/SebastianRoRo/Proyectos-data/blob/main/EDA/Code%20R/EDA.Rmd]
+- [HTML][https://sebastianroro.github.io/Proyectos-data/EDA/HTML%20R/EDA.html]
+
+---
 
 ## Statistical Analysis (R)
 ### Análisis estadístico a la incidencia de cáncer de pulmón. (aplicación de modelos lineales generalizados)
