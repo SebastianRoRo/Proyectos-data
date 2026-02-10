@@ -9,7 +9,7 @@ This repository contains a collection of projects focused on the application of 
 
 ## Statistical Analysis (R)
 ### Análisis estadístico a la incidencia de cáncer de pulmón. (aplicación de modelos lineales generalizados)
-- [CODE][https://sebastianroro.github.io/Proyectos-data/GLM/Code/Incidencia_cancer.Rmd]
+- [CODE][https://github.com/SebastianRoRo/Proyectos-data/tree/main/StatisticalAnalysis/GLM/Code/Incidencia_cancer.Rmd]
 - [HTML][https://sebastianroro.github.io/Proyectos-data/GLM/HTML/Incidencia_cancer.html]
 
 ---
