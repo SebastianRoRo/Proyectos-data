@@ -3,8 +3,8 @@ This repository contains a collection of projects focused on the application of 
 
 ### Relational Database System for Hostel Management. (MySQL)
 
-[Code][https://github.com/SebastianRoRo/Proyectos-data/blob/main/SQL/Scripts/proyecto_final.sql]
-[Output][https://github.com/SebastianRoRo/Proyectos-data/blob/main/SQL/Output/Proyecto_final.txt]
+- [Code][https://github.com/SebastianRoRo/Proyectos-data/blob/main/SQL/Scripts/proyecto_final.sql]
+- [Output][https://github.com/SebastianRoRo/Proyectos-data/blob/main/SQL/Output/Proyecto_final.txt]
 
 ---
 
