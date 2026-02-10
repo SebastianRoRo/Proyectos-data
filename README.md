@@ -1,6 +1,13 @@
 # Proyectos-data
 This repository contains a collection of projects focused on the application of statistical methods and data analysis techniques.
 
+### Relational Database System for Hostel Management. (MySQL)
+
+[Code][https://github.com/SebastianRoRo/Proyectos-data/blob/main/SQL/Scripts/proyecto_final.sql]
+[Output][https://github.com/SebastianRoRo/Proyectos-data/blob/main/SQL/Output/Proyecto_final.txt]
+
+---
+
 ### EDA. Data cleaning and exploratory analysis using Python and pandas. (Python)
 - [CODE][https://github.com/SebastianRoRo/Proyectos-data/blob/main/EDA/Code%20Python/LimpiezaDatos.ipynb]
 - [HTML][https://sebastianroro.github.io/Proyectos-data/EDA/HTML%20Python/LimpiezaDatos.html]
