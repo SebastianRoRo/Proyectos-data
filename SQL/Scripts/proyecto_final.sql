@@ -1,0 +1,1800 @@
+/* =====================================================
+-- Proyecto Final. Bases de datos
+-- Romero Rossano Sebastián
+*/
+-- ========================================================
+
+DROP DATABASE IF EXISTS bd_proyecto_final;
+CREATE DATABASE bd_proyecto_final;
+USE bd_proyecto_final;
+
+#                                                     ╔══════════•●•══════════╗
+#                                                           CREAMOS TABLAS
+#                                                     ╚══════════•●•══════════╝    
+
+
+
+#                                                ┏━━━━━━━━━━━━━━━━━━━┓
+#                                                      MARKETING 
+#                                                ┗━━━━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `marketing` ;
+CREATE TABLE IF NOT EXISTS `marketing` (
+  `id_marketing` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `tipo_de_anuncio` VARCHAR(50) NOT NULL,
+  `ubicacion` VARCHAR(50) NOT NULL ,
+  PRIMARY KEY (`id_marketing`));
+
+
+#                                                ┏━━━━━━━━━━━━━━━━━━━┓
+#                                                       CLIENTE 
+#                                                ┗━━━━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `cliente` ;
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `id_cliente` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre_cliente` VARCHAR(10) NOT NULL ,
+  `apellido_paterno` VARCHAR(10) NOT NULL ,
+  `apellido_materno` VARCHAR(10) NOT NULL ,
+  `forma_pago` ENUM('efectivo', 'tarjeta') NULL DEFAULT 'efectivo',
+  `RFC` VARCHAR(30) ,
+  `telefono` CHAR(10) NOT NULL,
+  `email` VARCHAR(30) NULL ,
+  PRIMARY KEY (`id_cliente`));
+
+
+#                                               ┏━━━━━━━━━━━━━━━━━━━━━┓
+#                                                 CLIENTE - MARKETING
+#                                               ┗━━━━━━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `cliente_marketing` ;
+CREATE TABLE IF NOT EXISTS `cliente_marketing` (
+  `id_cliente` INT UNSIGNED NOT NULL,
+  `id_marketing` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id_cliente`, `id_marketing`),
+  CONSTRAINT `FK_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_marketing` FOREIGN KEY (`id_marketing`) REFERENCES `marketing` (`id_marketing`) ON DELETE CASCADE ON UPDATE CASCADE);
+
+
+#                                                ┏━━━━━━━━━━━━━━━━━━━┓
+#                                                       HUESPED 
+#                                                ┗━━━━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `huesped` ;
+CREATE TABLE IF NOT EXISTS `huesped` (
+  `id_huesped` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre_huesped` VARCHAR(10) NULL ,
+  `apellido_paterno` VARCHAR(10) NULL ,
+  `apellido_materno` VARCHAR(10) NULL ,
+  `telefono` CHAR(10) NOT NULL,
+  PRIMARY KEY (`id_huesped`));
+
+
+#                                                ┏━━━━━━━━━━━━━━━━━━━┓
+#                                                      PROMOCION 
+#                                                ┗━━━━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `promocion` ;
+CREATE TABLE IF NOT EXISTS `promocion` (
+  `id_promocion` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `descripcion` VARCHAR(50)  ,
+  `descuento` DECIMAL(2,2) NOT NULL,
+  `condiciones` VARCHAR(50) ,
+  PRIMARY KEY (`id_promocion`));
+
+
+#                                                ┏━━━━━━━━━━━━━━━━━━━┓
+#                                                  	    AGENCIA 
+#                                                ┗━━━━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `agencia` ;
+CREATE TABLE IF NOT EXISTS `agencia` (
+  `id_agencia` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_cliente` INT UNSIGNED NOT NULL,
+  `id_huesped` INT UNSIGNED NOT NULL,
+  `id_promocion` INT UNSIGNED NOT NULL DEFAULT 1,
+  `nombre_agencia` VARCHAR(30) NOT NULL ,
+  `telefono` CHAR(10) NOT NULL,
+  `email` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`id_agencia`),
+  CONSTRAINT `FK_cliente_reserva`FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_huesped` FOREIGN KEY (`id_huesped`) REFERENCES `huesped` (`id_huesped`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_promo` FOREIGN KEY (`id_promocion`) REFERENCES `promocion` (`id_promocion`) ON DELETE CASCADE ON UPDATE CASCADE);
+
+
+#                                                ┏━━━━━━━━━━━━━━━━┓
+#                                                      ESTADO 
+#                                                ┗━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `estado` ;
+CREATE TABLE IF NOT EXISTS `estado` (
+  `id_estado` INT AUTO_INCREMENT PRIMARY KEY,
+  `nombre` VARCHAR(30) );
+
+
+#                                                ┏━━━━━━━━━━━━━━━┓
+#                                                    MUNICIPIO 
+#                                                ┗━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `municipio` ;
+CREATE TABLE IF NOT EXISTS `municipio` (
+  `id_municipio` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre_m` VARCHAR(30) NOT NULL,
+  `id_estado` INT NOT NULL,
+  PRIMARY KEY (`id_municipio`),
+  CONSTRAINT `FK_Es_Mu` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`));
+
+
+#                                                ┏━━━━━━━━━━━━━━┓
+#                                                     CIUDAD 
+#                                                ┗━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `ciudad` ;
+CREATE TABLE IF NOT EXISTS `ciudad` (
+  `id_ciudad` INT NOT NULL AUTO_INCREMENT,
+  `id_municipio` INT UNSIGNED NOT NULL,
+  `nombre_cd` VARCHAR(45) ,
+  PRIMARY KEY (`id_ciudad`),
+  CONSTRAINT `fk_cd_muni` FOREIGN KEY (`id_municipio`) REFERENCES `municipio` (`id_municipio`));
+
+
+#                                                ┏━━━━━━━━━━━━━━━┓
+#                                                     COLONIA 
+#                                                ┗━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `colonia` ;
+CREATE TABLE IF NOT EXISTS `colonia` (
+  `id_colonia` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_ciudad` INT NOT NULL,
+  `nombre_col` VARCHAR(30) NOT NULL,
+  `CP` CHAR(5) NOT NULL ,
+  PRIMARY KEY (`id_colonia`),
+  CONSTRAINT `fk_colonia_ciudad1` FOREIGN KEY (`id_ciudad`) REFERENCES `ciudad` (`id_ciudad`) ON DELETE NO ACTION ON UPDATE NO ACTION);
+
+
+#                                                ┏━━━━━━━━━━━━━━┓
+#                                                    SUCURSAL 
+#                                                ┗━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `sucursal` ;
+CREATE TABLE IF NOT EXISTS `sucursal` (
+  `id_sucursal` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre_sucursal` VARCHAR(30) NOT NULL,
+  `telefono` CHAR(10) NOT NULL,
+  `total_habitaciones` TINYINT NOT NULL,
+  PRIMARY KEY (`id_sucursal`));
+
+
+#                                                ┏━━━━━━━━━━━━━━━┓
+#                                                    DIRECCION 
+#                                                ┗━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `direccion` ;
+CREATE TABLE IF NOT EXISTS `direccion` (
+  `id_direccion` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre_calle` VARCHAR(40) NULL ,
+  `num_exterior` INT NOT NULL,
+  `num_interior` INT NOT NULL,
+  `id_colonia` INT UNSIGNED NOT NULL,
+  `id_sucursal` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id_direccion`),
+  CONSTRAINT `FK_Co_Di` FOREIGN KEY (`id_colonia`) REFERENCES `colonia` (`id_colonia`),
+  CONSTRAINT `FK_Su_Di` FOREIGN KEY (`id_sucursal`) REFERENCES `sucursal` (`id_sucursal`));
+
+
+#                                                ┏━━━━━━━━━━━━━━━━┓
+#                                                    HABITACION 
+#                                                ┗━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `habitacion` ;
+CREATE TABLE IF NOT EXISTS `habitacion` (
+  `id_habitacion` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `precio` DOUBLE NOT NULL,
+  `tipo` ENUM('Sencilla', 'Doble', 'Suite') DEFAULT 'Sencilla',
+  `disponibilidad` ENUM('Disponible', 'No disponible') DEFAULT 'Disponible',
+  `vistas` VARCHAR(100)  ,
+  `id_sucursal` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id_habitacion`),
+  CONSTRAINT `FK_Ha_Su` FOREIGN KEY (`id_sucursal`) REFERENCES `sucursal` (`id_sucursal`));
+
+
+#                                                ┏━━━━━━━━━━━━━━━━┓
+#                                                     RESERVA 
+#                                                ┗━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `reserva` ;
+CREATE TABLE IF NOT EXISTS `reserva` (
+  `id_reserva` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `fecha_inicio` DATE NOT NULL ,
+  `fecha_fin` DATE NOT NULL ,
+  `estado` VARCHAR(15) NOT NULL ,
+  `id_cliente` INT UNSIGNED NOT NULL,
+  `id_sucursal` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id_reserva`),
+  CONSTRAINT `FK_RE_CL` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`),
+  CONSTRAINT `FK_RE_SU` FOREIGN KEY (`id_sucursal`) REFERENCES `sucursal` (`id_sucursal`));
+
+
+#                                               ┏━━━━━━━━━━━━━━━━━━━━┓
+#                                                 RESERVA-HABITACION
+#                                               ┗━━━━━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `reserva_habitacion` ;
+CREATE TABLE IF NOT EXISTS `reserva_habitacion` (
+  `id_reserva` INT UNSIGNED NOT NULL,
+  `id_habitacion` INT UNSIGNED NOT NULL,
+  CONSTRAINT FOREIGN KEY (`id_reserva`) REFERENCES `reserva` (`id_reserva`),
+  CONSTRAINT FOREIGN KEY (`id_habitacion`) REFERENCES `habitacion` (`id_habitacion`));
+
+
+#                                               ┏━━━━━━━━━━━━━━━━━━━━━┓
+#                                                  HUESPED - RESERVA
+#                                               ┗━━━━━━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `huesped_reserva` ;
+CREATE TABLE IF NOT EXISTS `huesped_reserva` (
+  `id_reserva` INT UNSIGNED NOT NULL,
+  `id_huesped` INT UNSIGNED NOT NULL,
+  CONSTRAINT `FK_r_r` FOREIGN KEY (`id_reserva`) REFERENCES `reserva` (`id_reserva`),
+  CONSTRAINT `FK_h_h` FOREIGN KEY (`id_huesped`) REFERENCES `huesped` (`id_huesped`));
+
+
+#                                               ┏━━━━━━━━━━━━━━━━━━━━━┓
+#                                                  AGENCIA - RESERVA
+#                                               ┗━━━━━━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `agencia_reserva` ;
+CREATE TABLE IF NOT EXISTS `agencia_reserva` (
+  `id_agencia` INT UNSIGNED NOT NULL,
+  `id_reserva` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id_agencia`, `id_reserva`),
+  CONSTRAINT `FK_agencia_reserva` FOREIGN KEY (`id_agencia`) REFERENCES `agencia` (`id_agencia`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_reserva_agencia` FOREIGN KEY (`id_reserva`) REFERENCES `reserva` (`id_reserva`) ON DELETE CASCADE ON UPDATE CASCADE);
+
+
+#                                               ┏━━━━━━━━━━━━━━━━━━━━━┓
+#                                                 PROMOCION - RESERVA
+#                                               ┗━━━━━━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `promocion_reserva` ;
+CREATE TABLE IF NOT EXISTS `promocion_reserva` (
+  `id_promocion` INT UNSIGNED NOT NULL,
+  `id_reserva` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id_promocion`, `id_reserva`),
+  CONSTRAINT `FK_promocion` FOREIGN KEY (`id_promocion`) REFERENCES `promocion` (`id_promocion`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_reservaprom` FOREIGN KEY (`id_reserva`) REFERENCES `reserva` (`id_reserva`) ON DELETE CASCADE ON UPDATE CASCADE);
+
+
+#                                               ┏━━━━━━━━━━━━━━━━━┓
+#                                                     FACTURA
+#                                               ┗━━━━━━━━━━━━━━━━━┛
+
+
+DROP TABLE IF EXISTS `factura` ;
+CREATE TABLE IF NOT EXISTS `factura` (
+  `id_reserva` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `fecha_emision` DATE NOT NULL ,
+  `monto_total` DECIMAL(10,2) NOT NULL ,
+  `iva` DECIMAL(2,2) NOT NULL ,
+  `forma_pago` ENUM('efectivo', 'tarjeta') DEFAULT 'efectivo',
+  PRIMARY KEY (`id_reserva`),
+  CONSTRAINT `FK_Fac_RESERVA` FOREIGN KEY (`id_reserva`) REFERENCES `reserva` (`id_reserva`));
+
+    
+#                                                     ╔══════════•●•══════════╗
+#                                                         INSERTAMOS DATOS
+#                                                     ╚══════════•●•══════════╝    
+
+
+#                                               【 Estado 】
+
+
+INSERT INTO Estado (nombre) VALUES
+('Aguascalientes'),('Baja California'),('Baja California Sur'),('Campeche'),('Chiapas'),('Chihuahua'),
+('Ciudad de México'),('Coahuila'),('Colima'),('Durango'),('Guanajuato'),('Guerrero'),('Hidalgo'),('Jalisco'),
+('México'),('Michoacán'),('Morelos'),('Nayarit'),('Nuevo León'),('Oaxaca'),('Puebla'),('Querétaro'),('Quintana Roo'),
+('San Luis Potosí'),('Sinaloa'),('Sonora'),('Tabasco'),('Tamaulipas'),('Tlaxcala'),('Veracruz'),('Yucatán'),
+('Zacatecas');
+
+
+#                                               【 Municipio 】
+
+
+INSERT INTO municipio (nombre_m, id_estado) VALUES
+('Aguascalientes', 1),('Asientos', 1),('Calvillo', 1),('Cosío', 1),('El Llano', 1),('Jesús María', 1),
+('Ensenada', 2),('Mexicali', 2),('Tecate', 2),('Tijuana', 2),('Rosarito', 2),('Playas de Rosarito', 2),         
+('La Paz', 3),('Los Cabos', 3),('Mulegé', 3),('Loreto', 3),('Comondú', 3),
+('Campeche', 4), ('Candelaria', 4),('Carmen', 4),        
+('Tuxtla Gutiérrez', 5), ('San Cristóbal de las Casas', 5),('Tapachula', 5),('Palenque', 5),('Comitán', 5),
+('Chihuahua', 6),('Juárez', 6),('Hidalgo del Parral', 6),      
+('Cuauhtémoc', 7), ('Azcapotzalco', 7),('Coyoacán', 7),('Cuajimalpa', 7),('Gustavo A. Madero', 7),('Iztapalapa', 7),      
+('Saltillo', 8), ('Monclova', 8),('Piedras Negras', 8),('Torreón', 8),        
+('Colima', 9), ('Manzanillo', 9),('Tecomán', 9), ('Durango', 10), ('Santiago Papasquiaro', 10), ('Canatlán', 10),      
+('León', 11), ('Irapuato', 11),('Celaya', 11),('Salamanca', 11),('San Miguel de Allende', 11),           
+('Acapulco', 12), ('Chilpancingo', 12),('Iguala', 12),('Taxco', 12),       
+('Pachuca', 13), ('Tulancingo', 13), ('Tula de Allende', 13), ('Actopan', 13),         
+('Guadalajara', 14), ('Zapopan', 14),('Tlaquepaque', 14),('Puerto Vallarta', 14),    
+('Toluca', 15),  ('Ecatepec', 15),('Naucalpan', 15),('Tlalnepantla', 15),('Toluca', 15),('Nezahualcóyotl', 15),       
+('Morelia', 16), ('Uruapan', 16),('Zamora', 16),('Lázaro Cárdenas', 16),        
+('Cuernavaca', 17),('Jiutepec', 17),('Temixco', 17),('Yautepec', 17),('Cuautla', 17),('Tepoztlán', 17),      
+('Tepic', 18), ('Bahía de Banderas', 18), ('Compostela', 18),          
+('Monterrey', 19), ('Guadalupe', 19),('San Nicolás de los Garza', 19),('Santa Catarina', 19),      
+('Oaxaca de Juárez', 20),('Juchitán', 20),('Salina Cruz', 20),('Huajuapan de León', 20),('Tehuantepec', 20),('Tuxtepec', 20),
+('Puebla', 21), ('Tehuacán', 21),('Atlixco', 21),          
+('Querétaro', 22), ('San Juan del Río', 22),('El Marqués', 22),('Corregidora', 22),('Tequisquiapan', 22),      
+('Cancún', 23),  ('Chetumal', 23), ('Playa del Carmen', 23),('Isla Mujeres', 23),('Tulum', 23),('Cozumel', 23),        
+('San Luis Potosí', 24), ('Matehuala', 24),('Rioverde', 24),('Ciudad Valles', 24),
+('Culiacán', 25), ('Mazatlán', 25),('Los Mochis', 25), ('Hermosillo', 26), ('Nogales', 26),('Navojoa', 26),     
+('Villahermosa', 27),('Cárdenas', 27),('Comalcalco', 27), ('Tampico', 28),('Reynosa', 28),('Matamoros', 28),
+('Tlaxcala', 29), ('Veracruz', 30),('Xalapa', 30),('Coatzacoalcos', 30),('Minatitlán', 30),('Córdoba', 30),        
+('Mérida', 31),('Ticul', 31),('Izamal', 31), ('Zacatecas', 32),('Río Grande', 32),('Sombrerete', 32),('Loreto', 32);       
+
+
+#                                               【 Ciudad 】
+
+
+INSERT INTO Ciudad (id_ciudad, id_municipio, nombre_cd) VALUES(101, 1, 'Aguas Blancas');
+INSERT INTO Ciudad (id_municipio, nombre_cd) VALUES
+(2, 'Naranjales'), (2, 'Sierra Verde'), (4, 'Costa Azul'), (5, 'Horizon Bay'), (6, 'Desierto Dorado'),
+(3, 'Sol de Oro'), (7, 'Mar de Cortés'), (2, 'Arenas Blancas'), (4, 'Mariposa'), (10, 'Cielo Claro'),
+(14, 'Luz del Cielo'), (5, 'Sierra del Sur'), (12, 'Noche Estrellada'), (8, 'Pueblo de Luz'), (6, 'Desierto Encantado'),
+(1, 'Cumbres Negras'), (9, 'Río de Oro'), (11, 'Ciudad Esperanza'), (15, 'Luz del Día'), (3, 'Corazón Verde'),
+(17, 'Pueblo Viejo'), (22, 'Brisas del Norte'), (25, 'Valles Altos'), (28, 'Sol del Pacífico'), (30, 'Costa del Sol'),
+(4, 'Rincón del Mar'), (16, 'Las Flores'), (26, 'Cielo Abierto'), (29, 'Río Verde'), (19, 'Jardines de la Paz'),
+(20, 'Caminos de Luz'), (13, 'Valle del Sol'), (33, 'Olas del Mar'), (18, 'Montañas Verdes'), (36, 'Pueblo del Sol'),
+(42, 'Río de Luz'), (38, 'Verano Templado'), (50, 'Campo Verde'), (39, 'Río Dulce'), (53, 'Oasis Verde'),
+(12, 'Cerro Alto'), (41, 'Bosque de Encino'), (45, 'Rincón del Valle'), (11, 'Olas del Valle'), (23, 'Cielo Claro'),
+(48, 'Senderos de Flores'), (27, 'Montaña Sagrada'), (49, 'Bosque de Almendros'), (52, 'Laguna Esmeralda'),
+(34, 'Río Verde'), (47, 'Olas de Plata'), (58, 'Cielo Abierto'), (35, 'Bahía de Paz'), (15, 'Sierra Dorada'),
+(24, 'Luz del Sol'), (31, 'Valle de Luna'), (59, 'Cascadas del Río'), (68, 'Valle del Espiritu'), (5, 'Playa de las Estrellas'),
+(65, 'Luz de Puebla'), (62, 'Valle del Sol'), (60, 'Caminos de Luz'), (66, 'Cielo Azul'), (10, 'Jardín de Flores'),
+(32, 'Senderos del Valle'), (3, 'Bahía del Sol'), (25, 'Olas del Caribe'), (4, 'Isla Brisa'), (37, 'Montañas de Oro'),
+(40, 'Río San Luis'), (22, 'Cielo Abierto'), (64, 'Olas del Pacífico'), (57, 'Brisas del Sur'), (20, 'Desierto Tropical'),
+(7, 'Cielo Desierto'), (11, 'Oasis de Luz'), (2, 'Montañas del Norte'), (45, 'Luz del Trópico'), (43, 'Río de la Vida'),
+(15, 'Jardines del Sur'), (30, 'Valles de la Paz'), (34, 'Olas del Cielo'), (41, 'Río de Luz'), (55, 'Cumbres de Veracruz'),
+(44, 'Olas del Golfo'), (27, 'Sendero Verde'), (26, 'Luz del Caribe'), (1, 'Bahía de las Flores'), (58, 'Caminos de Luz'),
+(31, 'Río Dorado'), (12, 'Cumbres Negras'), (61, 'Senderos de Luz'), (12, 'Olas del Océano'), (25, 'Caminos de Esperanza'),
+(7, 'Brisas del Amanecer'), (34, 'Senderos de Vida'), (19, 'Montañas de Luz'), (3, 'Cielo Estrellado'),
+(41, 'Río de Sueños'), (28, 'Valles del Trópico'), (10, 'Cumbres del Horizonte'), (5, 'Jardines de la Esperanza');
+
+
+#                                               【 Cliente 】
+
+
+INSERT INTO cliente (id_cliente, nombre_cliente, apellido_paterno, apellido_materno, forma_pago, RFC, telefono, email) VALUES
+(1001, 'Carlos', 'García', 'López', 'efectivo', 'GARL900101MNA', 5551234567, 'carlos.garcia@email.com');
+INSERT INTO cliente (nombre_cliente, apellido_paterno, apellido_materno, forma_pago, RFC, telefono, email) VALUES
+('Carlos', 'García', 'López', 'efectivo', 'GARL900101MNA', 5551234567, 'carlos.garcia@email.com'),
+('María', 'Hernández', 'Pérez', 'tarjeta', 'HERP890202LXY', 5552345678, 'maria.hernandez@email.com'),
+('José', 'Martínez', 'Ramírez', 'efectivo', 'MARJ850303HKP', 5553456789, 'jose.martinez@email.com'),
+('Ana', 'Rodríguez', 'Gómez', 'tarjeta', 'ROGA780404RMC', 5554567890, 'ana.rodriguez@email.com'),
+('Luis', 'Fernández', 'Sánchez', 'efectivo', 'FERL760505BCS', 5555678901, 'luis.fernandez@email.com'),
+('Laura', 'González', 'Torres', 'tarjeta', 'GONT740606HMD', 5556789012, 'laura.gonzalez@email.com'),
+('Javier', 'Serrano', 'Castillo', 'efectivo', 'SERJ720707PQR', 5557890123, 'javier.serrano@email.com'),
+('Patricia', 'Jiménez', 'Salinas', 'tarjeta', 'JIMP710808TUV', 5558901234, 'patricia.jimenez@email.com'),
+('Ricardo', 'Ramírez', 'Mendoza', 'efectivo', 'RAMR690909WXZ', 5559012345, 'ricardo.ramirez@email.com'),
+('Verónica', 'Cruz', 'Rojas', 'tarjeta', 'CRUV680101YZA', 5550123456, 'veronica.cruz@email.com'),
+('Eduardo', 'Vargas', 'Cordero', 'efectivo', 'VARE650202ABC', 5551234568, 'eduardo.vargas@email.com'),
+('Carla', 'Morales', 'Guerrero', 'tarjeta', 'MORG640303DEF', 5552345679, 'carla.morales@email.com'),
+('Fernando', 'Silva', 'Alvarado', 'efectivo', 'SILF630404GHI', 5553456780, 'fernando.silva@email.com'),
+('Silvia', 'Núñez', 'Escobar', 'tarjeta', 'NUES620505JKL', 5554567891, 'silvia.nunez@email.com'),
+('Ángel', 'Mora', 'Cruz', 'efectivo', 'MORA610606MNO', 5555678902, 'angel.mora@email.com'),
+('Claudia', 'Delgado', 'Ponce', 'tarjeta', 'DELC600707PQR', 5556789013, 'claudia.delgado@email.com'),
+('Héctor', 'Bermúdez', 'Vázquez', 'efectivo', 'BERH590808STU', 5557890124, 'hector.bermudez@email.com'),
+('Elena', 'Pérez', 'Ruiz', 'tarjeta', 'PERL580909VWX', 5558901235, 'elena.perez@email.com'),
+('Salvador', 'Salazar', 'Lara', 'efectivo', 'SALS570101YZA', 5559012346, 'salvador.salazar@email.com'),
+('Isabel', 'Torres', 'Cervantes', 'tarjeta', 'TORI560202ABC', 5550123457, 'isabel.torres@email.com'),
+('Gustavo', 'Soto', 'Mendoza', 'efectivo', 'SOTG550303DEF', 5551234569, 'gustavo.soto@email.com'),
+('Ana', 'Calleja', 'Mora', 'tarjeta', 'CALM540404GHI', 5552345780, 'ana.calleja@email.com'),
+('Jorge', 'López', 'Ramos', 'efectivo', 'LOPJ530505JKL', 5553456781, 'jorge.lopez@email.com'),
+('Renata', 'Navas', 'Hernández', 'tarjeta', 'NAVR520606MNO', 5554567892, 'renata.navas@email.com'),
+('Pablo', 'Cruz', 'Hinojosa', 'efectivo', 'CRUP510707PQR', 5555678903, 'pablo.cruz@email.com'),
+('María', 'Fuentes', 'Silva', 'tarjeta', 'FUES500808STU', 5556789014, 'maria.fuentes@email.com'),
+('Ricardo', 'Martínez', 'López', 'efectivo', 'MARQ490909VWX', 5557890125, 'ricardo.martinez@email.com'),
+('Gabriela', 'Zavala', 'Duarte', 'tarjeta', 'ZAVG480101YZA', 5558901236, 'gabriela.zavala@email.com'),
+('Alejandro', 'Pineda', 'Vera', 'efectivo', 'PINA470202ABC', 5559012347, 'alejandro.pineda@email.com'),
+('Natalia', 'Cabrera', 'Guerrero', 'tarjeta', 'CABN460303DEF', 5550123458, 'natalia.cabrera@email.com'),
+('Omar', 'Vásquez', 'Rojas', 'efectivo', 'VASO450404GHI', 5551234570, 'omar.vasquez@email.com'),
+('Verónica', 'Ortega', 'Pérez', 'tarjeta', 'ORTV440505JKL', 5552345781, 'veronica.ortega@email.com'),
+('Mónica', 'Salinas', 'Martínez', 'efectivo', 'SALI430606MNO', 5553456782, 'monica.salinas@email.com'),
+('Luis', 'Méndez', 'López', 'tarjeta', 'MEND420707PQR', 5554567893, 'luis.mendez@email.com'),
+('Lucía', 'Carrillo', 'Hernández', 'efectivo', 'CARR410808STU', 5555678904, 'lucia.carrillo@email.com'),
+('Sergio', 'López', 'Ramírez', 'tarjeta', 'LOPS400909VWX', 5556789015, 'sergio.lopez@email.com'),
+('Carmen', 'Serrano', 'Cordero', 'efectivo', 'SERCA390101YZA', 5557890126, 'carmen.serrano@email.com'),
+('Felipe', 'Díaz', 'Martínez', 'tarjeta', 'DIAF380202ABC', 5558901237, 'felipe.diaz@email.com'),
+('Esteban', 'Montero', 'López', 'efectivo', 'MONT370303DEF', 5559012348, 'esteban.montero@email.com'),
+('Lía', 'González', 'Sánchez', 'tarjeta', 'GONL360404GHI', 5550123459, 'lia.gonzalez@email.com'),
+('Alfredo', 'Vargas', 'Peña', 'efectivo', 'VARG350505JKL', 5551234571, 'alfredo.vargas@email.com'),
+('Marisol', 'Chávez', 'Hernández', 'tarjeta', 'CHAM340606MNO', 5552345782, 'marisol.chavez@email.com'),
+('Bruno', 'Núñez', 'Becerra', 'efectivo', 'NUBR330707PQR', 5553456783, 'bruno.nunez@email.com'),
+('Ariadna', 'Carrillo', 'Martínez', 'tarjeta', 'CARR320808STU', 5554567894, 'ariadna.carrillo@email.com'),
+('Cristina', 'Salgado', 'Zepeda', 'efectivo', 'SALC310909VWX', 5555678905, 'cristina.salgado@email.com'),
+('Joaquín', 'Serrano', 'López', 'tarjeta', 'SERJ300101YZA', 5556789016, 'joaquin.serrano@email.com'),
+('Simón', 'Ramírez', 'Vázquez', 'efectivo', 'RAMS290202ABC', 5557890127, 'simon.ramirez@email.com'),
+('Tatiana', 'González', 'Salazar', 'tarjeta', 'GONT280303DEF', 5558901238, 'tatiana.gonzalez@email.com'),
+('Ignacio', 'Moya', 'Duarte', 'efectivo', 'MOAI270404GHI', 5559012349, 'ignacio.moya@email.com'),
+('Diana', 'Peña', 'Serrano', 'tarjeta', 'PEAD260505JKL', 5550123460, 'diana.pena@email.com'),
+('Samuel', 'Hernández', 'Guerrero', 'efectivo', 'HERB250606MNO', 5551234572, 'samuel.hernandez@email.com'),
+('Luciana', 'Soto', 'Vázquez', 'tarjeta', 'SOTL240707PQR', 5552345783, 'luciana.soto@email.com'),
+('Raúl', 'Martín', 'Cruz', 'efectivo', 'MATR230808STU', 5553456784, 'raul.martin@email.com'),
+('Tatiana', 'López', 'Hernández', 'tarjeta', 'LOPT220909VWX', 5554567895, 'tatiana.lopez@email.com'),
+('Diego', 'Sánchez', 'Martínez', 'efectivo', 'SANM210101YZA', 5555678906, 'diego.sanchez@email.com'),
+('Ángela', 'Salazar', 'Orozco', 'tarjeta', 'SALÁ200202ABC', 5556789017, 'angela.salazar@email.com'),
+('Roberto', 'Gutiérrez', 'Castañeda', 'efectivo', 'GUTR190303DEF', 5557890128, 'roberto.gutierrez@email.com'),
+('Susana', 'Rodríguez', 'Rojas', 'tarjeta', 'RODS180404GHI', 5558901239, 'susana.rodriguez@email.com'),
+('Eduardo', 'Aguirre', 'Pérez', 'efectivo', 'AGUE170505JKL', 5559012350, 'eduardo.aguirre@email.com'),
+('Lourdes', 'Vázquez', 'Torres', 'tarjeta', 'VAQL160606MNO', 5550123461, 'lourdes.vazquez@email.com'),
+('Adriana', 'Serrano', 'Martínez', 'efectivo', 'SERM150707PQR', 5551234573, 'adriana.serrano@email.com'),
+('Joaquín', 'Zamora', 'Ríos', 'tarjeta', 'ZAMJ140808STU', 5552345784, 'joaquin.zamora@email.com'),
+('Rodolfo', 'Ceballos', 'Zepeda', 'efectivo', 'CEBR130909WXY', 5553456785, 'rodolfo.ceballos@email.com'),
+('Anita', 'Beltrán', 'Soto', 'tarjeta', 'BELT120101YZA', 5554567896, 'anita.beltran@email.com'),
+('Fernando', 'Vega', 'Méndez', 'efectivo', 'VEGF110202ABC', 5555678907, 'fernando.vega@email.com'),
+('Inés', 'Cruz', 'Martínez', 'tarjeta', 'CRUI100303DEF', 5556789018, 'ines.cruz@email.com'),
+('Antonio', 'Delgado', 'Moya', 'efectivo', 'DELA090404GHI', 5557890129, 'antonio.delgado@email.com'),
+('Rosa', 'Ruiz', 'Hernández', 'tarjeta', 'RUHR080505JKL', 5558901240, 'rosa.ruiz@email.com'),
+('Marco', 'González', 'Díaz', 'efectivo', 'GONM070606MNO', 5559012351, 'marco.gonzalez@email.com'),
+('Sofia', 'López', 'Cordero', 'tarjeta', 'LOPS060707PQR', 5550123462, 'sofia.lopez@email.com'),
+('Felipe', 'Rivas', 'Ramírez', 'efectivo', 'RIVF050808STU', 5551234574, 'felipe.rivas@email.com'),
+('Estela', 'Medina', 'Cervantes', 'tarjeta', 'MEDS040909WXY', 5552345785, 'estela.medina@email.com'),
+('Francisco', 'Navarro', 'Pérez', 'efectivo', 'NAVI030101YZA', 5553456786, 'francisco.navarro@email.com'),
+('María', 'González', 'Ruiz', 'tarjeta', 'GONM020202ABC', 5554567897, 'maria.gonzalez@email.com'),
+('Alberto', 'Cervantes', 'Mendoza', 'efectivo', 'CERM010303DEF', 5555678908, 'alberto.cervantes@email.com'),
+('Carla', 'Alvarado', 'Torres', 'tarjeta', 'ALVC000404GHI', 5556789019, 'carla.alvarado@email.com'),
+('Hugo', 'Serrano', 'Ríos', 'efectivo', 'SERH999505JKL', 5557890130, 'hugo.serrano@email.com'),
+('Valentina', 'Mora', 'Soto', 'tarjeta', 'MORV888606MNO', 5558901241, 'valentina.mora@email.com'),
+('Ramiro', 'Rivas', 'Hernández', 'efectivo', 'RIVR777707PQR', 5559012352, 'ramiro.rivas@email.com'),
+('Liliana', 'Zamora', 'García', 'tarjeta', 'ZAML666808STU', 5550123463, 'liliana.zamora@email.com'),
+('Saúl', 'Ceballos', 'Almeida', 'efectivo', 'CEBS555909WXY', 5551234575, 'saul.ceballos@email.com'),
+('Tania', 'Salas', 'Ponce', 'tarjeta', 'SALD444010YZA', 5552345786, 'tania.salas@email.com'),
+('Cristian', 'González', 'López', 'efectivo', 'GONC333111ABC', 5553456787, 'cristian.gonzalez@email.com'),
+('Fabiola', 'Sánchez', 'Mora', 'tarjeta', 'SANC222222DEF', 5554567898, 'fabiola.sanchez@email.com'),
+('Jorge', 'Martínez', 'Zúñiga', 'efectivo', 'MARJ111333GHI', 5555678909, 'jorge.martinez@email.com'),
+('Sofía', 'Alarcón', 'Hernández', 'tarjeta', 'ALAR000444JKL', 5556789020, 'sofia.alarcon@email.com'),
+('Emilio', 'Ríos', 'Cruz', 'efectivo', 'RIOS999555MNO', 5557890131, 'emilio.rios@email.com'),
+('Martha', 'Salinas', 'Pérez', 'tarjeta', 'SALI888666PQR', 5558901242, 'martha.salinas@email.com'),
+('Alfredo', 'Aguirre', 'Guerrero', 'efectivo', 'AGUA777777STU', 5559012353, 'alfredo.aguirre@email.com'),
+('Verónica', 'Pérez', 'Soto', 'tarjeta', 'PERZ666666YZA', 5550123464, 'veronica.perez@email.com'),
+('Nicolás', 'Cruz', 'López', 'efectivo', 'CRUN555555ABC', 5551234576, 'nicolas.cruz@email.com'),
+('Tamara', 'Fernández', 'García', 'tarjeta', 'FERN444444DEF', 5552345787, 'tamara.fernandez@email.com'),
+('Gustavo', 'Zepeda', 'Martínez', 'efectivo', 'ZEPG333333GHI', 5553456788, 'gustavo.zepeda@email.com'),
+('Claudia', 'Hernández', 'Alvarado', 'tarjeta', 'HERC222222JKL', 5554567899, 'claudia.hernandez@email.com'),
+('Eduardo', 'Zamora', 'González', 'efectivo', 'ZAMED111111MNO', 5555678910, 'eduardo.zamora@email.com'),
+('Juliana', 'Alcántara', 'Rivas', 'tarjeta', 'ALCJ000000PQR', 5556789021, 'juliana.alcantara@email.com'),
+('Pedro', 'Gutiérrez', 'Hernández', 'efectivo', 'GUTH999999STU', 5557890132, 'pedro.gutierrez@email.com'),
+('Andrea', 'Cervantes', 'Torres', 'tarjeta', 'CERH888888YZA', 5559012354, 'andrea.cervantes@email.com'),
+('Leonardo', 'Martínez', 'López', 'efectivo', 'MARL777777ABC', 5550123465, 'leonardo.martinez@email.com'),
+('Julieta', 'Serrano', 'Mendoza', 'tarjeta', 'SERM666666DEF', 5551234577, 'julieta.serrano@email.com');
+
+
+#                                               【 Huesped 】
+
+
+INSERT INTO huesped (nombre_huesped, apellido_paterno, apellido_materno, telefono) VALUES
+('Luis', 'García', 'Hernández', 5551234567),
+('María', 'López', 'Jiménez', 5552345678),
+('José', 'Martínez', 'Sánchez', 5553456789),
+('Ana', 'Rodríguez', 'Gómez', 5554567890),
+('Javier', 'Fernández', 'Torres', 5555678901),
+('Laura', 'González', 'Pérez', 5556789012),
+('Ricardo', 'Ramírez', 'Morales', 5557890123),
+('Verónica', 'Cruz', 'Salinas', 5558901234),
+('Fernando', 'Vázquez', 'Delgado', 5559012345),
+('Silvia', 'Núñez', 'Escobar', 5550123456),
+('Ángel', 'Mora', 'Cervantes', 5551234568),
+('Claudia', 'Delgado', 'Ponce', 5552345679),
+('Héctor', 'Bermúdez', 'Vázquez', 5553456780),
+('Elena', 'Pérez', 'Ruiz', 5554567891),
+('Salvador', 'Salazar', 'Lara', 5555678902),
+('Isabel', 'Torres', 'Cervantes', 5556789013),
+('Gustavo', 'Soto', 'Mendoza', 5557890124),
+('Ana', 'Calleja', 'Mora', 5558901235),
+('Jorge', 'López', 'Ramos', 5559012346),
+('Renata', 'Navas', 'Hernández', 5550123457),
+('Patricia', 'Cortez', 'Martínez', 5551234569),
+('David', 'Aguirre', 'Vega', 5552345670),
+('Sofía', 'Pérez', 'Cruz', 5553456781),
+('Esteban', 'Ruiz', 'Salas', 5554567892),
+('Mónica', 'Silva', 'Navarro', 5555678903),
+('Diana', 'Reyes', 'Cordero', 5556789014),
+('Iván', 'Rojas', 'Hidalgo', 5557890125),
+('Brenda', 'Salinas', 'Montes', 5558901236),
+('Cristian', 'Alvarado', 'González', 5559012347),
+('Carmen', 'Ceballos', 'Maldonado', 5550123458),
+('Miguel', 'Hernández', 'Valdez', 5551234570),
+('Nadia', 'Bolaños', 'Pérez', 5552345681),
+('Fernando', 'Camacho', 'Ríos', 5553456792),
+('Clara', 'Cruz', 'López', 5554567803),
+('Luis', 'Moreno', 'Cisneros', 5555678914),
+('Dulce', 'López', 'Orozco', 5556789025),
+('Marco', 'Morales', 'Salinas', 5557890136),
+('Tania', 'Vargas', 'Peña', 5558901247),
+('Ricardo', 'Castañeda', 'Duarte', 5559012358),
+('Ruth', 'Vega', 'Paredes', 5550123469),
+('Felipe', 'Barreto', 'Ramos', 5551234580),
+('Eva', 'Bermúdez', 'Sotelo', 5552345691),
+('Nicolás', 'Dávila', 'Mejía', 5553456702),
+('Cecilia', 'Núñez', 'Medina', 5554567813),
+('Felipe', 'Torres', 'González', 5555678924),
+('Lourdes', 'Salgado', 'Sánchez', 5556789035),
+('Alfonso', 'Alvarez', 'López', 5557890146),
+('Teresa', 'Luna', 'Ramírez', 5558901257),
+('Fernando', 'González', 'Cruz', 5559012368),
+('Elisa', 'Camarillo', 'Torres', 5550123470),
+('Hugo', 'Reyes', 'Hernández', 5551234591),
+('Inés', 'López', 'García', 5552345702),
+('Gabriel', 'Cárdenas', 'López', 5553456813),
+('Natalia', 'Arredondo', 'Medina', 5554567924),
+('Leonardo', 'Zamora', 'Hernández', 5555678935),
+('Patricia', 'Salazar', 'Hidalgo', 5556789046),
+('Ricardo', 'Torres', 'Martínez', 5557890157),
+('Silvia', 'Moreno', 'Ríos', 5558901268),
+('David', 'Núñez', 'Rivas', 5559012379),
+('Lucía', 'Ocampo', 'Valdés', 5550123481),
+('Mario', 'Hernández', 'Pérez', 5551234602),
+('Ximena', 'Cisneros', 'González', 5552345713),
+('Carlos', 'Calleja', 'Riviera', 5553456824),
+('Antonio', 'Salinas', 'Torres', 5554567935),
+('Vanessa', 'López', 'Maldonado', 5555678946),
+('César', 'López', 'Quintero', 5556789057),
+('Sara', 'Hernández', 'García', 5557890168),
+('Ricardo', 'Ramos', 'Sánchez', 5558901279),
+('Verónica', 'Martínez', 'Pérez', 5559012380),
+('Antonio', 'Meza', 'Salinas', 5550123492),
+('Eugenia', 'Duarte', 'Martínez', 5551234613),
+('Guillermo', 'Medina', 'Cruz', 5552345724),
+('Frida', 'González', 'Aguirre', 5553456835),
+('Tomas', 'Ceballos', 'Salinas', 5554567946),
+('Claudia', 'Silva', 'Cordero', 5555678957),
+('Ignacio', 'Cáceres', 'López', 5556789068),
+('Beatriz', 'Torres', 'Hernández', 5557890179),
+('Eduardo', 'Cruz', 'Cervantes', 5558901280),
+('Rebeca', 'Duarte', 'Pérez', 5559012391),
+('Álvaro', 'González', 'Sierra', 5550123503),
+('Zulema', 'Salazar', 'Molina', 5551234624),
+('Fernando', 'Téllez', 'Ocampo', 5552345735),
+('Guillermo', 'Hernández', 'Maldonado', 5553456846),
+('Carmen', 'Peña', 'González', 5554567957),
+('Cristina', 'Bermúdez', 'Martínez', 5555678968),
+('Nadia', 'Pérez', 'Sánchez', 5556789079),
+('Raúl', 'Córdova', 'Valdez', 5557890180),
+('Valeria', 'Núñez', 'Mendoza', 5558901291),
+('Estela', 'Maldonado', 'López', 5559012402),
+('Patricia', 'Sierra', 'Sotelo', 5550123514),
+('Mario', 'Salazar', 'Salinas', 5551234635),
+('Daniela', 'González', 'Ramírez', 5552345746),
+('Samuel', 'Serrano', 'Valdez', 5553456857),
+('Roxana', 'Vázquez', 'Hernández', 5554567968),
+('Alberto', 'Morales', 'Pérez', 5555678979),
+('Leonor', 'Torres', 'Calleja', 5556789080),
+('Joaquín', 'Delgado', 'Reyes', 5557890191),
+('Gabriela', 'Salinas', 'Hernández', 5558901302),
+('Nicolás', 'Téllez', 'Sierra', 5559012413),
+('Vanessa', 'López', 'Martínez', 5550123525),
+('José', 'Nava', 'Ríos', 5551234646),
+('Aldo', 'Aguilar', 'López', 5552345757);
+
+
+#                                               【 Sucursal 】
+
+
+INSERT INTO sucursal (id_sucursal, nombre_sucursal, telefono, total_habitaciones) 
+VALUES (1, 'Centro', '5551234567', 50);
+INSERT INTO sucursal (nombre_sucursal, telefono, total_habitaciones) VALUES
+('Playa', '5549876543', 30), ('Montaña', '5531237890', 40), ('Aeropuerto', '5567891234', 20), ('Bosque', '5587654321', 35),
+('Marina', '5521234567', 45), ('Riviera', '5550987654', 25), ('Ciudad Norte', '5543216789', 60), ('Laguna Azul', '5535678901', 55),
+('Oasis Urbano', '5565432109', 50), ('Pueblo Viejo', '5578901234', 28), ('Valle Verde', '5589123456', 48), 
+('Cielo Abierto', '5523456789', 32), ('Río Claro', '5556789123', 35), ('Sol de Oro', '5545678901', 40),('Costa Azul', '5576543210', 55), 
+('Villa Serena', '5529876543', 30), ('Campo Real', '5581234567', 33), ('Isla Blanca', '5532345678', 25),
+('Colina Escondida', '5567890123', 50), ('Bahía Dorada', '5553456789', 45), ('Sierra Nevada', '5525678901', 35), 
+('Río Verde', '5587654321', 40), ('Cumbres Altas', '5552346789', 42), ('Jardines del Sol', '5565432109', 52),
+('Luna Llena', '5538901234', 25), ('Valle Sereno', '5551234567', 47), ('Montaña Azul', '5545678901', 30), 
+('Costa del Sol', '5576789123', 50), ('Pueblo Nuevo', '5529876543', 28), ('Brisas del Mar', '5583456789', 55),
+('Mirador Norte', '5535678901', 36), ('Laguna Esmeralda', '5543216789', 35), ('Playa de Cristal', '5578901234', 42),
+('Sierra del Sur', '5554321098', 48), ('Colina Verde', '5523456789', 30), ('Isla Bonita', '5567890123', 34), 
+('Ciudad Dorada', '5581234567', 60), ('Bahía Serena', '5532345678', 35), ('Lago Azul', '5545678901', 50),
+('Costa Tropical', '5556789123', 45), ('Valles del Norte', '5576543210', 55), ('Sierra Grande', '5589876543', 35),
+('Villa del Mar', '5523456789', 40), ('Olas Bravas', '5543216789', 55), ('Río Dorado', '5535678901', 52),
+('Cumbre de Plata', '5567890123', 33), ('Llanura Verde', '5559876543', 29), ('Playa Norte', '5583456789', 48),
+('Mar Serena', '5523456789', 32), ('Laguna Negra', '5545678901', 30), ('Montaña Blanca', '5567890123', 50),
+('Jardines del Norte', '5556789123', 40), ('Bosque Encantado', '5532345678', 35), ('Costa Brava', '5578901234', 55),
+('Mirador del Sol', '5529876543', 28), ('Valle de Oro', '5565432109', 40), ('Villa del Sol', '5535678901', 52),
+('Cima Azul', '5543216789', 36), ('Lago Verde', '5576543210', 25), ('Oasis del Sur', '5553456789', 45),
+('Mar Azul', '5567890123', 50), ('Riviera Norte', '5525678901', 42), ('Villa Encantada', '5532345678', 33),
+('Río Claro', '5587654321', 30), ('Cumbres del Norte', '5578901234', 55), ('Bahía del Faro', '5523456789', 35),
+('Playa Dorada', '5556789123', 45), ('Lago Claro', '5545678901', 48), ('Costa Blanca', '5565432109', 40),
+('Villa del Cielo', '5535678901', 28), ('Pueblo Encantado', '5576543210', 33), ('Riviera Azul', '5529876543', 55),
+('Sierra Baja', '5543216789', 35), ('Mar de Cristal', '5567890123', 50), ('Costa Norte', '5583456789', 40),
+('Bahía Verde', '5559876543', 60), ('Jardines del Mar', '5545678901', 35), ('Playa Serena', '5567890123', 45),
+('Valle del Río', '5525678901', 38), ('Montaña de Oro', '5556789123', 50), ('Ciudad Encantada', '5543216789', 35),
+('Isla Escondida', '5532345678', 28), ('Cumbres Verdes', '5578901234', 47), ('Costa del Este', '5559876543', 55),
+('Río Brillante', '5567890123', 40), ('Sierra Alta', '5523456789', 52), ('Lago Sereno', '5543216789', 25),
+('Mar de Plata', '5578901234', 33), ('Ciudad de Luz', '5559876543', 35), ('Bahía Azul', '5567890123', 50),
+('Oasis del Norte', '5532345678', 45), ('Playa del Sur', '5587654321', 55), ('Villa del Norte', '5525678901', 40), 
+('Lago Azul', '5552346789', 30), ('Mirador del Valle', '5534567890', 42), ('Río Claro', '5526789012', 38),
+('Montaña Dorada', '5567890123', 40), ('Costa Esmeralda', '5543216789', 45), ('Isla Paraíso', '5559876543', 50);
+
+
+#                                               【 Marketing 】
+
+
+INSERT INTO marketing (id_marketing, tipo_de_anuncio, ubicacion) VALUES (1, 'Descuento de verano', 'Página web');
+INSERT INTO marketing (tipo_de_anuncio, ubicacion) VALUES
+('Paquete romántico', 'Redes sociales'),
+('Ofertas de fin de semana', 'Email marketing'),
+('Promoción de grupo', 'Eventos locales'),
+('Campaña de fidelización', 'App del hotel'),
+('Descuento para nuevos clientes', 'Publicidad en línea'),
+('Paquete familiar', 'Blog de viajes'),
+('Evento de degustación', 'Restaurante del hotel'),
+('Campaña de recomendación', 'Boca a boca'),
+('Promociones para empresas', 'LinkedIn'),
+('Campaña de Navidad', 'Email marketing'),
+('Descuentos por reservas anticipadas', 'Anuncios en Google'),
+('Paquete de spa y bienestar', 'Redes sociales'),
+('Oferta de desayuno incluido', 'Sitio web del hotel'),
+('Promoción por estancia prolongada', 'Folleto de publicidad'),
+('Campaña de limpieza y seguridad', 'Publicidad local'),
+('Eventos en vivo', 'Redes sociales'),
+('Descuento para estudiantes', 'Campus universitarios'),
+('Paquete de actividades locales', 'Agencias de viajes'),
+('Concursos y sorteos', 'Redes sociales'),
+('Promociones por festivales locales', 'Anuncios en la ciudad'),
+('Ofertas en fechas especiales', 'Email marketing'),
+('Campaña de ecoturismo', 'Revistas de naturaleza'),
+('Paquete de deportes de aventura', 'Publicidad online'),
+('Campaña de atracción de influencers', 'Colaboraciones en redes sociales'),
+('Promociones de última hora', 'Anuncios en Google'),
+('Descuentos para clientes leales', 'Programa de puntos'),
+('Ofertas de temporada baja', 'Publicidad en revistas'),
+('Campaña de vacaciones escolares', 'Carteles en escuelas'),
+('Paquete cultural', 'Eventos culturales'),
+('Ofertas de retiro y meditación', 'Revistas de bienestar'),
+('Descuentos para militares y familias', 'Campañas comunitarias'),
+('Promoción de bodas', 'Ferias de boda'),
+('Oferta exclusiva para miembros VIP', 'Programa de lealtad'),
+('Paquete de escapada romántica', 'Revistas de viajes'),
+('Promoción de aniversario', 'Email marketing'),
+('Descuentos para reservas en grupo', 'Redes sociales'),
+('Campaña de turismo local', 'Publicidad en estaciones de tren'),
+('Ofertas para parejas recién casadas', 'Sitio web del hotel'),
+('Promociones de verano', 'Anuncios en Google'),
+('Paquete de experiencia gastronómica', 'Restaurante del hotel'),
+('Descuento por reserva directa', 'Publicidad en línea'),
+('Campaña de aventura al aire libre', 'Eventos locales'),
+('Oferta para viajeros frecuentes', 'Redes sociales'),
+('Campaña de turismo sostenible', 'Blog de naturaleza'),
+('Descuento para empleados corporativos', 'LinkedIn'),
+('Promoción de invierno', 'Folleto de publicidad'),
+('Paquete de bienestar y spa', 'Email marketing'),
+('Campaña de atracción de turistas internacionales', 'Publicidad en aeropuertos'),
+('Ofertas especiales por festividades', 'Redes sociales'),
+('Paquete de experiencias únicas', 'Agencias de viajes'),
+('Promoción de noche gratis', 'Publicidad en línea'),
+('Campaña de escapadas de última hora', 'Anuncios en Google'),
+('Oferta de paquete deportivo', 'Eventos deportivos locales'),
+('Promoción de turismo cultural', 'Revistas de cultura'),
+('Descuento exclusivo para estudiantes', 'Publicidad en universidades'),
+('Campaña de fin de año', 'Email marketing'),
+('Ofertas para viajeros solos', 'Redes sociales'),
+('Promoción para grupos escolares', 'Carteles en colegios'),
+('Descuento en actividades locales', 'Blog de turismo'),
+('Paquete de aventura extrema', 'Redes sociales'),
+('Campaña de turismo histórico', 'Revistas de historia'),
+('Oferta de bienvenida para nuevos clientes', 'Publicidad en línea'),
+('Promoción de noche extra', 'App del hotel'),
+('Campaña de paquetes familiares', 'Anuncios en Google'),
+('Descuento por reservas anticipadas', 'Email marketing'),
+('Paquete de lujo todo incluido', 'Revistas de alta gama'),
+('Oferta de turismo rural', 'Publicidad local'),
+('Campaña de verano prolongado', 'Blog de viajes'),
+('Promoción de escapadas rápidas', 'Anuncios en redes sociales'),
+('Descuento en paquetes personalizados', 'Sitio web del hotel'),
+('Promoción exclusiva para eventos especiales', 'Folleto de publicidad'),
+('Oferta de fin de semana prolongado', 'Redes sociales'),
+('Campaña de vacaciones relajantes', 'Publicidad en spa locales'),
+('Paquete de entretenimiento nocturno', 'Eventos locales'),
+('Descuento por estancia prolongada', 'Revistas de turismo'),
+('Promoción de experiencias exclusivas', 'Sitio web del hotel'),
+('Campaña de turismo temático', 'Anuncios en revistas especializadas'),
+('Oferta de temporada navideña', 'Publicidad en centros comerciales'),
+('Promoción por reservas de grupo', 'Agencias de viajes'),
+('Campaña de turismo juvenil', 'Redes sociales'),
+('Descuentos para turismo de negocios', 'LinkedIn'),
+('Paquete de actividades de aventura', 'Agencias de viajes'),
+('Promoción exclusiva de primavera', 'Publicidad online'),
+('Ofertas para familias numerosas', 'Redes sociales'),
+('Campaña de turismo nocturno', 'Revistas de turismo'),
+('Promoción de eventos especiales', 'App del hotel'),
+('Paquete para amantes de la naturaleza', 'Revistas de naturaleza'),
+('Descuento para reservas internacionales', 'Publicidad en aeropuertos'),
+('Promoción para jubilados', 'Carteles en centros comunitarios'),
+('Campaña de eventos temáticos', 'Publicidad local'),
+('Oferta de escapada rápida', 'Redes sociales'),
+('Descuento exclusivo por recomendación', 'Programa de puntos'),
+('Paquete de escapada cultural', 'Eventos locales'),
+('Promoción para estancias largas', 'Email marketing'),
+('Ofertas en destinos de playa', 'Blog de viajes'),
+('Descuento por cumpleaños', 'App del hotel'),
+('Campaña de fidelización de clientes', 'Publicidad en línea'),
+('Paquete de experiencias de lujo', 'Revistas de alta gama'),
+('Promoción de actividades acuáticas', 'Redes sociales');
+
+
+#                                               【 Promocion 】
+
+
+INSERT INTO promocion (id_promocion, descripcion, descuento, condiciones) VALUES (1, 'Sin promoción', 0, '-');
+-- Insertamos cientes en la tabla promocion
+INSERT INTO promocion (id_promocion, descripcion, descuento, condiciones) VALUES
+(1, 'Verano', 0.15, 'Estancia>3d');
+
+INSERT INTO promocion (descripcion, descuento, condiciones) VALUES
+('FindeLargo', 0.20, 'Estancia>2d'),
+('Romántico', 0.10, 'Parejas'),
+('Familia', 0.25, 'Min.4Pers'),
+('Navidad', 0.30, 'Estancia>5d'),
+('Aniversario', 0.00, 'Sin promoción'),
+('Primavera', 0.12, 'ReservaAnt'),
+('SemanaSanta', 0.00, 'Sin promoción'),
+('LunaMiel', 0.20, 'ReciénCas'),
+('Negocios', 0.15, 'GrupoCorp'),
+('Cumpleaños', 0.10, 'FechaCumpl'),
+('Festivo', 0.18, 'Estancia>2d'),
+('VeranoExt', 0.12, 'ReservaAnt'),
+('Familiar', 0.25, 'Min.5Pers'),
+('ÚltimaHora', 0.00, 'Sin promoción'),
+('SpaIncluido', 0.15, 'Estancia>2d'),
+('Cultural', 0.10, 'TourIncluido'),
+('FinAño', 0.22, 'Estancia>4d'),
+('Aventura', 0.20, 'TourDeporte'),
+('BlackFriday', 0.00, 'Sin promoción'),
+('VIP', 0.30, 'MiembroVIP'),
+('Invierno', 0.00, 'Sin promoción'),
+('Escapada', 0.15, 'Parejas'),
+('Relax', 0.18, 'Estancia>4d'),
+('FestVerano', 0.20, 'Min.3Pers'),
+('FamiliarMax', 0.28, 'Min.6Pers'),
+('Rápida', 0.10, 'Reserva7d'),
+('Deportivo', 0.18, 'EventosDep'),
+('FinMes', 0.00, 'Sin promoción'),
+('Jubilado', 0.25, 'Mayores65'),
+('PrimaveraP', 0.15, 'ReservaAnt'),
+('Estudiante', 0.00, 'Sin promoción'),
+('TurismoC', 0.18, 'TourIncluido'),
+('LunaMielP', 0.20, 'RecienCas'),
+('Despedida', 0.15, 'GrupoAmigo'),
+('Gastronomía', 0.10, 'RestIncl'),
+('InviernoExt', 0.22, 'Estancia>5d'),
+('Pascua', 0.00, 'Sin promoción'),
+('Otoño', 0.15, 'ReservaAnt'),
+('AventuraN', 0.18, 'TourNoct'),
+('Amigos', 0.00, 'Sin promoción'),
+('CumpleMes', 0.20, 'FechaCumpl'),
+('Grupos', 0.28, 'Min.8Pers'),
+('EstanciaLarga', 0.18, 'Estancia>7d'),
+('Parejas', 0.12, 'ParejaIncl'),
+('Meditar', 0.15, 'SpaIncluido'),
+('EscapadaF', 0.00, 'Sin promoción'),
+('Lujo', 0.30, 'ReservaVIP'),
+('Bodas', 0.25, 'GrupoBoda'),
+('Vacacional', 0.20, 'Min.3d'),
+('Turismo Local', 0.00, 'Sin promoción'),
+('Paquete Exclusivo', 0.35, 'Estancia>3d'),
+('Descuento Estudiantil', 0.10, 'Con ID'),
+('Vacaciones Premium', 0.25, 'ReservaAnt'),
+('Paquete Gourmet', 0.20, 'Restaurante Incluido'),
+('Descuento Grupal', 0.15, 'Grupo>5'),
+('Ofertas Flash', 0.00, 'Sin promoción'),
+('Relax Total', 0.18, 'Estancia>4d'),
+('Aventura Familiar', 0.22, 'Min.4Pers'),
+('Promoción Express', 0.12, 'Reserva<24h'),
+('Oferta Especial', 0.00, 'Sin promoción'),
+('Viaje Económico', 0.10, 'ReservaAnt'),
+('Escapada Romántica', 0.25, 'Parejas'),
+('BlackWeekend', 0.30, 'ReservaBF'),
+('Paquete Aniversario', 0.00, 'Sin promoción'),
+('Promoción Cultural', 0.20, 'Tour Incluido'),
+('Lujo Exclusivo', 0.40, 'ReservaVIP'),
+('Estancias Prolongadas', 0.18, 'Estancia>7d'),
+('Turismo Histórico', 0.12, 'ReservaAnt'),
+('EcoTurismo', 0.15, 'Naturaleza Incluido'),
+('Oferta Relámpago', 0.00, 'Sin promoción'),
+('Descuento Corporativo', 0.22, 'GrupoCorp'),
+('Aventura al Aire Libre', 0.20, 'TourDeporte'),
+('Vacaciones Tranquilas', 0.00, 'Sin promoción'),
+('Paquete Familiar Deluxe', 0.25, 'Min.5Pers'),
+('Otoño Dorado', 0.30, 'ReservaAnt'),
+('Noche Gratis', 0.00, 'Sin promoción'),
+('Primavera Feliz', 0.20, 'ReservaAnt'),
+('Paquete Festivo', 0.18, 'Incluye Cena'),
+('Cena Romántica', 0.15, 'Parejas Incluido'),
+('Última Hora', 0.10, 'Reserva<48h'),
+('Descuento Escolar', 0.25, 'GrupoEstudiantil'),
+('Paquete Aventura', 0.30, 'Tour Incluido'),
+('Semana de Lujo', 0.35, 'Estancia>5d'),
+('Oferta de Spa', 0.22, 'Incluye Spa'),
+('Viaje Relajante', 0.20, 'Estancia>3d'),
+('Descuento en Playa', 0.15, 'Frente al Mar'),
+('Vacaciones de Ensueño', 0.00, 'Sin promoción'),
+('Paquete Exclusivo', 0.18, 'ReservaAnt'),
+('Fin de Año Premium', 0.30, 'ReservaAnt'),
+('InviernoExt', 0.22, 'Estancia>5d'),
+('Pascua', 0.00, 'Sin promoción'),
+('Otoño', 0.15, 'ReservaAnt'),
+('AventuraN', 0.18, 'TourNoct'),
+('Amigos', 0.00, 'Sin promoción'),
+('CumpleMes', 0.20, 'FechaCumpl'),
+('Grupos', 0.28, 'Min.8Pers'),
+('EstanciaLarga', 0.18, 'Estancia>7d'),
+('Parejas', 0.12, 'ParejaIncl'),
+('Meditar', 0.15, 'SpaIncluido'),
+('EscapadaF', 0.00, 'Sin promoción');
+
+
+
+
+#                                               【 Reserva 】
+
+
+INSERT INTO reserva (id_reserva, fecha_inicio, fecha_fin, estado, id_cliente, id_sucursal) VALUES
+(1, '2024-01-05', '2024-01-10', 'Confirmada', 1001, 1);
+INSERT INTO reserva (fecha_inicio, fecha_fin, estado, id_cliente, id_sucursal) VALUES
+('2024-02-10', '2024-02-15', 'Confirmada', 1002, 2),
+('2024-03-05', '2024-03-12', 'Finalizada', 1003, 3),
+('2024-04-12', '2024-04-18', 'Cancelada', 1004, 4),
+('2024-05-22', '2024-05-29', 'Finalizada', 1005, 5),
+('2024-06-01', '2024-06-07', 'Confirmada', 1006, 6),
+('2024-06-15', '2024-06-20', 'Confirmada', 1007, 7),
+('2024-07-10', '2024-07-15', 'Finalizada', 1008, 8),
+('2024-08-05', '2024-08-12', 'Cancelada', 1009, 9),
+('2024-09-01', '2024-09-08', 'Confirmada', 1010, 10),
+('2024-09-25', '2024-10-01', 'Finalizada', 1011, 11),
+('2024-10-12', '2024-10-18', 'Confirmada', 1012, 12),
+('2024-11-05', '2024-11-10', 'Cancelada', 1013, 13),
+('2024-12-01', '2024-12-07', 'Finalizada', 1014, 14),
+('2025-01-10', '2025-01-15', 'Confirmada', 1015, 15),
+('2025-02-05', '2025-02-10', 'Finalizada', 1016, 16),
+('2025-03-20', '2025-03-25', 'Cancelada', 1017, 17),
+('2025-04-10', '2025-04-17', 'Finalizada', 1018, 18),
+('2025-05-08', '2025-05-15', 'Confirmada', 1019, 19),
+('2025-06-12', '2025-06-17', 'Finalizada', 1020, 20),
+('2025-07-01', '2025-07-07', 'Cancelada', 1021, 21),
+('2025-08-18', '2025-08-23', 'Confirmada', 1022, 22),
+('2025-09-05', '2025-09-12', 'Finalizada', 1023, 23),
+('2025-10-01', '2025-10-07', 'Cancelada', 1024, 24),
+('2025-11-14', '2025-11-20', 'Confirmada', 1025, 25),
+('2025-12-02', '2025-12-09', 'Finalizada', 1026, 26),
+('2026-01-18', '2026-01-23', 'Confirmada', 1027, 27),
+('2026-02-10', '2026-02-15', 'Cancelada', 1028, 28),
+('2026-03-05', '2026-03-10', 'Finalizada', 1029, 29),
+('2026-04-12', '2026-04-18', 'Confirmada', 1030, 30),
+('2026-05-22', '2026-05-29', 'Finalizada', 1031, 31),
+('2026-06-01', '2026-06-07', 'Cancelada', 1032, 32),
+('2026-07-15', '2026-07-20', 'Finalizada', 1033, 33),
+('2026-08-05', '2026-08-12', 'Confirmada', 1034, 34),
+('2026-09-10', '2026-09-15', 'Finalizada', 1035, 35),
+('2026-10-12', '2026-10-18', 'Confirmada', 1036, 36),
+('2026-11-05', '2026-11-10', 'Cancelada', 1037, 37),
+('2026-12-01', '2026-12-07', 'Finalizada', 1038, 38),
+('2027-01-10', '2027-01-15', 'Confirmada', 1039, 39),
+('2027-02-05', '2027-02-10', 'Finalizada', 1040, 40),
+('2027-03-10', '2027-03-15', 'Cancelada', 1041, 41),
+('2027-04-12', '2027-04-17', 'Confirmada', 1042, 42),
+('2027-05-05', '2027-05-10', 'Finalizada', 1043, 43),
+('2027-06-01', '2027-06-07', 'Cancelada', 1044, 44),
+('2027-07-18', '2027-07-23', 'Finalizada', 1045, 45),
+('2027-08-12', '2027-08-17', 'Confirmada', 1046, 46),
+('2027-09-05', '2027-09-10', 'Finalizada', 1047, 47),
+('2027-10-15', '2027-10-20', 'Confirmada', 1048, 48),
+('2027-11-01', '2027-11-07', 'Cancelada', 1049, 49),
+('2027-12-10', '2027-12-15', 'Finalizada', 1050, 50),
+('2028-01-01', '2028-01-07', 'Confirmada', 1051, 51),
+('2028-02-01', '2028-02-07', 'Finalizada', 1052, 52),
+('2028-02-08', '2028-02-14', 'Cancelada', 1053, 53),
+('2028-02-15', '2028-02-21', 'Confirmada', 1054, 54),
+('2028-02-22', '2028-02-28', 'Finalizada', 1055, 55),
+('2028-03-01', '2028-03-07', 'Cancelada', 1056, 56),
+('2028-03-08', '2028-03-14', 'Confirmada', 1057, 57),
+('2028-03-15', '2028-03-21', 'Finalizada', 1058, 58),
+('2028-03-22', '2028-03-28', 'Confirmada', 1059, 59),
+('2028-03-29', '2028-04-04', 'Cancelada', 1060, 60),
+('2028-04-05', '2028-04-11', 'Confirmada', 1061, 61),
+('2028-04-12', '2028-04-18', 'Finalizada', 1062, 62),
+('2028-04-19', '2028-04-25', 'Cancelada', 1063, 63),
+('2028-04-26', '2028-05-02', 'Confirmada', 1064, 64),
+('2028-05-03', '2028-05-09', 'Finalizada', 1065, 65),
+('2028-05-10', '2028-05-16', 'Cancelada', 1066, 66),
+('2028-05-17', '2028-05-23', 'Confirmada', 1067, 67),
+('2028-05-24', '2028-05-30', 'Finalizada', 1068, 68),
+('2028-05-31', '2028-06-06', 'Cancelada', 1069, 69),
+('2028-06-07', '2028-06-13', 'Confirmada', 1070, 70),
+('2028-06-14', '2028-06-20', 'Finalizada', 1071, 71),
+('2028-06-21', '2028-06-27', 'Cancelada', 1072, 72),
+('2028-06-28', '2028-07-04', 'Confirmada', 1073, 73),
+('2028-07-05', '2028-07-11', 'Finalizada', 1074, 74),
+('2028-07-12', '2028-07-18', 'Cancelada', 1075, 75),
+('2028-07-19', '2028-07-25', 'Confirmada', 1076, 76),
+('2028-07-26', '2028-08-01', 'Finalizada', 1077, 77),
+('2028-08-02', '2028-08-08', 'Cancelada', 1078, 78),
+('2028-08-09', '2028-08-15', 'Confirmada', 1079, 79),
+('2028-08-16', '2028-08-22', 'Finalizada', 1080, 80),
+('2028-08-23', '2028-08-29', 'Cancelada', 1081, 81),
+('2028-08-30', '2028-09-05', 'Confirmada', 1082, 82),
+('2028-09-06', '2028-09-12', 'Finalizada', 1083, 83),
+('2028-09-13', '2028-09-19', 'Cancelada', 1084, 84),
+('2028-09-20', '2028-09-26', 'Confirmada', 1085, 85),
+('2028-09-27', '2028-10-03', 'Finalizada', 1086, 86),
+('2028-10-04', '2028-10-10', 'Cancelada', 1087, 87),
+('2028-10-11', '2028-10-17', 'Confirmada', 1088, 88),
+('2028-10-18', '2028-10-24', 'Finalizada', 1089, 89),
+('2028-10-25', '2028-10-31', 'Cancelada', 1090, 90),
+('2028-11-01', '2028-11-07', 'Confirmada', 1091, 91),
+('2028-11-08', '2028-11-14', 'Finalizada', 1092, 92),
+('2028-11-15', '2028-11-21', 'Cancelada', 1093, 93),
+('2028-11-22', '2028-11-28', 'Confirmada', 1094, 94),
+('2028-11-29', '2028-12-05', 'Finalizada', 1095, 95),
+('2028-12-06', '2028-12-12', 'Cancelada', 1096, 96),
+('2028-12-13', '2028-12-19', 'Confirmada', 1097, 97),
+('2028-12-20', '2028-12-26', 'Finalizada', 1098, 98),
+('2028-12-27', '2028-12-31', 'Cancelada', 1099, 99),
+('2029-01-01', '2029-01-07', 'Confirmada', 1100, 100);
+
+
+#                                               【 Habitación 】
+
+
+INSERT INTO habitacion (precio, tipo, disponibilidad, vistas, id_sucursal) VALUES 
+(100.50, 'Sencilla', 'Disponible', 'Vista al mar', 1), (200.75, 'Doble', 'No disponible', 'Vista al jardín', 2),
+(350.00, 'Suite', 'Disponible', 'Vista a la ciudad', 3), (150.25, 'Sencilla', 'Disponible', 'Vista al parque', 1),
+(250.80, 'Doble', 'Disponible', 'Vista al mar', 2), (400.60, 'Suite', 'No disponible', 'Vista a la montaña', 3),
+(130.90, 'Sencilla', 'No disponible', 'Vista al jardín', 1), (220.35, 'Doble', 'Disponible', 'Vista a la ciudad', 2),
+(380.10, 'Suite', 'Disponible', 'Vista al parque', 3), (145.50, 'Sencilla', 'Disponible', 'Vista a la piscina', 1),
+(150.00, 'Sencilla', 'Disponible', 'Vista al mar', 12), (200.00, 'Doble', 'No disponible', 'Vista al jardín', 45),
+(300.00, 'Suite', 'Disponible', 'Vista a la ciudad', 67), (120.00, 'Sencilla', 'Disponible', 'Vista al parque', 5),
+(250.00, 'Doble', 'Disponible', 'Vista al mar', 23), (400.00, 'Suite', 'No disponible', 'Vista a la montaña', 34),
+(130.00, 'Sencilla', 'No disponible', 'Vista al jardín', 19), (220.00, 'Doble', 'Disponible', 'Vista a la ciudad', 8),
+(380.00, 'Suite', 'Disponible', 'Vista al parque', 91), (145.00, 'Sencilla', 'Disponible', 'Vista a la piscina', 3),
+(180.00, 'Sencilla', 'No disponible', 'Vista al mar', 11), (210.00, 'Doble', 'Disponible', 'Vista al jardín', 38),
+(350.00, 'Suite', 'No disponible', 'Vista a la ciudad', 76), (160.00, 'Sencilla', 'Disponible', 'Vista al parque', 29),
+(270.00, 'Doble', 'Disponible', 'Vista al mar', 40), (390.00, 'Suite', 'Disponible', 'Vista a la montaña', 84),
+(140.00, 'Sencilla', 'No disponible', 'Vista al jardín', 6), (230.00, 'Doble', 'Disponible', 'Vista a la ciudad', 15),
+(370.00, 'Suite', 'Disponible', 'Vista al parque', 92), (155.00, 'Sencilla', 'Disponible', 'Vista a la piscina', 2),
+(195.00, 'Sencilla', 'No disponible', 'Vista al mar', 22), (215.00, 'Doble', 'Disponible', 'Vista al jardín', 50),
+(340.00, 'Suite', 'No disponible', 'Vista a la ciudad', 73), (175.00, 'Sencilla', 'Disponible', 'Vista al parque', 30),
+(260.00, 'Doble', 'Disponible', 'Vista al mar', 41), (380.00, 'Suite', 'Disponible', 'Vista a la montaña', 85),
+(135.00, 'Sencilla', 'No disponible', 'Vista al jardín', 4), (225.00, 'Doble', 'Disponible', 'Vista a la ciudad', 16),
+(365.00, 'Suite', 'Disponible', 'Vista al parque', 93), (165.00, 'Sencilla', 'Disponible', 'Vista a la piscina', 7),
+(190.00, 'Sencilla', 'No disponible', 'Vista al mar', 17), (205.00, 'Doble', 'Disponible', 'Vista al jardín', 48),
+(355.00, 'Suite', 'No disponible', 'Vista a la ciudad', 75), (145.50, 'Sencilla', 'Disponible', 'Vista al parque', 28),
+(275.00, 'Doble', 'Disponible', 'Vista al mar', 39), (390.50, 'Suite', 'Disponible', 'Vista a la montaña', 88),
+(125.00, 'Sencilla', 'No disponible', 'Vista al jardín', 10), (235.00, 'Doble', 'Disponible', 'Vista a la ciudad', 18),
+(375.00, 'Suite', 'Disponible', 'Vista al parque', 90), (155.50, 'Sencilla', 'Disponible', 'Vista a la piscina', 1),
+(185.00, 'Sencilla', 'No disponible', 'Vista al mar', 21), (225.50, 'Doble', 'Disponible', 'Vista al jardín', 46),
+(340.50, 'Suite', 'No disponible', 'Vista a la ciudad', 71), (165.50, 'Sencilla', 'Disponible', 'Vista al parque', 25),
+(255.00, 'Doble', 'Disponible', 'Vista al mar', 42), (385.00, 'Suite', 'Disponible', 'Vista a la montaña', 89),
+(140.50, 'Sencilla', 'No disponible', 'Vista al jardín', 9), (215.50, 'Doble', 'Disponible', 'Vista a la ciudad', 55),
+(365.50, 'Suite', 'Disponible', 'Vista al parque', 94), (175.50, 'Sencilla', 'Disponible', 'Vista a la piscina', 13),
+(195.50, 'Sencilla', 'No disponible', 'Vista al mar', 20), (210.50, 'Doble', 'Disponible', 'Vista al jardín', 44),
+(350.50, 'Suite', 'No disponible', 'Vista a la ciudad', 72), (160.50, 'Sencilla', 'Disponible', 'Vista al parque', 27),
+(270.50, 'Doble', 'Disponible', 'Vista al mar', 43), (390.50, 'Suite', 'Disponible', 'Vista a la montaña', 86),
+(130.50, 'Sencilla', 'No disponible', 'Vista al jardín', 14), (225.50, 'Doble', 'Disponible', 'Vista a la ciudad', 33),
+(375.50, 'Suite', 'Disponible', 'Vista al parque', 87), (150.25, 'Sencilla', 'Disponible', 'Vista a la piscina', 8),
+(190.25, 'Sencilla', 'No disponible', 'Vista al mar', 24), (220.25, 'Doble', 'Disponible', 'Vista al jardín', 47),
+(340.25, 'Suite', 'No disponible', 'Vista a la ciudad', 70), (165.25, 'Sencilla', 'Disponible', 'Vista al parque', 26),
+(265.25, 'Doble', 'Disponible', 'Vista al mar', 49), (385.25, 'Suite', 'Disponible', 'Vista a la montaña', 83),
+(135.25, 'Sencilla', 'No disponible', 'Vista al jardín', 15), (230.25, 'Doble', 'Disponible', 'Vista a la ciudad', 60),
+(365.25, 'Suite', 'Disponible', 'Vista al parque', 94), (120.00, 'Sencilla', 'Disponible', 'Vista al mar', 5),
+(200.00, 'Doble', 'No disponible', 'Vista a la montaña', 10), (300.00, 'Suite', 'Disponible', 'Vista al jardín', 15),
+(150.00, 'Sencilla', 'Disponible', 'Vista a la ciudad', 20), (250.00, 'Doble', 'Disponible', 'Vista al parque', 25),
+(400.00, 'Suite', 'No disponible', 'Vista al mar', 30), (130.00, 'Sencilla', 'No disponible', 'Vista a la piscina', 35),
+(220.00, 'Doble', 'Disponible', 'Vista al jardín', 40), (380.00, 'Suite', 'Disponible', 'Vista a la montaña', 45),
+(145.00, 'Sencilla', 'Disponible', 'Vista a la ciudad', 50), (110.00, 'Sencilla', 'Disponible', 'Vista al parque', 55),
+(210.00, 'Doble', 'No disponible', 'Vista al mar', 60), (310.00, 'Suite', 'Disponible', 'Vista al jardín', 65),
+(160.00, 'Sencilla', 'Disponible', 'Vista a la ciudad', 70), (270.00, 'Doble', 'Disponible', 'Vista a la piscina', 75),
+(390.00, 'Suite', 'No disponible', 'Vista al parque', 80), (140.00, 'Sencilla', 'No disponible', 'Vista al mar', 85),
+(230.00, 'Doble', 'Disponible', 'Vista a la montaña', 90), (370.00, 'Suite', 'Disponible', 'Vista al jardín', 94),
+(125.00, 'Sencilla', 'Disponible', 'Vista al parque', 12), (215.00, 'Doble', 'No disponible', 'Vista a la ciudad', 22),
+(315.00, 'Suite', 'Disponible', 'Vista al mar', 32), (155.00, 'Sencilla', 'Disponible', 'Vista al jardín', 42), 
+(265.00, 'Doble', 'Disponible', 'Vista al parque', 52), (385.00, 'Suite', 'No disponible', 'Vista a la ciudad', 62),
+(135.00, 'Sencilla', 'No disponible', 'Vista a la piscina', 72), (225.00, 'Doble', 'Disponible', 'Vista a la montaña', 82),
+(375.00, 'Suite', 'Disponible', 'Vista al jardín', 92), (115.00, 'Sencilla', 'Disponible', 'Vista al mar', 6),
+(205.00, 'Doble', 'No disponible', 'Vista al parque', 16), (305.00, 'Suite', 'Disponible', 'Vista a la ciudad', 26),
+(165.00, 'Sencilla', 'Disponible', 'Vista al mar', 36), (275.00, 'Doble', 'Disponible', 'Vista al jardín', 46),
+(395.00, 'Suite', 'No disponible', 'Vista al parque', 56), (145.00, 'Sencilla', 'No disponible', 'Vista a la ciudad', 66),
+(235.00, 'Doble', 'Disponible', 'Vista a la montaña', 76), (365.00, 'Suite', 'Disponible', 'Vista al mar', 86),
+(130.00, 'Sencilla', 'Disponible', 'Vista al jardín', 50), (220.00, 'Doble', 'No disponible', 'Vista al parque', 11),
+(320.00, 'Suite', 'Disponible', 'Vista a la ciudad', 21);
+
+
+#                                               【 Factura 】
+
+
+INSERT INTO factura (id_reserva, fecha_emision, monto_total, iva, forma_pago) VALUES
+(1, '2024-11-15', 1500.00, 0.16, 'efectivo'), (2, '2024-11-16', 2500.50, 0.16, 'tarjeta'), (3, '2024-11-17', 3200.75, 0.16, 'efectivo'),
+(4, '2024-11-18', 1800.00, 0.16, 'tarjeta'), (5, '2024-11-19', 2750.00, 0.16, 'efectivo'), (6, '2024-11-20', 1950.25, 0.16, 'tarjeta'),
+(7, '2024-11-21', 2250.00, 0.16, 'efectivo'), (8, '2024-11-22', 3100.75, 0.16, 'tarjeta'), (9, '2024-11-23', 1700.50, 0.16, 'efectivo'),
+(10, '2024-11-24', 2800.00, 0.16, 'tarjeta'), (11, '2024-11-25', 3350.25, 0.16, 'efectivo'), (12, '2024-11-26', 3600.75, 0.16, 'tarjeta'),
+(13, '2024-11-27', 2100.00, 0.16, 'efectivo'), (14, '2024-11-28', 2950.50, 0.16, 'tarjeta'), (15, '2024-11-29', 2500.00, 0.16, 'efectivo'),
+(16, '2024-11-30', 4000.25, 0.16, 'tarjeta'), (17, '2024-12-01', 1750.75, 0.16, 'efectivo'), (18, '2024-12-02', 2800.00, 0.16, 'tarjeta'),
+(19, '2024-12-03', 3150.50, 0.16, 'efectivo'), (20, '2024-12-04', 2200.00, 0.16, 'tarjeta'), (21, '2024-12-05', 2750.25, 0.16, 'efectivo'),
+(22, '2024-12-06', 3550.75, 0.16, 'tarjeta'), (23, '2024-12-07', 3200.50, 0.16, 'efectivo'), (24, '2024-12-08', 2450.00, 0.16, 'tarjeta'),
+(25, '2024-12-09', 3650.25, 0.16, 'efectivo'), (26, '2024-12-10', 3400.75, 0.16, 'tarjeta'), (27, '2024-12-11', 2900.50, 0.16, 'efectivo'),
+(28, '2024-12-12', 1950.00, 0.16, 'tarjeta'), (29, '2024-12-13', 2550.25, 0.16, 'efectivo'), (30, '2024-12-14', 3700.75, 0.16, 'tarjeta'),
+(31, '2024-12-15', 2300.00, 0.16, 'efectivo'), (32, '2024-12-16', 4000.50, 0.16, 'tarjeta'), (33, '2024-12-17', 2150.25, 0.16, 'efectivo'),
+(34, '2024-12-18', 3100.75, 0.16, 'tarjeta'), (35, '2024-12-19', 2750.50, 0.16, 'efectivo'), (36, '2024-12-20', 3400.00, 0.16, 'tarjeta'),
+(37, '2024-12-21', 1950.25, 0.16, 'efectivo'), (38, '2024-12-22', 3050.75, 0.16, 'tarjeta'), (39, '2024-12-23', 2550.50, 0.16, 'efectivo'),
+(40, '2024-12-24', 3800.00, 0.16, 'tarjeta'), (41, '2024-12-25', 2100.25, 0.16, 'efectivo'), (42, '2024-12-26', 3350.75, 0.16, 'tarjeta'),
+(43, '2024-12-27', 2200.50, 0.16, 'efectivo'), (44, '2024-12-28', 2950.00, 0.16, 'tarjeta'), (45, '2024-12-29', 3600.25, 0.16, 'efectivo'),
+(46, '2024-12-30', 3200.75, 0.16, 'tarjeta'), (47, '2024-12-31', 2850.50, 0.16, 'efectivo'), (48, '2025-01-01', 4000.00, 0.16, 'tarjeta'),
+(49, '2025-01-02', 1850.25, 0.16, 'efectivo'), (50, '2025-01-03', 3550.75, 0.16, 'tarjeta'), (51, '2023-02-20', 540.00, 0.16, 'efectivo'),
+(52, '2023-02-21', 560.00, 0.16, 'tarjeta');
+
+
+
+#                                               【 Colonia 】
+
+
+INSERT INTO colonia(id_colonia,id_ciudad,nombre_col,CP) VALUE (1001,101,"La Magdalena",50608);
+INSERT INTO colonia(id_ciudad, nombre_col, CP) VALUES
+(102, 'Jardines del Sol', 12345), (201, 'Vista Alegre', 54321),(110, 'San Juan', 98765),
+(145, 'Nochebuena', 67812), (118, 'El Mirador', 78901), (103, 'Arboledas', 89012), (200, 'Puerta del Sol', 90123),
+(155, 'Cumbres', 90134), (134, 'San Miguel', 12367), (142, 'Las Margaritas', 23478), (111, 'El Sagrado', 34589),
+(125, 'La Libertad', 45690), (135, 'Sierra Azul', 56701), (121, 'Los Girasoles', 78923), (150, 'El Sol', 89034),
+(105, 'San Fernando', 89045), (125, 'La Aurora', 90156), (140, 'La Toscana', 23490), (110, 'San Nicolás', 90167), (122, 'Las Rosas', 12390),
+(192, 'Villas del Sol', 56234), (104, 'Real del Norte', 34215), (201, 'Hacienda Real', 78123), (163, 'Residencial Primavera', 45234),
+(199, 'Monte Real', 34112), (133, 'Paseos del Bosque', 67234), (186, 'Altavista', 12356),
+(189, 'Olivar del Conde', 43256), (141, 'Horizontes', 54321), (197, 'Nueva Esperanza', 34521),
+(131, 'Estrella del Norte', 56789), (166, 'La Arboleda', 12034), (172, 'Colinas de San Pedro', 76321), (147, 'San Carlos', 34213),
+(193, 'Las Fuentes', 98012), (125, 'Praderas del Norte', 23894), (162, 'Senderos', 67289), (101, 'Villa Bonita', 34125),
+(102, 'Cerro Alto', 45267), (103, 'Puente Blanco', 78912), (105, 'Rancho Alegre', 56321), (107, 'Jardines del Edén', 89231),
+(109, 'El Pedregal', 32415), (110, 'Senderos del Lago', 45123), (111, 'Lago Escondido', 67145), (113, 'Monte Bello', 56721),
+(114, 'Rincón del Bosque', 76123), (115, 'Vista Hermosa', 34021), (116, 'Arboleda del Sur', 45890), (122, 'Los Laureles', 67345),
+(124, 'Parque de los Olivos', 89210), (126, 'Altos del Norte', 56231), (127, 'Real de San Pablo', 78111), (128, 'Hacienda del Sol', 67124),
+(137, 'Hacienda del Encanto', 76421), (138, 'Monte Escondido', 78932), (140, 'Lomas del Sur', 34567),
+(143, 'Horizontes del Lago', 56789), (144, 'Sierra Nevada', 34156), (146, 'Río Azul', 45210), (148, 'Lago Cristal', 56782),
+(149, 'Monte Verde', 67891), (150, 'Bosque Encantado', 45987), (151, 'Rincón del Río', 56321), (152, 'Cumbre Dorada', 34210),
+(157, 'Los Arrayanes', 89234), (158, 'Pinar de las Flores', 32178), (159, 'Valle de Encinos', 56432), (160, 'Ladera Hermosa', 45678),
+(165, 'Llanura Serena', 45321), (167, 'Los Sauces', 67124), (168, 'Cueva del Agua', 23451), (170, 'Lago Azul', 76234),
+(157, 'Pueblo Viejo', 34567), (198, 'Jardines de la Esperanza', 45678), (134, 'Sendero de la Paz', 56789), (165, 'Cumbres del Norte', 78901),
+(142, 'Valle del Encanto', 90123), (186, 'Horizonte Azul', 12346), (199, 'Cultura Viva', 23457), (121, 'Amanecer Dorado', 34568),
+(108, 'Rincón de los Abuelos', 45679), (177, 'Frida Kahlo', 56780), (110, 'Camino del Progreso', 67891), (153, 'Bajo el Cielo', 78902),
+(202, 'Puente de la Historia', 89013), (199, 'Cielo Abierto', 12347), (135, 'Pueblo Mágico', 23458), (119, 'Río de la Vida', 34569),
+(171, 'Ángeles del Futuro', 56781), (147, 'Caminos de la Libertad', 67892), (166, 'Paz y Progreso', 78903), (155, 'Sendero Verde', 89014),
+(130, 'Luz de la Mañana', 90125), (183, 'Sabores de México', 12348);
+
+
+#                                               【 Direccion 】
+
+
+INSERT INTO direccion(id_direccion, nombre_calle, num_exterior, num_interior, id_colonia, id_sucursal) 
+VALUE (10,"La Magdalena",123, 45, 1001, 1);
+INSERT INTO direccion(nombre_calle, num_exterior, num_interior, id_colonia, id_sucursal) VALUES
+('Jardines', 567, 12, 1002, 2), ('Pinos', 231, 34, 1003, 3), ('Olmos', 145, 56, 1004, 4),
+('Encinos', 312, 23, 1005, 5), ('Sauces', 678, 45, 1006, 6), ('Cedros', 145, 67, 1007, 7), ('Magnolias', 341, 89, 1008, 8),
+('Azaleas', 453, 34, 1009, 9), ('Girasoles', 567, 12, 1010, 10), ('Amapolas', 231, 45, 1011, 11), ('Camelias', 145, 34, 1012, 12),
+('Naranjos', 678, 23, 1013, 13), ('Fresnos', 312, 56, 1014, 14), ('Laurel', 123, 89, 1015, 15), ('Cipreses', 453, 12, 1016, 16),
+('Nogales', 145, 34, 1017, 17), ('Cerezos', 231, 67, 1018, 18), ('Palmas', 567, 45, 1019, 19), ('Mimosas', 341, 23, 1020, 20),
+('Eucaliptos', 453, 12, 1021, 21), ('Hortensias', 123, 34, 1022, 22), ('Orquídeas', 567, 89, 1023, 23), ('Violetas', 312, 23, 1024, 24),
+('Claveles', 231, 45, 1025, 25), ('Rosales', 145, 56, 1026, 26), ('Margaritas', 453, 34, 1027, 27), ('Tulipanes', 341, 12, 1028, 28),
+('Buganvillas', 567, 67, 1029, 29), ('Gardenias', 123, 45, 1030, 30), ('Ayuntamiento', 145, 34, 1031, 31), ('Camelinas', 312, 89, 1032, 32),
+('Retamas', 453, 23, 1033, 33), ('Lirios', 231, 12, 1034, 34), ('Mirtos', 567, 34, 1035, 35), ('Robles', 123, 23, 1036, 36),
+('Pálamos', 312, 45, 1037, 37), ('Sicomoros', 453, 89, 1038, 38), ('Toronjos', 145, 12, 1039, 39), ('Guayabos', 341, 34, 1040, 40),
+('Mandarinos', 567, 45, 1041, 41), ('Higos', 231, 23, 1042, 42), ('Olivos', 312, 67, 1043, 43), ('Aguacates', 453, 12, 1044, 44),
+('Manzanos', 145, 34, 1045, 45), ('Duraznos', 567, 89, 1046, 46), ('Cítricos', 123, 23, 1047, 47), ('Perales', 231, 45, 1048, 48),
+('Almendros', 341, 34, 1049, 49), ('Miguel Ángel de Quevedo', 145, 67, 1050, 50),
+('Avenida División del Norte', 231, 34, 1051, 51), ('Calzada de los Misterios', 312, 23, 1052, 52),
+('Avenida Revolución', 453, 56, 1053, 53), ('Avenida Río Churubusco', 567, 89, 1054, 54), ('Calzada del Hueso', 678, 45, 1055, 55),
+('Avenida Río San Joaquín', 789, 12, 1056, 56), ('Jacarandas', 123, 23, 1057, 57), ('Avenida Tláhuac', 341, 34, 1058, 58),
+('Avenida Cuauhtémoc', 231, 45, 1059, 59), ('Avenida Patriotismo', 453, 67, 1060, 60), ('Avenida Coyoacán', 312, 89, 1061, 61),
+('Avenida México-Tacuba', 145, 34, 1062, 62), ('Prolongación Paseo de la Reforma', 678, 23, 1063, 63),
+('Avenida de las Granjas', 789, 45, 1064, 64), ('Calzada de los Ahuehuetes', 341, 12, 1065, 65), ('Calzada Vallejo', 231, 34, 1066, 66),
+('Avenida Gustavo Baz', 453, 56, 1067, 67), ('Avenida Ejército Nacional', 567, 89, 1068, 68), ('Avenida Horacio', 312, 45, 1069, 69), 
+('Avenida Ignacio Morones Prieto', 145, 12, 1070, 70), ('Enebros', 123, 67, 1071, 71), ('Encinos', 453, 45, 1072, 72),
+('Olmos', 312, 12, 1073, 73), ('Castañas', 341, 89, 1074, 74), ('Morales', 145, 23, 1075, 75), ('Álamos', 231, 12, 1076, 76),
+('Pinos Rojos', 567, 45, 1077, 77), ('Álamos Blancos', 453, 34, 1078, 78),
+('Cedros Grandes', 312, 89, 1079, 79), ('Cenizos', 231, 67, 1080, 80), ('Olivos Viejos', 123, 34, 1081, 81),
+('Paseo de la Reforma', 101, 15, 1082, 82), ('Avenida Juárez', 205, 12, 1083, 83), ('Insurgentes Sur', 345, 34, 1084, 84),
+('Avenida Chapultepec', 401, 45, 1085, 85), ('Eje Central Lázaro Cárdenas', 567, 23, 1086, 86),
+('Calzada de Tlalpan', 789, 56, 1087, 87), ('Viaducto Miguel Alemán', 231, 12, 1088, 88), ('Avenida Universidad', 312, 45, 1089, 89),
+('Calzada Ignacio Zaragoza', 453, 67, 1090, 90), ('Periférico Sur', 678, 89, 1091, 91), ('Avenida Presidente Masaryk', 345, 34, 1092, 92),
+('Circuito Interior', 123, 12, 1093, 93), ('Avenida de los Insurgentes Norte', 567, 45, 1094, 94),('Insurgentes Sur', 1204, 546, 1081, 95),
+('Paseo de la Reforma', 351, 2, 1078, 96),('Eje Central Lázaro Cárdenas', 578, 4, 1004, 97),('Calzada de Tlalpan', 789, 4, 1005, 98), 
+('Calle Francisco I. Madero', 89, 7, 1092, 99),('Calzada Ignacio Zaragoza', 5321, 5, 1087, 100);
+
+
+
+#                                               【 Reserva - Habitacion 】
+
+
+INSERT INTO reserva_habitacion(id_reserva, id_habitacion) VALUES 
+(1, 85),(1, 106),(2, 116),(2, 86),(2, 108),(2, 103),(3, 87),(3, 110),(3, 25),(3, 44),(3, 64),(3, 18),(4, 61),(4, 73),(4, 114),(4, 110),
+(5, 109),(5, 63),(5, 75),(5, 76),(5, 82),(5, 97),(5, 55),(6, 53),(6, 68),(6, 98),(6, 69),(7, 91),(7, 111),(7, 94),(7, 85),(7, 101),(8, 95),
+(8, 47),(8, 69),(8, 77),(9, 69),(9, 41),(9, 77),(9, 92),(9, 86),(10, 70),(10, 111),(10, 24),(10, 40),(11, 72),(11, 105),(11, 87),(11, 103),
+(11, 78),(11, 25),(12, 111),(12, 42),(12, 65),(12, 55),(12, 45),(12, 63),(13, 44),(13, 37),(13, 84),(14, 62),(14, 76),(14, 61),(14, 57),
+(14, 38),(14, 12),(14, 30),(15, 19),(16, 97),(16, 14),(16, 76),(17, 96),(17, 88),(18, 27),(18, 73),(18, 67),
+(18, 59),(18, 49),(18, 79),(19, 48),(19, 82),(19, 33),(19, 111),(19, 22),(19, 105),(20, 45),(20, 42),(21, 103),(21, 111),(21, 49),
+(21, 15),(21, 107),(22, 36),(22, 108),(22, 105),(23, 50),(23, 80),(24, 40),(24, 96),(25, 107),(25, 87),(25, 89),
+(26, 15),(26, 52),(26, 14),(26, 70),(27, 98),(27, 49),(27, 84),(28, 57),(28, 90),(28, 15),(29, 64),(29, 68),(29, 92),
+(29, 35),(29, 52),(30, 81),(30, 93),(30, 36),(30, 100),(31, 113),(31, 109),(31, 79),(31, 83),(31, 40),(31, 99),(32, 77),(32, 50),(33, 59),
+(33, 54),(34, 92),(34, 12),(35, 100),(35, 18),(35, 44),(35, 76),(35, 90),(35, 31),(36, 20),(36, 109),(36, 97),(36, 103),(36, 50),(37, 13),
+(37, 70),(37, 14),(38, 74),(38, 33),(38, 91),(38, 91),(39, 12),(39, 85),(39, 95),(40, 114),(40, 82),(41, 38),(41, 116),(42, 58),(42, 59),
+(42, 101),(42, 19),(42, 68),(42, 93),(43, 56),(43, 47),(44, 99),(44, 67),(44, 22),(44, 21),(45, 39),(45, 62),(45, 30),(46, 22),(46, 18),
+(47, 21),(47, 43),(48, 29),(48, 24),(48, 19),(48, 102),(48, 67),(48, 73),(49, 101),(49, 95),(50, 37),(50, 68),(50, 17),(50, 84),(50, 56),
+(50, 62),(52, 88),(52, 113),
+(53, 102),(54, 12),(55, 81),(56, 61),(57, 35),(58, 28),(60, 13),(62, 33),(63, 41),(64, 88),(65, 74),(66, 21),(68, 18),(70, 16),(71, 46),
+(72, 22),(74, 39),(75, 65),(76, 109),(77, 31),(78, 19),(80, 26),(81, 98),(83, 60),(84, 15),(85, 43),(86, 104),(88, 20),(89, 105),(90, 94),
+(91, 100),(93, 25),(95, 32),(96, 73),(97, 96),(98, 62),(99, 108),(100, 75),
+(53, 14),(54, 82),(55, 37),(56, 69),(57, 106),(58, 24),(59, 71),(60, 95),(61, 55),(62, 93),(63, 50),(64, 45),(65, 89),(66, 107),(67, 77),
+(68, 64),(69, 41),(70, 29),(71, 84),(72, 40),(73, 78),(74, 67),(75, 16),(77, 63),(78, 48),(79, 76),(82, 44),(83, 79),(84, 72),(85, 18),
+(86, 26),(87, 109),(88, 91),(89, 20),(90, 110),(91, 43),(92, 66),(94, 103),(95, 11),(96, 88),(97, 97),(98, 100),(99, 13),(100, 27);
+
+
+#                                               【 Cliente - Marketing 】
+
+
+INSERT INTO cliente_marketing (id_cliente, id_marketing) VALUES
+(1001, 1),
+(1002, 2),
+(1003, 3),
+(1004, 4),
+(1005, 5),
+(1006, 6),
+(1007, 7),
+(1008, 8),
+(1009, 9),
+(1010, 10),
+(1011, 11),
+(1012, 12),
+(1013, 13),
+(1014, 14),
+(1015, 15),
+(1016, 16),
+(1017, 17),
+(1018, 18),
+(1019, 19),
+(1020, 20),
+(1021, 21),
+(1022, 22),
+(1023, 23),
+(1024, 24),
+(1025, 25),
+(1026, 26),
+(1027, 27),
+(1028, 28),
+(1029, 29),
+(1030, 30),
+(1031, 31),
+(1032, 32),
+(1033, 33),
+(1034, 34),
+(1035, 35),
+(1036, 36),
+(1037, 37),
+(1038, 38),
+(1039, 39),
+(1040, 40),
+(1041, 41),
+(1042, 42),
+(1043, 43),
+(1044, 44),
+(1045, 45),
+(1046, 46),
+(1047, 47),
+(1048, 48),
+(1049, 49),
+(1050, 50),
+(1051, 51),
+(1052, 52),
+(1053, 53),
+(1054, 54),
+(1055, 55),
+(1056, 56),
+(1057, 57),
+(1058, 58),
+(1059, 59),
+(1060, 60),
+(1061, 61),
+(1062, 62),
+(1063, 63),
+(1064, 64),
+(1065, 65),
+(1066, 66),
+(1067, 67),
+(1068, 68),
+(1069, 69),
+(1070, 70),
+(1071, 71),
+(1072, 72),
+(1073, 73),
+(1074, 74),
+(1075, 75),
+(1076, 76),
+(1077, 77),
+(1078, 78),
+(1079, 79),
+(1080, 80),
+(1081, 81),
+(1082, 82),
+(1083, 83),
+(1084, 84),
+(1085, 85),
+(1086, 86),
+(1087, 87),
+(1088, 88),
+(1089, 89),
+(1090, 90),
+(1091, 91),
+(1092, 92),
+(1093, 93),
+(1094, 94),
+(1095, 95),
+(1096, 96),
+(1097, 97),
+(1098, 98),
+(1099, 99),
+(1100, 100);
+
+
+#                                               【 Agencia 】
+
+
+INSERT INTO agencia (id_agencia, id_cliente, id_huesped, nombre_agencia, telefono, email, id_promocion) VALUES
+(1, 1023, 87, 'Agencia Tropical', '5551234567', 'contacto1@tropical.com', 15),
+(2, 1045, 34, 'Vacaciones Premium', '5559876543', 'info1@premium.com', 9),
+(3, 1034, 12, 'Viajes Económicos', '5552345678', 'support1@economicos.com', 22),
+(4, 1098, 5, 'Agencia Aventuras', '5553456789', 'aventuras1@agencia.com', 45),
+(5, 1005, 60, 'Luxury Vacations', '5555678901', 'luxury1@vacations.com', 50),
+(6, 1087, 48, 'Agencia Express', '5556789012', 'express1@agencia.com', 2),
+(7, 1038, 72, 'Rutas del Sol', '5557890123', 'sol1@rutas.com', 33),
+(8, 1055, 11, 'Agencia Horizonte', '5558901234', 'horizonte1@agencia.com', 29),
+(9, 1040, 77, 'Viajes Felices', '5559012345', 'felices1@viajes.com', 12),
+(10, 1001, 96, 'Vacaciones Azul', '5550123456', 'azul1@vacaciones.com', 41),
+(11, 1064, 14, 'Agencia Aventura', '5551234568', 'aventura2@agencia.com', 19),
+(12, 1091, 30, 'Turismo Verde', '5552345679', 'verde1@turismo.com', 7),
+(13, 1077, 51, 'Planeta Tours', '5553456780', 'tours1@planeta.com', 39),
+(14, 1080, 9, 'Escape Total', '5554567891', 'total1@escape.com', 25),
+(15, 1015, 35, 'Agencia Relax', '5555678902', 'relax1@agencia.com', 5),
+(16, 1066, 62, 'Vacaciones Perfectas', '5556789013', 'perfectas1@vacaciones.com', 48),
+(17, 1043, 22, 'Sol y Playa', '5557890124', 'sol1@playa.com', 11),
+(18, 1088, 56, 'Escapadas Económicas', '5558901235', 'economicas1@escapadas.com', 3),
+(19, 1050, 42, 'Turismo Cultural', '5559012346', 'cultural1@turismo.com', 23),
+(20, 1072, 98, 'Rincones del Mundo', '5550123457', 'rincones1@mundo.com', 1),
+(21, 1033, 10, 'Aventuras Extremas', '5551234569', 'extremas1@aventuras.com', 36),
+(22, 1079, 67, 'Viajes Únicos', '5552345670', 'unicos1@viajes.com', 31),
+(23, 1010, 5, 'Vacaciones Económicas', '5553456781', 'economicas2@vacaciones.com', 40),
+(24, 1090, 50, 'Agencia Turística', '5554567892', 'turistica1@agencia.com', 47),
+(25, 1084, 26, 'Travel Premium', '5555678903', 'premium2@travel.com', 4),
+(26, 1008, 49, 'Agencia Elite', '5556789014', 'elite1@agencia.com', 21),
+(27, 1031, 16, 'Sol y Luna', '5557890125', 'solyluna1@viajes.com', 6),
+(28, 1062, 80, 'Turismo Urbano', '5558901236', 'urbano1@turismo.com', 38),
+(29, 1086, 44, 'Vacaciones de Ensueño', '5559012347', 'ensueno1@vacaciones.com', 28),
+(30, 1027, 7, 'Aventura Global', '5550123458', 'global1@aventura.com', 24),
+(31, 1010, 17, 'Viajes a Medida', '5551234570', 'amedida1@viajes.com', 3),
+(32, 1052, 25, 'Viajes Corporativos', '5552345671', 'corporativos1@viajes.com', 7),
+(33, 1076, 43, 'Rutas y Senderos', '5553456782', 'rutas1@senderos.com', 20),
+(34, 1099, 12, 'Exploradores VIP', '5554567893', 'vip1@exploradores.com', 9),
+(35, 1008, 50, 'Turismo Seguro', '5555678904', 'seguro1@turismo.com', 2),
+(36, 1034, 10, 'Vacaciones Familiares', '5556789015', 'familiares1@vacaciones.com', 18),
+(37, 1021, 35, 'Agencia Clásica', '5557890126', 'clasica1@agencia.com', 11),
+(38, 1048, 7, 'Aventuras Naturales', '5558901237', 'naturales1@aventuras.com', 23),
+(39, 1083, 28, 'Viajes Exclusivos', '5559012348', 'exclusivos1@viajes.com', 15),
+(40, 1065, 1, 'Descubre el Mundo', '5550123459', 'descubre1@mundo.com', 41),
+(41, 1015, 60, 'Viajes Exóticos', '5551234571', 'exoticos1@viajes.com', 8),
+(42, 1092, 3, 'Vacaciones de Lujo', '5552345672', 'lujo1@vacaciones.com', 19),
+(43, 1040, 30, 'Agencia Descubre', '5553456783', 'descubre2@agencia.com', 24),
+(44, 1027, 21, 'Aventuras Modernas', '5554567894', 'modernas1@aventuras.com', 32),
+(45, 1100, 56, 'Turismo Global', '5555678905', 'global2@turismo.com', 25),
+(46, 1038, 5, 'Viajes por el Mundo', '5556789016', 'mundo1@viajes.com', 12),
+(47, 1006, 46, 'Rutas Increíbles', '5557890127', 'increibles1@rutas.com', 36),
+(48, 1077, 82, 'Agencia Internacional', '5558901238', 'internacional1@agencia.com', 10),
+(49, 1089, 40, 'Vacaciones Extremas', '5559012349', 'extremas2@vacaciones.com', 4),
+(50, 1045, 25, 'Viajes al Exterior', '5550123460', 'exterior1@viajes.com', 48),
+(51, 1059, 15, 'Turismo Especializado', '5551234572', 'especializado1@turismo.com', 20),
+(52, 1020, 70, 'Aventuras al Máximo', '5552345673', 'maximo1@aventuras.com', 6),
+(53, 1095, 18, 'Rutas del Futuro', '5553456784', 'futuro1@rutas.com', 45),
+(54, 1074, 8, 'Escapadas Perfectas', '5554567895', 'perfectas2@escapadas.com', 31),
+(55, 1019, 42, 'Agencia Innovadora', '5555678906', 'innovadora1@agencia.com', 22),
+(56, 1062, 95, 'Turismo Alternativo', '5556789017', 'alternativo1@turismo.com', 5),
+(57, 1009, 37, 'Agencia del Año', '5557890128', 'ano1@agencia.com', 33),
+(58, 1041, 23, 'Aventuras Inolvidables', '5558901239', 'inolvidables1@aventuras.com', 28),
+(59, 1080, 4, 'Viajes de Ensueño', '5559012350', 'ensueno2@viajes.com', 27),
+(60, 1037, 77, 'Agencia Viaje Ideal', '5550123461', 'ideal1@viaje.com', 30),
+(61, 1026, 67, 'Turismo Elegante', '5551234573', 'elegante1@turismo.com', 13),
+(62, 1053, 22, 'Explora el Mundo', '5552345674', 'explora1@mundo.com', 14),
+(63, 1090, 64, 'Vacaciones Marinas', '5553456785', 'marinas1@vacaciones.com', 40),
+(64, 1031, 6, 'Aventuras Sin Fronteras', '5554567896', 'fronteras1@aventuras.com', 17),
+(65, 1068, 13, 'Viaje Total', '5555678907', 'total2@viaje.com', 21),
+(66, 1023, 34, 'Agencia Solo Aventura', '5556789020', 'soloaventura1@agencia.com', 29),
+(67, 1086, 50, 'Rutas Celestes', '5557890129', 'celestes1@rutas.com', 37),
+(68, 1055, 19, 'Viajes Imponentes', '5558901240', 'imponentes1@viajes.com', 8),
+(69, 1013, 53, 'Vacaciones Fabulosas', '5559012351', 'fabulosas1@vacaciones.com', 11),
+(70, 1079, 9, 'Escapadas Únicas', '5550123462', 'unicas1@escapadas.com', 49),
+(71, 1002, 39, 'Viajes de Lujo', '5551234574', 'naturales2@aventuras.com', 2),
+(72, 1093, 26, 'Turismo Personalizado', '5552345675', 'personalizado1@turismo.com', 16),
+(73, 1042, 45, 'Viajando Juntos', '5553456786', 'juntos1@viajando.com', 42),
+(74, 1084, 14, 'Agencia Confort', '5554567897', 'confort1@agencia.com', 44),
+(75, 1035, 32, 'Viajes Excepcionales', '5555678908', 'excepcionales1@viajes.com', 34),
+(76, 1029, 41, 'Turismo Verde', '5556789019', 'verde2@turismo.com', 35),
+(77, 1071, 48, 'Agencia Elite', '5557890120', 'elite2@agencia.com', 47),
+(78, 1044, 3, 'Aventuras Gloriosas', '5558901241', 'gloriosas1@aventuras.com', 26),
+(79, 1064, 63, 'Viajes Destacados', '5559012352', 'destacados1@viajes.com', 23),
+(80, 1018, 81, 'Agencia Paraíso', '5550123463', 'paraiso1@agencia.com', 43),
+(81, 1098, 17, 'Vacaciones Especiales', '5551234575', 'especiales1@vacaciones.com', 39),
+(82, 1005, 2, 'Viajes Inspiradores', '5551234576', 'inspiradores1@viajes.com', 1),
+(83, 1017, 55, 'Agencia Global', '5552345677', 'global1@agencia.com', 9),
+(84, 1022, 3, 'Turismo Rápido', '5553456788', 'rapido1@turismo.com', 13),
+(85, 1039, 42, 'Rutas Extremas', '5554567899', 'extremas1@rutas.com', 4),
+(86, 1046, 5, 'Escapadas Sorpresa', '5555678900', 'sorpresa1@escapadas.com', 21),
+(87, 1057, 20, 'Viajes para Todos', '5556789011', 'paratodos1@viajes.com', 6),
+(88, 1061, 47, 'Aventuras para Parejas', '5557890122', 'parejas1@aventuras.com', 33),
+(89, 1070, 31, 'Agencia Juvenil', '5558901233', 'juvenil1@agencia.com', 7),
+(90, 1082, 8, 'Vacaciones por Siempre', '5559012344', 'siempre1@vacaciones.com', 1),
+(91, 1091, 12, 'Turismo Local', '5550123455', 'local1@turismo.com', 10),
+(92, 1003, 9, 'Viajes Cercanos', '5551234577', 'cercanos1@viajes.com', 7),
+(93, 1012, 88, 'Exploradores Urbanos', '5552345678', 'urbanos1@exploradores.com', 11),
+(94, 1025, 12, 'Agencia Familiar', '5553456789', 'familiar1@agencia.com', 16),
+(95, 1036, 29, 'Viajes Modernos', '5554567890', 'modernos1@viajes.com', 28),
+(96, 1043, 13, 'Rutas Alternativas', '5555678901', 'alternativas1@rutas.com', 14),
+(97, 1054, 39, 'Turismo Ecológico', '5556789012', 'ecologico1@turismo.com', 12),
+(98, 1069, 15, 'Escapadas Relax', '5557890123', 'relax1@escapadas.com', 1),
+(99, 1078, 25, 'Viajes Internacionales', '5558901234', 'internacionales1@viajes.com', 15),
+(100, 1088, 16, 'Aventuras Misteriosas', '5559012345', 'misteriosas1@aventuras.com', 1);
+
+
+#                                               【 Promocion - Reserva 】
+
+
+INSERT INTO promocion_reserva (id_promocion, id_reserva) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15),
+(16, 16),
+(17, 17),
+(18, 18),
+(19, 19),
+(20, 20),
+(21, 21),
+(22, 22),
+(23, 23),
+(24, 24),
+(25, 25),
+(26, 26),
+(27, 27),
+(28, 28),
+(29, 29),
+(30, 30),
+(31, 31),
+(32, 32),
+(33, 33),
+(34, 34),
+(35, 35),
+(36, 36),
+(37, 37),
+(38, 38),
+(39, 39),
+(40, 40),
+(41, 41),
+(42, 42),
+(43, 43),
+(44, 44),
+(45, 45),
+(46, 46),
+(47, 47),
+(48, 48),
+(49, 49),
+(50, 50),
+(51, 51);
+
+
+
+#                                               【 Huesped - Reserva 】
+
+
+INSERT INTO huesped_reserva (id_reserva, id_huesped) VALUES
+(1, 92), (2, 21), (3, 18), (4, 66), (5, 86), (6, 48), (7, 63), (8, 2), (9, 81), (10, 54), (11, 41), (12, 26), (13, 5), (14, 8),
+(15, 53), (16, 58), (17, 11), (18, 91), (19, 31), (20, 45), (21, 42), (22, 77), (23, 32), (24, 17), (25, 78), (26, 57), (27, 97), (28, 70),
+(29, 12), (30, 71), (32, 87), (33, 35), (34, 62), (35, 36), (36, 65), (37, 4), (38, 13), (39, 49), (40, 50), (41, 93), (42, 1), (43, 22),
+(44, 74), (45, 25), (46, 83), (48, 61), (49, 44), (50, 19), (51, 16), (52, 94), (53, 73), (54, 37), (55, 28), (56, 99), (57, 98), (58, 51),
+(59, 64), (60, 9), (61, 6), (62, 33), (63, 38), (64, 67), (65, 56), (66, 43), (67, 85), (68, 24), (69, 80), (70, 34), (71, 27), (72, 14),
+(73, 79), (74, 52), (75, 3), (76, 59), (77, 68), (78, 90), (79, 96), (80, 89), (81, 23), (82, 20), (83, 46), (84, 15), (85, 69), (86, 76),
+(87, 60), (88, 39), (89, 10), (90, 55), (91, 100), (92, 84), (93, 29), (94, 30), (95, 75), (96, 40), (97, 47), (98, 95), (99, 7), (91, 4),
+(84, 88), (74, 2), (22, 80), (74, 85), (60, 61), (12, 69), (55, 1), (28, 5), (72, 26), (42, 3), (90, 56), (72, 90), (40, 80), (76, 68),
+(22, 88), (12, 38), (51, 75), (93, 10), (14, 71), (93, 18), (66, 59), (18, 11), (85, 72), (26, 12), (53, 6), (56, 95), (32, 79), (46, 15),
+(18, 81), (34, 2), (76, 50), (15, 31), (54, 73), (4, 8), (63, 26), (25, 34), (89, 92), (12, 11), (36, 60), (84, 24), (95, 78), (30, 17),
+(19, 69), (45, 15), (7, 86), (37, 64), (78, 17), (10, 41), (44, 16), (52, 2), (86, 67), (73, 9), (63, 34), (44, 74), (39, 38), (6, 93),
+(83, 100), (11, 82), (90, 26), (35, 95), (97, 90), (82, 30), (25, 11), (63, 12), (99, 55), (70, 22), (39, 84), (47, 29), (36, 30), (88, 102),
+(99, 31), (57, 17), (97, 48), (17, 95), (62, 88), (8, 3), (24, 8), (62, 63), (4, 93), (39, 60), (61, 14), (72, 61), (23, 3), (66, 64),
+(6, 63), (32, 7), (61, 5), (87, 18), (37, 37), (59, 83), (73, 12), (25, 45), (60, 88), (33, 37), (73, 99), (92, 9), (94, 59), (59, 37),
+(30, 11);
+
+
+#                                               【 Agencia - Reserva 】
+
+
+INSERT INTO agencia_reserva (id_reserva, id_agencia) VALUES
+(3, 25), (57, 12), (42, 68), (91, 37), (54, 83), (26, 9), (63, 47), (71, 84), (82, 66), (39, 15), 
+(48, 58), (35, 73), (70, 41), (14, 2), (98, 17), (12, 53), (33, 60), (29, 31), (20, 75), (87, 45),
+(22, 59), (77, 16), (68, 63), (13, 80), (51, 28), (64, 5), (90, 38), (1, 55), (16, 77), (66, 72),
+(40, 43), (78, 10), (69, 21), (50, 46), (85, 49), (41, 34), (11, 56), (36, 62), (93, 30), (61, 76),
+(19, 8), (72, 52), (17, 39), (55, 24), (65, 74), (34, 85), (30, 62), (27, 44), (92, 63), (44, 51),
+(73, 70), (2, 13), (23, 90), (56, 71), (83, 36), (74, 32), (59, 60), (86, 19), (25, 78), (31, 8),
+(79, 9), (49, 37), (67, 61), (66, 93), (88, 44), (75, 14), (5, 84), (58, 43), (94, 11), (43, 40),
+(18, 48), (52, 33), (63, 95), (41, 27), (50, 74), (28, 82), (65, 14), (10, 51), (56, 70), (49, 12),
+(32, 89), (40, 30), (72, 61), (81, 36), (93, 2), (14, 44), (33, 55), (20, 76), (78, 18), (55, 87),
+(54, 61), (77, 48), (22, 67), (90, 35), (43, 29), (58, 81), (1, 34), (25, 10), (36, 92), (39, 65),
+(62, 41), (79, 88), (60, 49), (67, 23), (24, 50), (15, 56), (71, 42), (85, 68), (46, 80), (59, 64),
+(7, 31), (34, 57), (64, 4), (69, 54), (21, 28), (80, 69), (74, 40), (11, 72), (42, 53), (18, 66),
+(9, 58), (38, 10), (12, 3), (31, 5);
+
+
+#                                                     ╔══════════•●•══════════╗
+#                                                         CREAMOS CONSULTAS
+#                                                     ╚══════════•●•══════════╝    
+
+#																【 1 】
+
+#              ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+#                 ¿Cuáles son los huéspedes con más reservas confirmadas o finalizadas en los últimos 6 meses?
+#              ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+SELECT H.nombre_huesped, H.apellido_paterno, H.apellido_materno, COUNT(R.id_reserva) AS total_reservas
+FROM huesped H
+INNER JOIN huesped_reserva HR 
+    ON H.id_huesped = HR.id_huesped
+INNER JOIN reserva R 
+    ON HR.id_reserva = R.id_reserva
+WHERE 
+    R.fecha_inicio > DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+    AND R.estado IN ('confirmada', 'finalizada')
+GROUP BY 
+    H.id_huesped, 
+    H.nombre_huesped, 
+    H.apellido_paterno, 
+    H.apellido_materno
+HAVING 
+    COUNT(R.id_reserva) = (SELECT MAX(total_reservas) 
+						   FROM (SELECT COUNT(R2.id_reserva) AS total_reservas 
+								 FROM huesped H2
+								 INNER JOIN huesped_reserva HR2 
+									ON H2.id_huesped = HR2.id_huesped
+								 INNER JOIN reserva R2 
+									ON HR2.id_reserva = R2.id_reserva
+								 WHERE 
+                                       R2.fecha_inicio > DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+                                       AND R2.estado IN ('confirmada', 'finalizada')
+								 GROUP BY H2.id_huesped) AS subconsulta_max
+						  );
+/*
+	╭────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+		Propósito: Esta consulta identifica a los huéspedes que han realizado más reservas confirmadas o 
+		finalizadas en los últimos 6 meses. Es útil para:
+		1. Identificar clientes frecuentes y fidelizarlos mediante programas de recompensa o descuentos.
+		2. Analizar el comportamiento de los clientes más valiosos para desarrollar estrategias personalizadas.
+		3. Optimizar campañas de marketing al enfocarse en quienes tienen mayor interacción con el servicio.
+	╰────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+*/
+
+
+#																【 2 】
+
+#                    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+#                       ¿Cuál es el promedio de ingresos generados por cada sucursal? 
+#                    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+SELECT 
+    s.nombre_sucursal,
+    DATE_FORMAT(f.fecha_emision, '%Y-%m') AS mes,
+    AVG(f.monto_total) AS ingreso_promedio
+FROM sucursal s
+JOIN reserva r ON s.id_sucursal = r.id_sucursal
+JOIN factura f ON r.id_reserva = f.id_reserva
+GROUP BY s.id_sucursal, DATE_FORMAT(f.fecha_emision, '%Y-%m');
+
+/*
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+  Propósito: Esta consulta identifica tendencias mensuales de ingresos promedio por sucursal, ayudando 
+  en la planeación financiera.
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+*/
+
+
+#																【 3 】
+
+#                   ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+#                   			¿Qué porcentaje de habitaciones está ocupado por cada sucursal? 
+#                   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+SELECT S.nombre_sucursal,
+    CONCAT(ROUND((COUNT(DISTINCT RH.id_habitacion) / S.total_habitaciones) * 100, 2), '%') AS porcentaje_ocupacion
+FROM sucursal S
+LEFT JOIN habitacion H ON S.id_sucursal = H.id_sucursal
+LEFT JOIN reserva_habitacion RH ON H.id_habitacion = RH.id_habitacion
+GROUP BY S.id_sucursal;
+
+/*
+ ╭────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+   Propósito: Este análisis mide la eficiencia operativa y detecta áreas con baja ocupación para tomar 
+   decisiones estratégicas.
+ ╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+*/
+
+#																【 4 】
+
+
+#                 		┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+#              			     	¿Qué promociones generan más reservas en el sistema? 
+#                 		┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+SELECT P.descripcion,
+	   COUNT(PR.id_reserva) AS TOTAL_RESERVAS,
+       SUM(F.monto_total) AS INGRESO_TOTAL
+FROM promocion P
+JOIN promocion_reserva PR ON P.id_promocion = PR.id_promocion
+JOIN factura F ON PR.id_reserva = F.id_reserva
+GROUP BY P.id_promocion
+ORDER BY TOTAL_RESERVAS DESC;
+/*
+	╭────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+	   Propósito: Identificar qué promociones atraen más clientes y generan más ingresos para maximizar el 
+       impacto del marketing.
+	╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+*/
+
+#																【 5 】
+
+
+#                    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+#                     			¿Cuáles son los clientes más frecuentes por sucursal? 
+#                    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+SELECT 
+    S.nombre_sucursal,
+    CONCAT(C.nombre_cliente, ' ', C.apellido_paterno) AS CLIENTE,
+    COUNT(R.id_reserva) AS TOTAL_RESERVAS
+FROM sucursal S
+JOIN reserva R 
+	ON S.id_sucursal = R.id_sucursal
+JOIN cliente C ON R.id_cliente = C.id_cliente
+GROUP BY S.id_sucursal, C.id_cliente
+ORDER BY TOTAL_RESERVAS DESC;
+
+/*
+	╭────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+		Propósito: Identificar clientes leales para campañas de fidelización y estrategias de retención.
+	╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+*/
+
+
+#                             ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# 							    ¿Cuál es el anuncio que más atrajo clientes?
+#                             ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+SELECT r.ubicacion, r.total
+FROM (
+    SELECT ubicacion, COUNT(*) AS total
+    FROM cliente AS c
+    JOIN cliente_marketing AS cm USING (id_cliente)
+    JOIN marketing AS m USING (id_marketing)
+    GROUP BY ubicacion
+) AS r
+WHERE r.total = (
+    SELECT MAX(total)
+    FROM (
+        SELECT COUNT(*) AS total
+        FROM cliente AS c
+        JOIN cliente_marketing AS cm USING (id_cliente)
+        JOIN marketing AS m USING (id_marketing)
+        GROUP BY ubicacion
+    ) AS t
+);
+
+
+/*
+ ╭────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+   Propósito: Nos dice cual es el anuncio que es más atractivo para los clientes.
+ ╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+*/
+
+#                    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+#   					El número de sucursales que tiene cada ciudad
+#                    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+select c.nombre_cd as Ciudades, NombreCiudad from (select c.nombre_cd, count(*) as NombreCiudad 
+from ciudad as c join colonia as col using(id_ciudad) group by 1) as c group by 1 order by 2 desc;
+
+
+#																【 6 】
+
+#                    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+#   					Validar que el teléfono del cliente tenga exactamente 10 dígitos numéricos.
+#                    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+DROP TRIGGER IF EXISTS validar_telefono_cliente;
+DELIMITER $$
+CREATE TRIGGER validar_telefono_cliente
+BEFORE INSERT ON cliente
+FOR EACH ROW
+BEGIN
+    IF LENGTH(NEW.telefono) != 10 OR NEW.telefono NOT REGEXP '^[0-9]+$' THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'El teléfono debe tener exactamente 10 dígitos numéricos.';
+    END IF;
+END;
+$$
+DELIMITER ;
+
+# ╭───────────────────────────────────────────────────────────────────────────────────╮
+#   Propósito: Garantizar que los números telefónicos registrados sean válidos 
+#   antes de ser almacenados, preservando la calidad de los datos de contacto.
+# ╰───────────────────────────────────────────────────────────────────────────────────╯
+
+
+#                                                     ╔══════════•●•══════════╗
+#                                                         CREAMOS FUNCIONES
+#                                                     ╚══════════•●•══════════╝  
+
+#																【 7 】
+
+#                          ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# 				    		 ¿Qué habitaciones hay disponibles y no disponibles según la sucursal?
+#                          ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+DROP FUNCTION IF EXISTS disp_suc;
+DELIMITER $$
+CREATE FUNCTION disp_suc(id_suc INT) RETURNS TEXT
+READS SQL DATA DETERMINISTIC
+BEGIN
+    DECLARE hab_disp varchar(200);
+    DECLARE hab_no_disp varchar(200);
+    DECLARE resultado varchar(200);
+
+    SELECT IFNULL(GROUP_CONCAT(id_habitacion), 'Ninguna')
+    INTO hab_disp FROM habitacion
+    WHERE id_sucursal = id_suc AND disponibilidad = 'Disponible';
+
+    SELECT IFNULL(GROUP_CONCAT(id_habitacion), 'Ninguna')
+    INTO hab_no_disp FROM habitacion
+    WHERE id_sucursal = id_suc AND disponibilidad = 'No disponible';
+
+    IF hab_disp = 'Ninguna' AND hab_no_disp = 'Ninguna' THEN
+        SET resultado = CONCAT('La sucursal ', id_suc, ' no tiene habitaciones registradas.');
+    ELSE
+        SET resultado = CONCAT(
+            'Habitaciones disponibles en la sucursal ', id_suc, ': ',
+            hab_disp, '. Habitaciones no disponibles: ', hab_no_disp, '.');
+    END IF;
+
+    RETURN resultado;
+END$$
+
+DELIMITER ;
+
+/*
+ ╭────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+   Propósito: Esta función nos dirá las habitaciones disponibles y las no disponibles dependiendo la
+   sucursal que hayas buscado. Esto es fundamental a la hora de que llegue un nuevo cliente pues en base
+   a la función podrás ver qué habitaciones puedes ofrecer.
+ ╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+*/
+
+
+
+
+#                                                     ╔══════════•●•══════════╗
+#                                                         CREAMOS RUTINAS
+#                                                     ╚══════════•●•══════════╝  
+
+#																【 1 】
+
+# 				┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+#  			 	  Actualizar la disponibilidad de la habitación a "No disponible" tras una reserva.
+# 				┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+DROP TRIGGER IF EXISTS actualizar_disponibilidad_habitacion;
+DELIMITER //
+CREATE TRIGGER actualizar_disponibilidad_habitacion
+AFTER INSERT ON reserva_habitacion
+FOR EACH ROW
+BEGIN
+    UPDATE habitacion
+    SET disponibilidad = 'No disponible'
+    WHERE id_habitacion = NEW.id_habitacion;
+END;
+//
+DELIMITER ;
+
+
+-- Inserta un registro en reserva_habitacion
+INSERT INTO reserva_habitacion (id_reserva, id_habitacion)
+VALUES (1, 100);
+
+-- Verifica si la disponibilidad de la habitación se actualizó
+SELECT id_habitacion, disponibilidad
+FROM habitacion
+WHERE id_habitacion = 100;
+-- La columna disponibilidad de la habitación con id_habitacion = 101 debe cambiar a "No disponible".
+
+# 	╭───────────────────────────────────────────────────────────────────────────────────╮
+#   	Propósito: Automatizar el cambio de estado de las habitaciones tras una reserva,
+#   	minimizando errores manuales y optimizando la gestión de disponibilidad.
+# 	╰───────────────────────────────────────────────────────────────────────────────────╯
+
+#														【 3 】
+
+# 			┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+#   		   Disminuir automáticamente el total de habitaciones en una sucursal tras la eliminación.
+# 			┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+DROP TRIGGER IF EXISTS disminuir_total_habitaciones;
+DELIMITER //
+CREATE TRIGGER disminuir_total_habitaciones
+AFTER DELETE ON habitacion
+FOR EACH ROW
+BEGIN
+    -- Verifica si la sucursal tiene habitaciones registradas
+    IF EXISTS (
+        SELECT 1
+        FROM sucursal
+        WHERE id_sucursal = OLD.id_sucursal
+    ) THEN
+        -- Disminuye el total de habitaciones de la sucursal correspondiente
+        UPDATE sucursal
+        SET total_habitaciones = total_habitaciones - 1
+        WHERE id_sucursal = OLD.id_sucursal;
+    END IF;
+END;
+//
+DELIMITER ;
+
+-- Verifica en que secursal esta la habitacion
+SELECT id_sucursal
+FROM habitacion
+WHERE id_habitacion = 9;
+-- Para verificar que funcione
+SELECT id_sucursal, total_habitaciones
+FROM sucursal
+WHERE id_sucursal = 3;
+-- Eliminamos una habitacion
+SELECT id_sucursal
+FROM habitacion
+WHERE id_habitacion = 9;
+-- Comprobamos
+SELECT id_sucursal, total_habitaciones
+FROM sucursal
+WHERE id_sucursal = 3;
+# ╭───────────────────────────────────────────────────────────────────────────────────╮
+#   Propósito: Mantener el recuento correcto de habitaciones disponibles en cada 
+#   sucursal de forma automática al eliminar una habitación.
+# ╰───────────────────────────────────────────────────────────────────────────────────╯
